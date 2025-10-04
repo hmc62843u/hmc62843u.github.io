@@ -588,6 +588,12 @@
             color: #b91c1c;
             border: 1px solid #fecaca;
         }
+        
+        .loading {
+            background-color: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #93c5fd;
+        }
     </style>
 </head>
 <body>
@@ -891,7 +897,7 @@
                 <p>Have questions or ready to get started? Reach out to our team</p>
             </div>
             <div class="form-container">
-                <form id="inquiry-form">
+                <form id="inquiry-form" action="https://formspree.io/f/mqaybnnb" method="POST">
                     <div class="form-group">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" required>
@@ -931,7 +937,7 @@
                         <label for="message">Message</label>
                         <textarea id="message" name="message" required></textarea>
                     </div>
-                    <a href="mailto:wp@wpatent.com?subject=W&Patent Inquiry" class="btn" style="width: 100%; text-align: center;" id="mailto-link">Send Inquiry via Email</a>
+                    <button type="submit" class="btn" style="width: 100%; text-align: center;">Send Inquiry</button>
                 </form>
                 <div id="form-status"></div>
             </div>
@@ -982,7 +988,7 @@
     </footer>
 
     <script>
-        document.getElementById('inquiry-form').addEventListener('submit', function(e) {
+        document.getElementById('inquiry-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Get form data
@@ -1006,45 +1012,52 @@
                 return;
             }
             
-            // Create mailto link
-            let subject = `W&Patent Inquiry: ${interest}`;
-            if (project) {
-                subject += ` - ${project}`;
+            // Show loading state
+            showStatus('Sending your inquiry...', 'loading');
+            
+            try {
+                // Submit form data to Formspree
+                const formData = new FormData(this);
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    showStatus('Thank you! Your inquiry has been sent successfully. We will get back to you soon.', 'success');
+                    
+                    // Reset form
+                    document.getElementById('inquiry-form').reset();
+                } else {
+                    // Show error message
+                    const errorData = await response.json();
+                    showStatus('Sorry, there was an error sending your inquiry. Please try again or contact us directly at wp@wpatent.com.', 'error');
+                }
+            } catch (error) {
+                // Show error message
+                showStatus('Sorry, there was an error sending your inquiry. Please try again or contact us directly at wp@wpatent.com.', 'error');
             }
-            
-            let body = `Name: ${name}%0D%0AEmail: ${email}%0D%0ACompany: ${company}%0D%0AInterest: ${interest}`;
-            if (project) {
-                body += `%0D%0AProject: ${project}`;
-            }
-            body += `%0D%0A%0D%0AMessage:%0D%0A${message}`;
-            
-            // Update mailto link
-            const mailtoLink = document.getElementById('mailto-link');
-            mailtoLink.href = `mailto:wp@wpatent.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink.href;
-            
-            // Show success message
-            showStatus('Your email client has been opened with your inquiry. Please send the email to complete your inquiry.', 'success');
-            
-            // Reset form
-            document.getElementById('inquiry-form').reset();
         });
         
         function showStatus(message, type) {
-            const statusEl = document.getElementById('form-status');
-            statusEl.textContent = message;
-            statusEl.className = type;
-            statusEl.style.display = 'block';
+            const statusElement = document.getElementById('form-status');
+            statusElement.textContent = message;
+            statusElement.className = type;
+            statusElement.style.display = 'block';
             
             // Scroll to status message
-            statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            statusElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
             
-            // Auto-hide after 5 seconds
-            setTimeout(() => {
-                statusEl.style.display = 'none';
-            }, 5000);
+            // Auto-hide success messages after 5 seconds
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusElement.style.display = 'none';
+                }, 5000);
+            }
         }
     </script>
 </body>
