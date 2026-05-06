@@ -3,24 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ | W&Patent</title>
+  <title>Patent Marketplace FAQ | W&Patent</title>
+  <meta
+    name="description"
+    content="Read filing, listing, buyer, and AI-discovery questions for the W&Patent static marketplace demo."
+  >
+  <meta property="og:title" content="Patent Marketplace FAQ | W&Patent">
+  <meta property="og:description" content="Answers covering patent filings, marketplace listings, buyers, and agent discoverability.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hmc62843u.github.io/faq.htm">
+  <link rel="canonical" href="https://hmc62843u.github.io/faq.htm">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <header class="topbar"><div class="container topbar-inner"><a class="brand" href="index.html">W&<strong>Patent</strong></a><nav class="nav"><a href="index.html">Home</a><a href="listings.htm">Listings</a><a href="platform.htm">Platform</a><a href="about.htm">About</a><a href="why_us.htm">Why Us</a><a class="active" href="faq.htm">FAQ</a><a href="career.htm">Career</a><button class="btn" type="button" data-open-signup data-plan="Basic">Start Free</button></nav></div></header>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">W&<strong>Patent</strong></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="listings.htm">Listings</a>
+        <a href="platform.htm">Platform</a>
+        <a href="about.htm">About</a>
+        <a href="why_us.htm">Why Us</a>
+        <a class="active" href="faq.htm">FAQ</a>
+        <a href="career.htm">Career</a>
+        <button class="btn" type="button" data-open-signup data-plan="Basic">Start Free</button>
+      </nav>
+    </div>
+  </header>
   <main class="container">
-    <section class="page-title"><span class="eyebrow mono">FAQ</span><h1>Common patent filing questions.</h1></section>
-    <section class="section grid cols-2">
-      <article class="card"><h3>Should I file a provisional first?</h3><p>Often yes when speed matters. A provisional can lock in an early date while you refine claim direction before filing a nonprovisional application.</p></article>
-      <article class="card"><h3>What is a PCT application?</h3><p>A PCT filing creates a coordinated path to pursue patent protection across participating jurisdictions through one initial international application.</p></article>
-      <article class="card"><h3>What is a continuation?</h3><p>A continuation reuses the parent disclosure while pursuing new claim scope, as long as filing and support requirements are met.</p></article>
-      <article class="card"><h3>What is a divisional?</h3><p>A divisional is used when a restriction requirement forces claims into separate inventions, allowing pursuit of non-elected inventions.</p></article>
-      <article class="card"><h3>What is a continuation-in-part?</h3><p>A CIP adds new disclosure to existing material. New matter usually receives a later effective filing date than inherited material.</p></article>
-      <article class="card"><h3>Need case-specific guidance?</h3><p>For filing sequence, jurisdiction strategy, and timeline tradeoffs, contact us directly.</p><a class="btn" href="mailto:wp@wpatent.com?subject=Patent%20Question">Ask a Question</a></article>
+    <section class="page-title">
+      <span class="eyebrow mono">FAQ</span>
+      <h1>Questions about filings, listings, and AI discoverability.</h1>
     </section>
+    <section class="section grid cols-2">
+      <article class="card"><h3>Should I file a provisional first?</h3><p>Often yes when speed matters and you need an early filing date while refining claim strategy.</p></article>
+      <article class="card"><h3>How does listing work?</h3><p>In this static demo, owners choose a plan, preview a signup workflow, and then reveal a mocked dashboard showing how a listing could be managed.</p></article>
+      <article class="card"><h3>What is a PCT application?</h3><p>A PCT filing creates a coordinated path for later national filings across participating jurisdictions.</p></article>
+      <article class="card"><h3>How do buyers engage?</h3><p>Buyers review the opportunity pages, evaluate fit, and contact W&Patent directly through inquiry links.</p></article>
+      <article class="card"><h3>How do AI agents discover listings?</h3><p>They read crawlable listing pages, FAQ answers, JSON-LD, and the static `.well-known/ucp.json` manifest.</p></article>
+      <article class="card"><h3>Need case-specific guidance?</h3><p>For filing sequence, jurisdiction strategy, or commercialization framing, contact W&Patent directly.</p></article>
+    </section>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Should I file a provisional first?","acceptedAnswer":{"@type":"Answer","text":"Often yes when speed matters and you need an early filing date while refining claim strategy."}},
+        {"@type":"Question","name":"How does listing work?","acceptedAnswer":{"@type":"Answer","text":"In this static demo, owners choose a plan, preview a signup workflow, and then reveal a mocked dashboard showing how a listing could be managed."}},
+        {"@type":"Question","name":"How do AI agents discover listings?","acceptedAnswer":{"@type":"Answer","text":"They read crawlable listing pages, FAQ answers, JSON-LD, and the static .well-known/ucp.json manifest."}}
+      ]
+    }
+    </script>
   </main>
   <footer><div class="container mono">General information only, not legal advice.</div></footer>
   <script src="site.js" defer></script>
