@@ -298,6 +298,28 @@ h2 {
   background: var(--bg);
 }
 
+.filter-bar {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 24px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.detail-hero {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.85fr);
+  align-items: start;
+}
+
+.detail-meta {
+  display: grid;
+  gap: 12px;
+}
+
 label {
   display: block;
   margin: 8px 0 6px;
@@ -343,6 +365,10 @@ td {
   }
 
   .hero-split {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-hero {
     grid-template-columns: 1fr;
   }
 

@@ -22,11 +22,20 @@
 
   function filterCards(query) {
     const normalized = query.trim().toLowerCase();
+    let visibleCount = 0;
     cards.forEach((card) => {
       const haystack = `${card.dataset.title} ${card.dataset.tags} ${card.dataset.summary}`.toLowerCase();
       const visible = !normalized || haystack.includes(normalized);
       card.hidden = !visible;
+      if (visible) {
+        visibleCount += 1;
+      }
     });
+
+    const emptyState = document.querySelector("[data-empty-state]");
+    if (emptyState) {
+      emptyState.hidden = visibleCount !== 0;
+    }
   }
 
   document.querySelectorAll("[data-open-signup]").forEach((button) => {
