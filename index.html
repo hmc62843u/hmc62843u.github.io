@@ -174,7 +174,7 @@
       <p><a class="btn" href="platform.htm">Explore the platform</a></p>
     </section>
 
-    <section class="section container dashboard" id="dashboardTeaser">
+    <section class="section container dashboard" id="dashboardTeaser" data-dashboard hidden>
       <span class="eyebrow mono">Post-login Dashboard</span>
       <h2>Your portfolio command center</h2>
       <div class="grid cols-2" style="margin-top:20px;">
@@ -200,88 +200,20 @@
     <div class="container mono">W&Patent - marketplace + strategy advisory for licensing, sale, and portfolio growth.</div>
   </footer>
 
-  <div class="modal" id="signupModal" aria-hidden="true">
+  <div class="modal" data-signup-modal aria-hidden="true">
     <div class="modal-box">
-      <h3>Sign up</h3>
-      <p class="mono">Demo checkout uses Stripe test mode key: pk_test_51_mocked_for_demo.</p>
-      <form id="signupForm" toolname="listPatent" tooldescription="List patent for sale with AI valuation">
+      <h3>Preview the owner workflow</h3>
+      <p class="mono">This is a mocked workflow only. No real account or payment is created.</p>
+      <form data-signup-form toolname="listPatent" tooldescription="List patent for sale with AI valuation">
         <label for="signupEmail">Email</label>
         <input id="signupEmail" name="email" type="email" required>
-        <label for="signupPass">Password</label>
-        <input id="signupPass" name="password" type="password" required>
         <label for="signupPlan">Plan</label>
-        <select id="signupPlan" name="plan"><option>Basic</option><option>Pro</option><option>Enterprise</option></select>
-        <div class="actions"><button class="btn btn-solid" type="submit">Create account</button><button class="btn" type="button" id="closeSignup">Close</button></div>
+        <select id="signupPlan" name="plan" data-signup-plan><option>Basic</option><option>Pro</option><option>Enterprise</option></select>
+        <div class="actions"><button class="btn btn-solid" type="submit">Reveal dashboard</button><button class="btn" type="button" data-close-signup>Close</button></div>
       </form>
-      <p id="signupStatus" class="mono"></p>
+      <p class="mono" data-signup-status></p>
     </div>
   </div>
-
-  <script>
-    (function () {
-      var modal = document.getElementById("signupModal");
-      var signupStatus = document.getElementById("signupStatus");
-      var planSelect = document.getElementById("signupPlan");
-      var dashboard = document.getElementById("dashboardTeaser");
-      var stripePublicKey = "pk_test_51_mocked_for_demo";
-
-      function openModal(plan) {
-        if (plan) planSelect.value = plan;
-        modal.classList.add("show");
-        modal.setAttribute("aria-hidden", "false");
-      }
-
-      function closeModal() {
-        modal.classList.remove("show");
-        modal.setAttribute("aria-hidden", "true");
-      }
-
-      document.getElementById("openSignup").addEventListener("click", function () { openModal("Basic"); });
-      document.getElementById("heroSignup").addEventListener("click", function () { openModal("Pro"); });
-      document.getElementById("closeSignup").addEventListener("click", closeModal);
-      Array.prototype.forEach.call(document.querySelectorAll("[data-plan]"), function (btn) {
-        btn.addEventListener("click", function () { openModal(btn.getAttribute("data-plan")); });
-      });
-
-      document.getElementById("signupForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-        var email = document.getElementById("signupEmail").value;
-        var plan = document.getElementById("signupPlan").value;
-        signupStatus.textContent = "Creating account for " + email + " on " + plan + "...";
-        setTimeout(function () {
-          signupStatus.textContent = "Signup successful. Demo ACP payment delegation and dashboard unlocked.";
-          dashboard.classList.add("show");
-          closeModal();
-        }, 700);
-      });
-
-      window.ucpTools = {
-        searchPatents: function (query) {
-          var list = [
-            "US 63/864,341 - Compliance Ring-Fenced Cross-Border Payments",
-            "US 63/864,366 - Licensed-Partnered Multi-Rail Loyalty",
-            "US 63/859,951 - Autonomous Network Healing",
-            "US 63/715,656 - Personalized Multimedia Narration",
-            "US 64/051,103 - Autonomous Payload Docking"
-          ];
-          return { query: query, results: list.filter(function (x) { return x.toLowerCase().indexOf(query.toLowerCase()) !== -1 || query === "AI patents"; }) };
-        },
-        bidPatent: function (patentId, amountUsd) {
-          return {
-            patentId: patentId,
-            amountUsd: amountUsd,
-            endpoint: "/agentic_commerce/delegate_payment",
-            provider: "stripe",
-            publishableKey: stripePublicKey,
-            status: "mock_escrow_initialized"
-          };
-        },
-        listPatent: function (payload) {
-          return { listed: true, valuationMode: "ai_estimate", payload: payload };
-        }
-      };
-    })();
-  </script>
   <script src="site.js" defer></script>
 </body>
 </html>

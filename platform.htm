@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platform Plans | W&Patent Marketplace</title>
+  <meta
+    name="description"
+    content="Review W&Patent marketplace plans, preview the mocked owner dashboard, and understand the platform's agent-ready metadata model."
+  >
+  <meta property="og:title" content="Platform Plans | W&Patent Marketplace">
+  <meta property="og:description" content="Explore Basic, Pro, and Enterprise plans in the W&Patent static product demo.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hmc62843u.github.io/platform.htm">
+  <link rel="canonical" href="https://hmc62843u.github.io/platform.htm">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "W&Patent Marketplace Platform",
+    "url": "https://hmc62843u.github.io/platform.htm",
+    "description": "Static demo of a patent marketplace platform for listings, buyer discovery, and agent-ready metadata."
+  }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">W&<strong>Patent</strong></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="listings.htm">Listings</a>
+        <a class="active" href="platform.htm">Platform</a>
+        <a href="about.htm">About</a>
+        <a href="why_us.htm">Why Us</a>
+        <a href="faq.htm">FAQ</a>
+        <a href="career.htm">Career</a>
+        <button class="btn" type="button" data-open-signup data-plan="Pro">Start Free</button>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="page-title">
+      <span class="eyebrow mono">Platform demo</span>
+      <h1>Preview the marketplace workflow before a backend exists.</h1>
+      <p class="lead">Everything on this page is a static, mocked workflow designed to show how owners, buyers, and AI agents would interact with the marketplace.</p>
+    </section>
+    <section class="section grid cols-3">
+      <article class="card">
+        <p class="kicker">Basic</p>
+        <p class="price">Free</p>
+        <p>List one patent, search the marketplace, and review baseline analytics.</p>
+        <p><button class="btn" type="button" data-open-signup data-plan="Basic">Start Free</button></p>
+      </article>
+      <article class="card feature">
+        <p class="kicker">Pro</p>
+        <p class="price">$49/mo</p>
+        <p>Preview multi-listing workflows, bidding tools, and richer dashboard visibility.</p>
+        <p><button class="btn btn-solid" type="button" data-open-signup data-plan="Pro">Preview Pro</button></p>
+      </article>
+      <article class="card">
+        <p class="kicker">Enterprise</p>
+        <p class="price">$199/mo</p>
+        <p>Model white-label portfolio workflows and custom agent-readiness discussions.</p>
+        <p><button class="btn" type="button" data-open-signup data-plan="Enterprise">Talk to W&Patent</button></p>
+      </article>
+    </section>
+    <section class="section">
+      <article class="card">
+        <p class="kicker">Mocked workflow</p>
+        <h2>Your portfolio command center</h2>
+        <p>Submit the demo form to reveal an in-browser dashboard preview. No account is persisted and no billing action is taken.</p>
+      </article>
+    </section>
+    <section class="section dashboard" data-dashboard hidden>
+      <div class="grid cols-2">
+        <article class="card"><h3>Patent portfolio manager</h3><p>Preview grid and list views, listing quality cues, and valuation summaries.</p></article>
+        <article class="card"><h3>Bid tracking</h3><p>See how incoming offers and counter states would be summarized.</p></article>
+        <article class="card"><h3>Analytics</h3><p>Views, inquiry volume, and listing-quality indicators in one place.</p></article>
+        <article class="card"><h3>Quick actions</h3><p><button class="btn" type="button">List New Patent</button> <button class="btn" type="button">View Market Report</button></p></article>
+      </div>
+    </section>
+    <section class="section">
+      <article class="card">
+        <p class="kicker">Agent-ready metadata</p>
+        <h2>How the static demo exposes capabilities</h2>
+        <p>The site ships a `.well-known/ucp.json` file, direct-answer FAQ content, JSON-LD on core pages, and tool descriptions on demo forms so search engines and AI systems can understand the marketplace structure.</p>
+      </article>
+    </section>
+  </main>
+  <div class="modal" data-signup-modal aria-hidden="true">
+    <div class="modal-box">
+      <h3>Preview the owner workflow</h3>
+      <p class="mono">This is a mocked workflow only. No real account or payment is created.</p>
+      <form data-signup-form>
+        <label for="platformEmail">Email</label>
+        <input id="platformEmail" name="email" type="email" required>
+        <label for="platformPlan">Plan</label>
+        <select id="platformPlan" name="plan" data-signup-plan>
+          <option>Basic</option>
+          <option>Pro</option>
+          <option>Enterprise</option>
+        </select>
+        <div class="actions">
+          <button class="btn btn-solid" type="submit">Reveal dashboard</button>
+          <button class="btn" type="button" data-close-signup>Close</button>
+        </div>
+      </form>
+      <p class="mono" data-signup-status></p>
+    </div>
+  </div>
+  <script src="site.js" defer></script>
+</body>
+</html>

@@ -1,24 +1,29 @@
 {
+  "version": "1.0",
   "capabilities": [
     {
       "name": "searchPatents",
-      "description": "Search patents by technology, assignee, or IPC code"
+      "description": "Search static patent listings by technology, assignee, or use case keyword."
     },
     {
       "name": "bidPatent",
-      "description": "Submit bid for patent with escrow protection"
+      "description": "Preview a mocked bidding workflow for a featured patent listing."
     },
     {
       "name": "listPatent",
-      "description": "List patent for sale with AI valuation"
+      "description": "Preview how a patent listing would be structured in the static marketplace demo."
     }
   ],
   "auth": {
-    "type": "bearer",
-    "tokenUrl": "/api/auth/token"
+    "type": "none",
+    "note": "Static GitHub Pages demo. No live token endpoint or delegated payment API is enabled."
   },
   "pricing": {
     "model": "tiered",
     "currency": "USD"
+  },
+  "endpoints": {
+    "platform": "https://hmc62843u.github.io/platform.htm",
+    "listings": "https://hmc62843u.github.io/listings.htm"
   }
 }
