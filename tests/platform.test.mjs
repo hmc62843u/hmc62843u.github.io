@@ -35,6 +35,20 @@ test("platform page includes plans, static demo disclosure, and protocol shell",
   }
 });
 
+test("platform metadata and static payload evidence reflect protocol demo intent", () => {
+  for (const fragment of [
+    "<title>Platform Plans &amp; Protocol Demo | W&amp;Patent Marketplace</title>",
+    'meta property="og:title" content="Platform Plans & Protocol Demo | W&Patent Marketplace"',
+    "mock WebMCP capability surface",
+    "mock ACP-style transaction path",
+    '"capability": "listPatent"',
+    '"status": "accepted"',
+    '"listingDraftId": "draft-points2perks"'
+  ]) {
+    assert.match(platform, new RegExp(escapeRegExp(fragment), "i"));
+  }
+});
+
 test("ucp manifest aligns to the platform demo capabilities", () => {
   const ucp = JSON.parse(readFileSync(new URL("../.well-known/ucp.json", import.meta.url), "utf8"));
   assert.equal(ucp.auth.type, "none");

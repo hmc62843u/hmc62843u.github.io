@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Platform Plans | W&Patent Marketplace</title>
+  <title>Platform Plans &amp; Protocol Demo | W&amp;Patent Marketplace</title>
   <meta
     name="description"
     content="Explore W&Patent plans and a browser-simulated patent marketplace protocol demo with mock WebMCP and ACP-style payloads."
   >
-  <meta property="og:title" content="Platform Plans | W&Patent Marketplace">
+  <meta property="og:title" content="Platform Plans & Protocol Demo | W&Patent Marketplace">
   <meta property="og:description" content="Explore Basic, Pro, and Enterprise plans plus a static protocol demo for listing, discovery, and mock transactions.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hmc62843u.github.io/platform.htm">
@@ -89,6 +89,7 @@
         <p class="kicker">Mock protocol flow</p>
         <h2>Inspect a static listing, discovery, and mock transaction journey.</h2>
         <p>This browser-simulated walkthrough shows how a patent owner could stage a listing, receive an AI valuation preview, appear in buyer discovery, and move through explicit mock transaction states without any live backend.</p>
+        <p class="mono">The request and response examples below form a mock WebMCP capability surface, while the status transitions illustrate a mock ACP-style transaction path.</p>
         <div class="protocol-badges">
           <span class="status">Mock</span>
           <span class="status status-neutral">Static demo</span>
@@ -135,11 +136,22 @@
             <div class="grid cols-2">
               <div>
                 <p class="kicker">Mock request</p>
-                <pre class="protocol-code" data-protocol-request>{}</pre>
+                <pre class="protocol-code" data-protocol-request>{
+  "capability": "listPatent",
+  "ownerEmail": "owner@example.com",
+  "listingTitle": "Points2Perks",
+  "filingStatus": "utility application",
+  "commercializationGoal": "sale or licensing",
+  "askGuidanceUsd": 180000
+}</pre>
               </div>
               <div>
                 <p class="kicker">Mock response</p>
-                <pre class="protocol-code" data-protocol-response>{}</pre>
+                <pre class="protocol-code" data-protocol-response>{
+  "status": "accepted",
+  "listingDraftId": "draft-points2perks",
+  "next": "previewValuation"
+}</pre>
               </div>
             </div>
           </article>
