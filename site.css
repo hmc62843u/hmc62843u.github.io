@@ -148,6 +148,13 @@ h2 {
   gap: 10px;
 }
 
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+  gap: 24px;
+  align-items: start;
+}
+
 .btn-solid {
   background: var(--text);
   color: var(--bg);
@@ -223,6 +230,18 @@ h2 {
   font-size: 2rem;
   color: var(--text);
   margin: 0.2rem 0 1rem;
+}
+
+.hero-panel,
+.pricing-preview .card,
+.listing-preview .card {
+  min-height: 100%;
+}
+
+.split-benefits,
+.listing-preview,
+.pricing-preview {
+  margin-top: 20px;
 }
 
 .featured {
@@ -320,6 +339,10 @@ td {
 @media (max-width: 900px) {
   .cols-3,
   .cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-split {
     grid-template-columns: 1fr;
   }
 

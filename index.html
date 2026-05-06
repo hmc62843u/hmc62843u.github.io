@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>W&Patent Marketplace | List, Value, and License Patents</title>
-  <meta name="description" content="W&Patent is an AI-enabled patent marketplace for listing, valuing, bidding, and licensing patents across five active projects.">
+  <title>W&Patent Marketplace | List Patents, Explore Licensing Opportunities</title>
+  <meta name="description" content="W&Patent is a static demo of an AI-native patent marketplace where owners can list patents and buyers or licensees can explore commercialization opportunities.">
   <meta name="keywords" content="patent marketplace, patent licensing, patent valuation, patent sale, USPTO strategy">
   <meta name="author" content="W&Patent">
   <meta property="og:title" content="W&Patent Marketplace">
-  <meta property="og:description" content="AI-enabled patent marketplace with listing, bidding, plans, and patent strategy support.">
+  <meta property="og:description" content="Browse featured patent opportunities, preview marketplace plans, and learn how W&Patent combines advisory expertise with agent-ready discoverability.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hmc62843u.github.io/">
   <link rel="canonical" href="https://hmc62843u.github.io/">
@@ -50,6 +50,16 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "W&Patent Marketplace",
+    "url": "https://hmc62843u.github.io/",
+    "description": "Static patent marketplace demo for owners, buyers, and licensees."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "FAQPage",
     "speakable": {
       "@type": "SpeakableSpecification",
@@ -81,42 +91,92 @@
   </header>
 
   <main>
-    <section class="hero container">
-      <span class="eyebrow mono">AI-native patent marketplace</span>
-      <h1>List, value, and commercialize patents in one marketplace.</h1>
-      <p class="lead">W&Patent showcases five active projects for sale or licensing and combines human strategy with agent-ready tooling for SEO, AEO, and GEO discoverability.</p>
-      <p class="mono" style="margin-top:14px;">Andrew Leung, USPTO drafting 10+ years, patent filing strategy expert</p>
-      <div class="actions">
-        <button class="btn btn-solid" type="button" id="heroSignup" data-open-signup data-plan="Pro">Start Free</button>
-        <a class="btn" href="https://patent-eval.streamlit.app/" target="_blank" rel="noopener">Open AI Patent Analyzer</a>
+    <section class="hero container hero-split">
+      <div>
+        <span class="eyebrow mono">Marketplace + advisory</span>
+        <h1>List patents, attract buyers, and explain the opportunity clearly.</h1>
+        <p class="lead">W&Patent is a static marketplace demo for patent owners, buyers, and licensees. It pairs commercialization strategy with agent-ready metadata, structured answers, and detailed opportunity pages that search engines and AI systems can read.</p>
+        <div class="actions">
+          <button class="btn btn-solid" type="button" id="heroSignup" data-open-signup data-plan="Pro">List a Patent</button>
+          <a class="btn" href="listings.htm">Explore Opportunities</a>
+        </div>
+      </div>
+      <aside class="card feature hero-panel">
+        <p class="kicker">Founder credibility</p>
+        <h2>Andrew Leung</h2>
+        <p>USPTO drafting 10+ years, patent filing strategy expert, and commercialization-focused advisor.</p>
+        <p class="mono">Balanced for product visibility, buyer understanding, and practical filing strategy.</p>
+      </aside>
+    </section>
+
+    <section class="section container">
+      <span class="eyebrow mono">How it works</span>
+      <div class="grid cols-2 split-benefits">
+        <article class="card">
+          <h3>For patent owners</h3>
+          <p>Choose a plan, preview a dashboard, and position your patent with clearer commercial context.</p>
+        </article>
+        <article class="card">
+          <h3>For buyers and licensees</h3>
+          <p>Browse focused opportunity pages with filing identifiers, use cases, and direct inquiry paths.</p>
+        </article>
       </div>
     </section>
 
     <section class="section container">
-      <span class="eyebrow mono">Marketplace</span>
-      <h2 style="margin-top:14px; max-width:18ch;">Featured projects and active patent opportunities</h2>
-      <div class="grid cols-2" style="margin-top:20px;">
-        <article class="card"><span class="status">For Sale</span><p class="kicker">Points2Perks x Local Licensed Issuer (Japan)</p><p>Policy-gated loyalty settlement layer for Japan.</p><ul><li><span class="mono">US 63/864,341</span> - Compliance Ring-Fenced Cross-Border Payments</li><li><span class="mono">US 63/864,366</span> - Licensed-Partnered Multi-Rail Loyalty</li></ul><p><a class="btn" href="mailto:wp@wpatent.com?subject=Interest%20in%20Points2Perks">Inquire</a></p></article>
-        <article class="card"><span class="status">For Sale / Licensing</span><p class="kicker">Tourist Aid - Off-Grid Travel Safety</p><p>LoRa mesh + autonomous SOS safety support.</p><ul><li><span class="mono">US 63/859,951</span> - Autonomous Network Healing</li></ul><p><a class="btn" href="mailto:wp@wpatent.com?subject=Interest%20in%20Tourist%20Aid">Inquire</a></p></article>
-        <article class="card"><span class="status">For Sale / Licensing</span><p class="kicker">Persona Album - AI Storytelling</p><p>Personality-driven multimedia narration workflows.</p><ul><li><span class="mono">US 63/715,656</span> - Personalized Multimedia Narration</li></ul><p><a class="btn" href="mailto:wp@wpatent.com?subject=Interest%20in%20Persona%20Album">Inquire</a></p></article>
-        <article class="card"><span class="status">For Sale / Licensing</span><p class="kicker">Sign Language Chat - Teletherapy</p><p>Inclusive AI teletherapy with sign language interface.</p><ul><li><span class="mono">Patent Pending</span> - Conversational Support with Sign Language Interface</li></ul><p><a class="btn" href="mailto:wp@wpatent.com?subject=Interest%20in%20Sign%20Language%20Chat">Inquire</a></p></article>
-        <article class="card"><span class="status">For Sale / Licensing</span><p class="kicker">Dashing Robo - Autonomous Building Logistics</p><p>Robots dock with elevators and lockers for delivery workflows.</p><ul><li><span class="mono">US 64/051,103</span> - System and Method for Autonomous Payload Docking</li></ul><p><a class="btn" href="mailto:wp@wpatent.com?subject=Interest%20in%20Dashing%20Robo">Express Interest</a></p></article>
+      <span class="eyebrow mono">Featured opportunities</span>
+      <h2>Five live marketplace examples</h2>
+      <div class="grid cols-2 listing-preview">
+        <article class="card">
+          <h3><a href="listing-points2perks.htm">Points2Perks x Local Licensed Issuer</a></h3>
+          <p>Policy-gated loyalty settlement infrastructure for Japan.</p>
+        </article>
+        <article class="card">
+          <h3><a href="listing-tourist-aid.htm">Tourist Aid</a></h3>
+          <p>Off-grid travel safety and autonomous SOS support.</p>
+        </article>
+        <article class="card">
+          <h3><a href="listing-persona-album.htm">Persona Album</a></h3>
+          <p>AI storytelling and personalized multimedia narration.</p>
+        </article>
+        <article class="card">
+          <h3><a href="listing-sign-language-chat.htm">Sign Language Chat</a></h3>
+          <p>Inclusive teletherapy workflows with sign-language support.</p>
+        </article>
+        <article class="card">
+          <h3><a href="listing-dashing-robo.htm">Dashing Robo</a></h3>
+          <p>Autonomous building logistics and payload docking.</p>
+        </article>
       </div>
+      <p><a class="btn" href="listings.htm">View all listings</a></p>
     </section>
 
-    <section class="section container pricing">
-      <span class="eyebrow mono">SaaS Plans</span>
-      <h2 style="margin-top:14px;">Choose your access tier</h2>
-      <div class="grid cols-3" style="margin-top:20px;">
-        <article class="card"><p class="kicker">Basic</p><p class="price">Free</p><ul><li>List 1 patent</li><li>UCP search</li><li>Basic analytics</li></ul><p><button class="btn" type="button" data-open-signup data-plan="Basic">Start Free</button></p></article>
-        <article class="card featured"><p class="kicker">Pro</p><p class="price">$49/mo</p><ul><li>Multi-patent listings</li><li>WebMCP bidding tools</li><li>Real-time analytics</li><li>AI analyzer access</li></ul><p><button class="btn btn-solid" type="button" data-open-signup data-plan="Pro">Start Free Trial</button></p></article>
-        <article class="card"><p class="kicker">Enterprise</p><p class="price">$199/mo</p><ul><li>ACP escrow APIs</li><li>Custom agents</li><li>White-label deployment</li><li>Dedicated support</li></ul><p><button class="btn" type="button" data-open-signup data-plan="Enterprise">Contact Sales</button></p></article>
+    <section class="section container">
+      <span class="eyebrow mono">Platform preview</span>
+      <h2>Mocked plans and dashboard workflow</h2>
+      <div class="grid cols-3 pricing-preview">
+        <article class="card">
+          <p class="kicker">Basic</p>
+          <p class="price">Free</p>
+          <p>List one patent, search the marketplace, and review baseline analytics.</p>
+        </article>
+        <article class="card feature">
+          <p class="kicker">Pro</p>
+          <p class="price">$49/mo</p>
+          <p>Manage multiple listings, preview bidding workflows, and unlock deeper analytics.</p>
+        </article>
+        <article class="card">
+          <p class="kicker">Enterprise</p>
+          <p class="price">$199/mo</p>
+          <p>Model white-label workflows and custom agent-readiness for portfolio teams.</p>
+        </article>
       </div>
+      <p><a class="btn" href="platform.htm">Explore the platform</a></p>
     </section>
 
     <section class="section container dashboard" id="dashboardTeaser">
       <span class="eyebrow mono">Post-login Dashboard</span>
-      <h2 style="margin-top:14px;">Your portfolio command center</h2>
+      <h2>Your portfolio command center</h2>
       <div class="grid cols-2" style="margin-top:20px;">
         <article class="card"><h3>Patent portfolio manager</h3><p>Grid/list toggle, listing quality checks, and valuation snapshots.</p></article>
         <article class="card"><h3>Bid tracking</h3><p>Received offers, escrow status, and counter workflow visibility.</p></article>
@@ -127,11 +187,11 @@
 
     <section class="section container">
       <span class="eyebrow mono">AEO / GEO FAQ</span>
-      <p id="faq-summary" class="lead">Answers are structured for both search engines and AI assistants to retrieve patent-marketplace intent quickly.</p>
-      <div class="grid cols-3" style="margin-top:12px;">
-        <article class="card"><h3 class="faq-q">Should I file provisional first?</h3><p>Usually yes for speed and date protection while nonprovisional claims are refined.</p></article>
-        <article class="card"><h3 class="faq-q">What is a PCT filing?</h3><p>An international filing route supporting coordinated later national entries.</p></article>
-        <article class="card"><h3 class="faq-q">How do AI agents discover listings?</h3><p>Through UCP capability metadata, WebMCP form tool annotations, and structured schema markup.</p></article>
+      <p id="faq-summary" class="lead">Key questions are written so search engines and answer engines can retrieve the right marketplace context quickly.</p>
+      <div class="grid cols-3">
+        <article class="card"><h3 class="faq-q">How do owners list a patent?</h3><p>They choose a plan, open the demo signup flow, and preview how a structured listing would appear.</p></article>
+        <article class="card"><h3 class="faq-q">How do buyers evaluate opportunities?</h3><p>They browse detail pages that explain the market context, filing status, and commercial fit.</p></article>
+        <article class="card"><h3 class="faq-q">How do AI systems discover listings?</h3><p>Through crawlable pages, JSON-LD, direct answers, and the static `.well-known/ucp.json` manifest.</p></article>
       </div>
     </section>
   </main>
