@@ -52,3 +52,23 @@ test("ucp manifest aligns to the platform demo capabilities", () => {
   );
   assert.equal(ucp.endpoints.platform, "https://hmc62843u.github.io/platform.htm");
 });
+
+test("site script exposes protocol scenarios, mock states, and tool helpers", () => {
+  const script = readFileSync(new URL("../site.js", import.meta.url), "utf8");
+  for (const fragment of [
+    "const protocolScenarios = {",
+    "data-protocol-scenario",
+    "previewValuation(payload)",
+    "discoverListings(query)",
+    "openListingFacts(listingId)",
+    "submitMockBid(payload)",
+    "advanceMockTransaction(transactionId, nextState)",
+    "missing-field",
+    "low-bid",
+    "manual-review",
+    "mock-approved",
+    "mock-settled"
+  ]) {
+    assert.match(script, new RegExp(escapeRegExp(fragment)));
+  }
+});
