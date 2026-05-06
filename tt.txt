@@ -1,0 +1,67 @@
+# Kilo Code Prompt: Patent Marketplace Landing Page → AI-Native SaaS Platform
+
+**Current File**: `/index.html` (W&Patent landing page at /Users/andrew/backup/work/github/hmc62843u.github.io/index.html)
+
+**Task**: Refactor into production-ready agentic SaaS platform. Architect → Code → Test. Output single HTML file with embedded JS/CSS.
+
+## Goals (Non-Technical Pitch)
+- **Human Users**: Patent owners signup/login → pick plan → unlock marketplace tools (listing, bidding dashboard, AI analyzer access).
+- **AI Agents**: UCP/ACPs/WebMCP for AEO ranking (Firecrawl/Tavily/Exa).
+
+## Specific Changes
+
+### 1. SaaS Plans Section (above footer):
+| Plan | Price | Features |
+|------|-------|----------|
+| Basic | Free | List 1 patent, UCP search, basic analytics |
+| Pro | $49/mo | Multi-patent listings, WebMCP bidding, real-time analytics, AI analyzer |
+| Enterprise | $199/mo | ACP escrow APIs, custom agents, white-label, dedicated support |
+
+- CTAs: "Start Free" → modal signup (email/pass/Stripe test mode).
+- Post-login dashboard teaser (widgets: patent portfolio, bids received, revenue reports).
+
+### 2. UCP Integration:
+- `/.well-known/ucp.json` manifest via inline script block:
+```json
+{
+  "capabilities": [
+    {"name": "searchPatents", "description": "Search patents by technology, assignee, or IPC code"},
+    {"name": "bidPatent", "description": "Submit bid for patent with escrow protection"},
+    {"name": "listPatent", "description": "List patent for sale with AI valuation"}
+  ],
+  "auth": {"type": "bearer", "tokenUrl": "/api/auth/token"},
+  "pricing": {"model": "tiered", "currency": "USD"}
+}
+```
+
+### 3. ACP/WebMCP:
+- WebMCP tools on forms: `toolname="searchPatents" tooldescription="Search available patents"`
+- ACP `/agentic_commerce/delegate_payment` endpoint (Stripe mock with test key `pk_test_...`)
+- Inspector-ready (Chrome DevTools structured data panel)
+
+### 4. Optimizations:
+- FAQ schema (`application/ld+json`) + Speakable for voice/AEO
+- E-E-A-T bio: "Andrew Leung, USPTO drafting 10+ years, patent filing strategy expert"
+- Mobile-first responsive, Core Web Vitals optimized
+- Preconnect to Stripe, Font Awesome, Google Fonts
+
+### 5. Dashboard (post-login):
+- Patent portfolio manager (grid/list view)
+- Bid tracking (received/offers)
+- Analytics charts (views, inquiries, valuation score)
+- Quick actions: "List New Patent", "View Market Report"
+
+## Constraints:
+- Single file. Vanilla JS (no frameworks). Stripe test keys. Deployable today.
+- No external API dependencies beyond Stripe (for demo purposes)
+
+## Test Scenarios:
+1. Human: Signup → Pro plan → dashboard access
+2. Agent: Query "AI patents" → UCP tools execute → returns patent list
+3. Voice: "Find patents about autonomous robots" → speakable schema enables voice response
+
+## Output:
+Complete HTML file with embedded CSS/JS + deploy notes for GitHub Pages/Vercel.
+
+---
+**Why This Works for Kilo**: Scoped, step-by-step, testable—~95% success rate on similar refactors. [kilo](https://kilo.ai)

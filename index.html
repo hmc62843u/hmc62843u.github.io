@@ -1,1122 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W&Patent - The World's Smarter Patent Marketplace</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #0f766e;
-            --light: #f8fafc;
-            --dark: #1e293b;
-            --gray: #64748b;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --purple: #8b5cf6;
-            --teal: #0d9488;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            color: var(--dark);
-            line-height: 1.6;
-            background-color: #f9fafb;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header & Navigation */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            margin-right: 10px;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-decoration: none;
-        }
-        
-        .btn:hover {
-            background-color: var(--primary-dark);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .btn-warning {
-            background-color: var(--warning);
-        }
-        
-        .btn-warning:hover {
-            background-color: #e57e0b;
-        }
-        
-        .btn-purple {
-            background-color: var(--purple);
-        }
-        
-        .btn-purple:hover {
-            background-color: #7c3aed;
-        }
-        
-        .btn-teal {
-            background-color: var(--teal);
-        }
-        
-        .btn-teal:hover {
-            background-color: #0f766e;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        /* How It Works */
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .how-it-works {
-            padding: 80px 0;
-            background-color: white;
-        }
-        
-        .steps {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .step {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-            padding: 30px;
-            border-radius: 10px;
-            background-color: var(--light);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .step-icon {
-            width: 70px;
-            height: 70px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 28px;
-        }
-        
-        .step h3 {
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        /* Features */
-        .features {
-            padding: 80px 0;
-            background-color: #f1f5f9;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .feature i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .feature h3 {
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        /* Projects Seeking Funding */
-        .projects {
-            padding: 80px 0;
-            background-color: white;
-        }
-        
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 30px;
-        }
-        
-        .project {
-            background-color: var(--light);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid var(--primary);
-        }
-        
-        .project-tourist {
-            border-left: 5px solid var(--warning);
-        }
-        
-        .project-persona {
-            border-left: 5px solid var(--purple);
-        }
-        
-        .project-signlanguage {
-            border-left: 5px solid var(--teal);
-        }
-        
-        .project h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-        
-        .project-tourist h3 {
-            color: var(--warning);
-        }
-        
-        .project-persona h3 {
-            color: var(--purple);
-        }
-        
-        .project-signlanguage h3 {
-            color: var(--teal);
-        }
-        
-        .project-status {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: var(--secondary);
-            color: white;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 15px;
-        }
-        
-        .project-status-tourist {
-            background-color: var(--warning);
-        }
-        
-        .project-status-persona {
-            background-color: var(--purple);
-        }
-        
-        .project-status-signlanguage {
-            background-color: var(--teal);
-        }
-        
-        .project-patents {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-        }
-        
-        .patent {
-            margin-bottom: 15px;
-            padding: 15px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-        
-        .patent-id {
-            font-weight: bold;
-            color: var(--primary);
-        }
-        
-        .patent-title {
-            font-weight: 500;
-            margin: 5px 0;
-        }
-        
-        .patent-desc {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-        
-        .project-team {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-        }
-        
-        .team-member {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .team-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .team-info h4 {
-            margin: 0;
-            font-size: 1.1rem;
-        }
-        
-        .team-info p {
-            margin: 5px 0 0;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-        
-        .project-features {
-            margin-top: 20px;
-        }
-        
-        .project-features ul {
-            padding-left: 20px;
-        }
-        
-        .project-features li {
-            margin-bottom: 8px;
-        }
-        
-        /* CTA Section */
-        .cta {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            text-align: center;
-        }
-        
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .cta p {
-            max-width: 600px;
-            margin: 0 auto 40px;
-            font-size: 1.1rem;
-        }
-        
-        .cta .btn {
-            background-color: white;
-            color: var(--primary);
-            font-size: 1.1rem;
-            padding: 15px 30px;
-        }
-        
-        .cta .btn:hover {
-            background-color: var(--light);
-        }
-        
-        /* Inquiry Form */
-        .inquiry {
-            padding: 80px 0;
-            background-color: white;
-        }
-        
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: var(--light);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-        }
-        
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .footer-column h3 {
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column a:hover {
-            color: white;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            transition: background-color 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .steps {
-                flex-direction: column;
-            }
-            
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
-        
-        /* Form Status Messages */
-        #form-status {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 6px;
-            display: none;
-        }
-        
-        .success {
-            background-color: #d1fae5;
-            color: #065f46;
-            border: 1px solid #a7f3d0;
-        }
-        
-        .error {
-            background-color: #fee2e2;
-            color: #b91c1c;
-            border: 1px solid #fecaca;
-        }
-        
-        .loading {
-            background-color: #dbeafe;
-            color: #1e40af;
-            border: 1px solid #93c5fd;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W&Patent Marketplace | List, Value, and License Patents</title>
+  <meta name="description" content="W&Patent is an AI-enabled patent marketplace for listing, valuing, bidding, and licensing patents across five active projects.">
+  <meta name="keywords" content="patent marketplace, patent licensing, patent valuation, patent sale, USPTO strategy">
+  <meta name="author" content="W&Patent">
+  <meta property="og:title" content="W&Patent Marketplace">
+  <meta property="og:description" content="AI-enabled patent marketplace with listing, bidding, plans, and patent strategy support.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hmc62843u.github.io/">
+  <link rel="canonical" href="https://hmc62843u.github.io/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://js.stripe.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script async src="https://js.stripe.com/v3/"></script>
+  <style>
+    :root { --bg:#f2f1ed; --surface:#ebeae5; --text:#26251e; --muted:rgba(38,37,30,.66); --accent:#f54e00; --line:rgba(38,37,30,.12); --ok:#1f8a65; --warn:#cf2d56; }
+    * { box-sizing:border-box; }
+    html, body { margin:0; padding:0; }
+    body { font-family:"Instrument Sans","Avenir Next",Helvetica,Arial,sans-serif; color:var(--text); background:radial-gradient(1200px 500px at 15% -10%,rgba(245,78,0,.09),transparent),radial-gradient(900px 400px at 90% 10%,rgba(192,168,221,.2),transparent),var(--bg); line-height:1.55; }
+    .container { width:min(1180px,92vw); margin:0 auto; }
+    .topbar { position:sticky; top:0; z-index:40; border-bottom:1px solid var(--line); backdrop-filter:blur(10px); background:rgba(242,241,237,.92); }
+    .topbar-inner { min-height:74px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .brand { text-decoration:none; color:var(--text); font-size:1.45rem; letter-spacing:-.03em; }
+    .brand strong { color:var(--accent); font-weight:600; }
+    .nav { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+    .nav a { color:var(--muted); text-decoration:none; font-size:.94rem; }
+    .nav a:hover,.nav .active { color:var(--text); }
+    .btn { border:1px solid var(--line); border-radius:9999px; background:var(--surface); color:var(--text); text-decoration:none; display:inline-block; padding:10px 16px; cursor:pointer; }
+    .btn:hover { color:var(--warn); }
+    .btn-solid { background:var(--text); color:var(--bg); border-color:var(--text); }
+    .eyebrow { display:inline-block; border:1px solid var(--line); border-radius:9999px; padding:4px 10px; background:var(--surface); color:var(--muted); font-size:.8rem; }
+    .mono { font-family:"IBM Plex Mono",Menlo,Monaco,Consolas,monospace; font-size:.85rem; }
+    .hero { padding:84px 0 56px; }
+    h1,h2,h3 { margin:0; letter-spacing:-.03em; line-height:1.12; }
+    h1 { margin-top:14px; font-size:clamp(2.2rem,6vw,4.2rem); max-width:14ch; }
+    h2 { font-size:clamp(1.8rem,4vw,2.7rem); }
+    .lead { margin-top:18px; max-width:65ch; color:var(--muted); font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif; font-size:clamp(1.2rem,2.5vw,1.4rem); }
+    .actions { margin-top:24px; display:flex; flex-wrap:wrap; gap:10px; }
+    .section { padding:30px 0 56px; }
+    .grid { display:grid; gap:16px; }
+    .cols-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .cols-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .card { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:20px; }
+    .card p,.card li { color:var(--muted); }
+    .kicker { color:var(--accent); text-transform:uppercase; letter-spacing:.08em; font-size:.82rem; margin-bottom:10px; }
+    ul { margin:10px 0 0 0; padding-left:18px; }
+    .pricing .price { font-size:2rem; color:var(--text); margin:.2rem 0 1rem; }
+    .pricing .featured { outline:2px solid var(--text); }
+    .status { display:inline-block; border:1px solid var(--line); border-radius:999px; padding:3px 8px; font-size:.75rem; color:var(--ok); background:#e7f2ee; }
+    .dashboard { display:none; }
+    .dashboard.show { display:block; }
+    .modal { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:60; padding:14px; }
+    .modal.show { display:flex; }
+    .modal-box { width:min(560px,96vw); background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:18px; }
+    label { display:block; margin:8px 0 6px; font-size:.9rem; }
+    input, select, textarea { width:100%; border:1px solid var(--line); border-radius:8px; padding:10px; font:inherit; background:#f7f6f2; }
+    footer { border-top:1px solid var(--line); margin-top:36px; padding:24px 0 40px; color:var(--muted); }
+    @media (max-width: 920px) { .cols-2,.cols-3 { grid-template-columns:1fr; } .topbar-inner { flex-direction:column; align-items:flex-start; padding:10px 0; } .hero { padding-top:50px; } }
+  </style>
+
+  <script type="application/json" id="ucp-manifest">
+  {
+    "capabilities": [
+      {"name": "searchPatents", "description": "Search patents by technology, assignee, or IPC code"},
+      {"name": "bidPatent", "description": "Submit bid for patent with escrow protection"},
+      {"name": "listPatent", "description": "List patent for sale with AI valuation"}
+    ],
+    "auth": {"type": "bearer", "tokenUrl": "/api/auth/token"},
+    "pricing": {"model": "tiered", "currency": "USD"}
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "W&Patent",
+    "url": "https://hmc62843u.github.io/",
+    "description": "AI-enabled patent marketplace and patent strategy advisory.",
+    "founder": {
+      "@type": "Person",
+      "name": "Andrew Leung",
+      "description": "USPTO drafting 10+ years, patent filing strategy expert"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["#faq-summary", ".faq-q"]
+    },
+    "mainEntity": [
+      {"@type":"Question","name":"Should I file a provisional patent application?","acceptedAnswer":{"@type":"Answer","text":"A provisional is often useful for locking an early filing date while refining nonprovisional claim strategy."}},
+      {"@type":"Question","name":"What is a PCT application?","acceptedAnswer":{"@type":"Answer","text":"A PCT filing is an international route that supports coordinated national phase filings in participating countries."}},
+      {"@type":"Question","name":"Can I license a listed patent through W&Patent?","acceptedAnswer":{"@type":"Answer","text":"Yes, listings are positioned for sale or licensing inquiries with direct contact workflow."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <i class="fas fa-brain"></i>
-                    <span>W&Patent</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Browse Patents</a></li>
-                    <li><a href="#">How It Works</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="https://patent-eval.streamlit.app/" target="_blank">AI Analyzer</a></li>
-                </ul>
-                <a href="#inquiry" class="btn">Get Started</a>
-            </nav>
-        </div>
-    </header>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">W&<strong>Patent</strong></a>
+      <nav class="nav">
+        <a class="active" href="index.html">Home</a>
+        <a href="about.htm">About</a>
+        <a href="why_us.htm">Why Us</a>
+        <a href="career.htm">Career</a>
+        <a href="faq.htm">FAQ</a>
+        <button class="btn" id="openSignup" type="button">Start Free</button>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Don't Let Great Ideas Gather Dust.</h1>
-            <p>W&Patent is the first marketplace powered by AI to bring transparency, liquidity, and confidence to the patent ecosystem.</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn">List Your Patent</a>
-                <a href="#" class="btn btn-outline">Browse Patents</a>
-                <a href="https://patent-eval.streamlit.app/" class="btn btn-teal" target="_blank">AI Patent Analyzer</a>
-            </div>
-        </div>
+  <main>
+    <section class="hero container">
+      <span class="eyebrow mono">AI-native patent marketplace</span>
+      <h1>List, value, and commercialize patents in one marketplace.</h1>
+      <p class="lead">W&Patent showcases five active projects for sale or licensing and combines human strategy with agent-ready tooling for SEO, AEO, and GEO discoverability.</p>
+      <p class="mono" style="margin-top:14px;">Andrew Leung, USPTO drafting 10+ years, patent filing strategy expert</p>
+      <div class="actions">
+        <button class="btn btn-solid" type="button" id="heroSignup">Start Free</button>
+        <a class="btn" href="https://patent-eval.streamlit.app/" target="_blank" rel="noopener">Open AI Patent Analyzer</a>
+      </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works">
-        <div class="container">
-            <div class="section-title">
-                <h2>How W&Patent Works</h2>
-                <p>Our simple process makes buying and selling patents easier than ever before</p>
-            </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-icon">
-                        <i class="fas fa-upload"></i>
-                    </div>
-                    <h3>List or Discover</h3>
-                    <p>Submit your patent in minutes or use our AI-powered search to find exactly what you need.</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Evaluate with Confidence</h3>
-                    <p>Get instant access to our AI-Powered Nexus Report™ with strength analysis and valuation.</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Connect & Transact</h3>
-                    <p>Communicate securely and use our vetted network of professionals for smooth transactions.</p>
-                </div>
-            </div>
-        </div>
+    <section class="section container">
+      <span class="eyebrow mono">Marketplace</span>
+      <h2 style="margin-top:14px; max-width:18ch;">Featured projects and active patent opportunities</h2>
+      <div class="grid cols-2" style="margin-top:20px;">
+        <article class="card"><span class="status">For Sale</span><p class="kicker">Points2Perks x Local Licensed Issuer (Japan)</p><p>Policy-gated loyalty settlement layer for Japan.</p><ul><li><span class="mono">US 63/864,341</span> - Compliance Ring-Fenced Cross-Border Payments</li><li><span class="mono">US 63/864,366</span> - Licensed-Partnered Multi-Rail Loyalty</li></ul><p><a class="btn" href="mailto:wp@wpatent.com?subject=Interest%20in%20Points2Perks">Inquire</a></p></article>
+        <article class="card"><span class="status">For Sale / Licensing</span><p class="kicker">Tourist Aid - Off-Grid Travel Safety</p><p>LoRa mesh + autonomous SOS safety support.</p><ul><li><span class="mono">US 63/859,951</span> - Autonomous Network Healing</li></ul><p><a class="btn" href="mailto:wp@wpatent.com?subject=Interest%20in%20Tourist%20Aid">Inquire</a></p></article>
+        <article class="card"><span class="status">For Sale / Licensing</span><p class="kicker">Persona Album - AI Storytelling</p><p>Personality-driven multimedia narration workflows.</p><ul><li><span class="mono">US 63/715,656</span> - Personalized Multimedia Narration</li></ul><p><a class="btn" href="mailto:wp@wpatent.com?subject=Interest%20in%20Persona%20Album">Inquire</a></p></article>
+        <article class="card"><span class="status">For Sale / Licensing</span><p class="kicker">Sign Language Chat - Teletherapy</p><p>Inclusive AI teletherapy with sign language interface.</p><ul><li><span class="mono">Patent Pending</span> - Conversational Support with Sign Language Interface</li></ul><p><a class="btn" href="mailto:wp@wpatent.com?subject=Interest%20in%20Sign%20Language%20Chat">Inquire</a></p></article>
+        <article class="card"><span class="status">For Sale / Licensing</span><p class="kicker">Dashing Robo - Autonomous Building Logistics</p><p>Robots dock with elevators and lockers for delivery workflows.</p><ul><li><span class="mono">US 64/051,103</span> - System and Method for Autonomous Payload Docking</li></ul><p><a class="btn" href="mailto:wp@wpatent.com?subject=Interest%20in%20Dashing%20Robo">Express Interest</a></p></article>
+      </div>
     </section>
 
-    <!-- Features -->
-    <section class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose W&Patent?</h2>
-                <p>Our AI-powered platform provides unmatched advantages for patent buyers and sellers</p>
-            </div>
-            <div class="feature-grid">
-                <div class="feature">
-                    <i class="fas fa-robot"></i>
-                    <h3>AI Valuation Engine</h3>
-                    <p>Get data-driven estimates of your patent's worth, not just guesswork.</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-search"></i>
-                    <h3>Landscape Analysis</h3>
-                    <p>See how any patent fits into the existing competitive landscape.</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Strength Scoring</h3>
-                    <p>Our algorithm rates the defensibility and breadth of claims on a standardized scale.</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-file-contract"></i>
-                    <h3>Infringement Analysis</h3>
-                    <p>Use our AI-powered tool to scan for potential infringement risks across industries.</p>
-                    <a href="https://patent-eval.streamlit.app/" class="btn btn-outline" style="margin-top: 15px; padding: 8px 16px; font-size: 0.9rem;" target="_blank">Try Analyzer</a>
-                </div>
-            </div>
-        </div>
+    <section class="section container pricing">
+      <span class="eyebrow mono">SaaS Plans</span>
+      <h2 style="margin-top:14px;">Choose your access tier</h2>
+      <div class="grid cols-3" style="margin-top:20px;">
+        <article class="card"><p class="kicker">Basic</p><p class="price">Free</p><ul><li>List 1 patent</li><li>UCP search</li><li>Basic analytics</li></ul><p><button class="btn" type="button" data-plan="Basic">Start Free</button></p></article>
+        <article class="card featured"><p class="kicker">Pro</p><p class="price">$49/mo</p><ul><li>Multi-patent listings</li><li>WebMCP bidding tools</li><li>Real-time analytics</li><li>AI analyzer access</li></ul><p><button class="btn btn-solid" type="button" data-plan="Pro">Start Free Trial</button></p></article>
+        <article class="card"><p class="kicker">Enterprise</p><p class="price">$199/mo</p><ul><li>ACP escrow APIs</li><li>Custom agents</li><li>White-label deployment</li><li>Dedicated support</li></ul><p><button class="btn" type="button" data-plan="Enterprise">Contact Sales</button></p></article>
+      </div>
     </section>
 
-    <!-- Projects Seeking Funding -->
-    <section class="projects">
-        <div class="container">
-            <div class="section-title">
-                <h2>Projects & Patents Seeking Funding & Partners</h2>
-                <p>Innovative projects looking for investment, technical expertise, and strategic partnerships</p>
-            </div>
-            <div class="project-grid">
-                <div class="project">
-                    <span class="project-status">Seeking Funding & Partners</span>
-                    <h3>Points2Perks x Local Licensed Issuer (Japan)</h3>
-                    <p>Policy-gated loyalty settlement layer for Japan. Cash-out, voucher resale, and licensed arbitrage (where allowed). Merchants settle in flat currency.</p>
-                    
-                    <div class="project-patents">
-                        <h4>Associated Patents:</h4>
-                        <div class="patent">
-                            <div class="patent-id">US 63/864,341</div>
-                            <div class="patent-title">Compliance Ring-Fenced Cross-Border Payments & Loyalty Clearing</div>
-                            <div class="patent-desc">Country-aware on/off controls; flat-only merchant settlement; reconcilable ledgers.</div>
-                        </div>
-                        <div class="patent">
-                            <div class="patent-id">US 63/864,366</div>
-                            <div class="patent-title">Licensed-Partnered Multi-Rail Loyalty, Stablecoin & Digital-Asset Interop</div>
-                            <div class="patent-desc">Best-price checkout mixing points + card + licensed rails—within local rules.</div>
-                        </div>
-                        <div class="patent">
-                            <div class="patent-id">US 63/864,345</div>
-                            <div class="patent-title">Policy Autopilot (PSID)</div>
-                            <div class="patent-desc">Acceptance matrix / country playbook: caps, windows, disclosures; fail-closed when uncertain.</div>
-                        </div>
-                        <div class="patent">
-                            <div class="patent-id">US 63/864,346</div>
-                            <div class="patent-title">Regulated Exchange Module</div>
-                            <div class="patent-desc">Brief rate holds with proof-of-rate receipts; safe windows and auto-fallback; only where permitted.</div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 20px;">
-                        <a href="mailto:wp@wpatent.com?subject=Interest in Points2Perks Japan Project" class="btn">Express Interest</a>
-                    </div>
-                </div>
-                
-                <div class="project project-tourist">
-                    <span class="project-status project-status-tourist">Seeking Technical Partners & Co-Founders</span>
-                    <h3>Tourist Aid - Stay Safe Anywhere</h3>
-                    <p>A must-have perk for travelers - patent-backed, off-grid travel safety solution that combines a resilient LoRa® mesh with autonomous control and a traveler-centric SOS experience.</p>
-                    
-                    <div class="project-patents">
-                        <h4>Core IP:</h4>
-                        <div class="patent">
-                            <div class="patent-id">US 63/859,951</div>
-                            <div class="patent-title">Autonomous Network Healing</div>
-                            <div class="patent-desc">Mesh deficiency detection & classification → rule-engine actions (rate-limit, role flip, re-route).</div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-team">
-                        <h4>Team:</h4>
-                        <div class="team-member">
-                            <div class="team-avatar">SL</div>
-                            <div class="team-info">
-                                <h4>Samuel Leung</h4>
-                                <p>Founder & Inventor - IoT & Cybersecurity Expert</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 20px;">
-                        <a href="mailto:wp@wpatent.com?subject=Interest in Tourist Aid Project" class="btn btn-warning">Join as Technical Partner</a>
-                    </div>
-                </div>
-
-                <div class="project project-persona">
-                    <span class="project-status project-status-persona">Seeking AI/ML Experts & Funding</span>
-                    <h3>Persona Album - AI-Powered Multimedia Storytelling</h3>
-                    <p>Transforms traditional photo albums into dynamic, personalized narratives using personality-driven AI agents and social graph analysis. Creates emotionally resonant, interactive stories from photos and audio narrations.</p>
-                    
-                    <div class="project-patents">
-                        <h4>Core IP:</h4>
-                        <div class="patent">
-                            <div class="patent-id">US 63/715,656</div>
-                            <div class="patent-title">Personalized Multimedia Narration Using Personality-Driven Agents and Social Graph Analysis</div>
-                            <div class="patent-desc">AI agents tailor interactions based on user personality traits and social relationships to create dynamic storytelling experiences.</div>
-                        </div>
-                        <div class="patent">
-                            <div class="patent-id">Additional Patents Pending</div>
-                            <div class="patent-title">Federated Storytelling Architecture</div>
-                            <div class="patent-desc">Decentralized system for collaborative multimedia narrative creation across distributed networks.</div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-features">
-                        <h4>Enhanced Features with Patent Integration:</h4>
-                        <ul>
-                            <li><strong>Personality-Driven AI Agents:</strong> Tailor interactions based on users' unique personality traits</li>
-                            <li><strong>Social Graph Analysis:</strong> Maps relationships to personalize content and interactions</li>
-                            <li><strong>Dynamic Multimedia Assembly:</strong> Automatically groups photos into narrative spreads</li>
-                            <li><strong>Real-Time Emotion Adaptation:</strong> Adjusts narration tone based on emotional context</li>
-                            <li><strong>Safety & Delegation Mechanism:</strong> Ensures project continuity if users become unresponsive</li>
-                            <li><strong>Federated Network Support:</strong> Decentralized architecture for cross-server collaboration</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-team">
-                        <h4>Team:</h4>
-                        <div class="team-member">
-                            <div class="team-avatar">PF</div>
-                            <div class="team-info">
-                                <h4>Ping Fok</h4>
-                                <p>CEO - Former AI startup lead and federated social networking expert</p>
-                            </div>
-                        </div>
-                        <div class="team-member">
-                            <div class="team-avatar">BS</div>
-                            <div class="team-info">
-                                <h4>Brian Smith</h4>
-                                <p>Chief Scientist - Psychology background specializing in emotional AI</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 20px;">
-                        <a href="mailto:wp@wpatent.com?subject=Interest in Persona Album Project" class="btn btn-purple">Join as AI/ML Expert</a>
-                        <a href="mailto:wp@wpatent.com?subject=Request Persona Album Demo" class="btn btn-outline" style="margin-left: 10px;">Request Demo</a>
-                    </div>
-                </div>
-
-                <div class="project project-signlanguage">
-                    <span class="project-status project-status-signlanguage">Seeking Clinical & Technical Partners</span>
-                    <h3>Sign Language Chat - Accessible Mental Wellness Support</h3>
-                    <p>A privacy-first teletherapy platform that combines AI with human oversight to provide 24/7 mental health support for sign language users and individuals with communication impairments.</p>
-                    
-                    <div class="project-patents">
-                        <h4>Core IP:</h4>
-                        <div class="patent">
-                            <div class="patent-id">Patent Pending</div>
-                            <div class="patent-title">Conversational Support System with Sign Language Interface</div>
-                            <div class="patent-desc">AI-powered mental wellness platform with real-time sign language recognition, culturally intelligent filtering, and consent-based human intervention.</div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-features">
-                        <h4>Key Innovations:</h4>
-                        <ul>
-                            <li><strong>Real-time Sign Language Recognition:</strong> Computer vision-based translation of sign language gestures into text</li>
-                            <li><strong>Culturally Intelligent Co-pilot:</strong> Filters potentially insensitive language before translation</li>
-                            <li><strong>Multimodal Affect Recognition:</strong> Analyzes facial expressions and non-manual markers for emotional assessment</li>
-                            <li><strong>Visual Avatar Response:</strong> Renders therapist responses in accurate sign language animations</li>
-                            <li><strong>Gesture-based Consent Verification:</strong> Detects user refusal through sign language gestures</li>
-                            <li><strong>Signing Fatigue Detection:</strong> Monitors for physical/cognitive overload during sessions</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-team">
-                        <h4>Team:</h4>
-                        <div class="team-member">
-                            <div class="team-avatar">EL</div>
-                            <div class="team-info">
-                                <h4>Eric Lau</h4>
-                                <p>Founder - AI/UX Specialist with focus on accessibility</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-team">
-                        <h4>Advisors:</h4>
-                        <div class="team-member">
-                            <div class="team-avatar">TC</div>
-                            <div class="team-info">
-                                <h4>Licensed Therapist</h4>
-                                <p>Clinical Advisor - Specializing in teletherapy practices</p>
-                            </div>
-                        </div>
-                        <div class="team-member">
-                            <div class="team-avatar">SA</div>
-                            <div class="team-info">
-                                <h4>Sign Language Expert</h4>
-                                <p>Accessibility Advisor - Hong Kong Sign Language (HKSL) specialist</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 20px;">
-                        <a href="mailto:wp@wpatent.com?subject=Interest in Sign Language Chat Project" class="btn btn-teal">Join as Clinical Partner</a>
-                        <a href="mailto:wp@wpatent.com?subject=Request Sign Language Chat Demo" class="btn btn-outline" style="margin-left: 10px;">Request Demo</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="section container dashboard" id="dashboardTeaser">
+      <span class="eyebrow mono">Post-login Dashboard</span>
+      <h2 style="margin-top:14px;">Your portfolio command center</h2>
+      <div class="grid cols-2" style="margin-top:20px;">
+        <article class="card"><h3>Patent portfolio manager</h3><p>Grid/list toggle, listing quality checks, and valuation snapshots.</p></article>
+        <article class="card"><h3>Bid tracking</h3><p>Received offers, escrow status, and counter workflow visibility.</p></article>
+        <article class="card"><h3>Analytics</h3><p>Views, inquiries, and valuation score trends for each listing.</p></article>
+        <article class="card"><h3>Quick actions</h3><p><button class="btn" type="button">List New Patent</button> <button class="btn" type="button">View Market Report</button></p></article>
+      </div>
     </section>
 
-    <section class="features" style="background-color: white;">
-        <div class="container">
-            <div class="section-title">
-                <h2>AI-Powered Patent Analysis</h2>
-                <p>Try our advanced infringement analysis tool to scan for potential risks across industries</p>
-            </div>
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 40px; border-radius: 10px; margin-bottom: 30px;">
-                    <i class="fas fa-analytics" style="font-size: 4rem; color: var(--teal); margin-bottom: 20px;"></i>
-                    <h3 style="margin-bottom: 15px;">Patent Infringement Scanner</h3>
-                    <p style="margin-bottom: 25px; font-size: 1.1rem;">
-                        Upload your patent documents and let our AI analyze potential infringement risks across relevant industries. 
-                        Get comprehensive competitor analysis and risk assessment in minutes.
-                    </p>
-                    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                        <a href="https://patent-eval.streamlit.app/" class="btn btn-teal" target="_blank">
-                            <i class="fas fa-rocket"></i> Launch AI Analyzer
-                        </a>
-                        <a href="#inquiry" class="btn btn-outline">
-                            <i class="fas fa-question-circle"></i> Learn More
-                        </a>
-                    </div>
-                </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
-                    <div style="text-align: center;">
-                        <i class="fas fa-upload" style="color: var(--primary); font-size: 2rem; margin-bottom: 10px;"></i>
-                        <h4>Upload Documents</h4>
-                        <p>Submit specification, claims, and drawings</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <i class="fas fa-industry" style="color: var(--primary); font-size: 2rem; margin-bottom: 10px;"></i>
-                        <h4>Industry Detection</h4>
-                        <p>AI identifies relevant industries automatically</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <i class="fas fa-search" style="color: var(--primary); font-size: 2rem; margin-bottom: 10px;"></i>
-                        <h4>Competitor Scan</h4>
-                        <p>Find and analyze potential infringers</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <i class="fas fa-chart-bar" style="color: var(--primary); font-size: 2rem; margin-bottom: 10px;"></i>
-                        <h4>Risk Report</h4>
-                        <p>Get detailed analysis and recommendations</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="section container">
+      <span class="eyebrow mono">AEO / GEO FAQ</span>
+      <p id="faq-summary" class="lead">Answers are structured for both search engines and AI assistants to retrieve patent-marketplace intent quickly.</p>
+      <div class="grid cols-3" style="margin-top:12px;">
+        <article class="card"><h3 class="faq-q">Should I file provisional first?</h3><p>Usually yes for speed and date protection while nonprovisional claims are refined.</p></article>
+        <article class="card"><h3 class="faq-q">What is a PCT filing?</h3><p>An international filing route supporting coordinated later national entries.</p></article>
+        <article class="card"><h3 class="faq-q">How do AI agents discover listings?</h3><p>Through UCP capability metadata, WebMCP form tool annotations, and structured schema markup.</p></article>
+      </div>
     </section>
+  </main>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Unlock the Value of Innovation?</h2>
-            <p>Join the marketplace built for the modern inventor and the strategic acquirer. Start today with no upfront costs.</p>
-            <a href="#inquiry" class="btn">Get Started Now</a>
-        </div>
-    </section>
+  <footer>
+    <div class="container mono">W&Patent - marketplace + strategy advisory for licensing, sale, and portfolio growth.</div>
+  </footer>
 
-    <!-- Inquiry Form -->
-    <section class="inquiry" id="inquiry">
-        <div class="container">
-            <div class="section-title">
-                <h2>Send an Inquiry</h2>
-                <p>Have questions or ready to get started? Reach out to our team</p>
-            </div>
-            <div class="form-container">
-                <form id="inquiry-form" action="https://formspree.io/f/mqaybnnb" method="POST">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Company (Optional)</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-group">
-                        <label for="interest">I'm interested in:</label>
-                        <select id="interest" name="interest" required>
-                            <option value="">Select an option</option>
-                            <option value="selling">Selling a Patent</option>
-                            <option value="buying">Buying a Patent</option>
-                            <option value="investment">Investment Opportunities</option>
-                            <option value="partnership">Partnership</option>
-                            <option value="cofounder">Becoming a Co-Founder</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="project">Specific Project (if applicable)</label>
-                        <select id="project" name="project">
-                            <option value="">Select a project</option>
-                            <option value="points2perks">Points2Perks Japan</option>
-                            <option value="touristaid">Tourist Aid</option>
-                            <option value="personaalbum">Persona Album</option>
-                            <option value="signlanguagechat">Sign Language Chat</option>
-                            <option value="other">Other Project</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%; text-align: center;">Send Inquiry</button>
-                </form>
-                <div id="form-status"></div>
-            </div>
-        </div>
-    </section>
+  <div class="modal" id="signupModal" aria-hidden="true">
+    <div class="modal-box">
+      <h3>Sign up</h3>
+      <p class="mono">Demo checkout uses Stripe test mode key: pk_test_51_mocked_for_demo.</p>
+      <form id="signupForm" toolname="listPatent" tooldescription="List patent for sale with AI valuation">
+        <label for="signupEmail">Email</label>
+        <input id="signupEmail" name="email" type="email" required>
+        <label for="signupPass">Password</label>
+        <input id="signupPass" name="password" type="password" required>
+        <label for="signupPlan">Plan</label>
+        <select id="signupPlan" name="plan"><option>Basic</option><option>Pro</option><option>Enterprise</option></select>
+        <div class="actions"><button class="btn btn-solid" type="submit">Create account</button><button class="btn" type="button" id="closeSignup">Close</button></div>
+      </form>
+      <p id="signupStatus" class="mono"></p>
+    </div>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>W&Patent</h3>
-                    <p>The world's smarter patent marketplace, bringing transparency and liquidity to intellectual property.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Browse Patents</a></li>
-                        <li><a href="#">How It Works</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="https://patent-eval.streamlit.app/" target="_blank">AI Analyzer</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Connect With Us</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                    <p style="margin-top: 20px;">Email: <a href="mailto:wp@wpatent.com" style="color: #fff;">wp@wpatent.com</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 W&Patent. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+  <script>
+    (function () {
+      var modal = document.getElementById("signupModal");
+      var signupStatus = document.getElementById("signupStatus");
+      var planSelect = document.getElementById("signupPlan");
+      var dashboard = document.getElementById("dashboardTeaser");
+      var stripePublicKey = "pk_test_51_mocked_for_demo";
 
-    <script>
-        document.getElementById('inquiry-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const company = document.getElementById('company').value;
-            const interest = document.getElementById('interest').value;
-            const project = document.getElementById('project').value;
-            const message = document.getElementById('message').value;
-            
-            // Simple validation
-            if (!name || !email || !interest || !message) {
-                showStatus('Please fill in all required fields.', 'error');
-                return;
-            }
-            
-            // Email validation
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
-                showStatus('Please enter a valid email address.', 'error');
-                return;
-            }
-            
-            // Show loading state
-            showStatus('Sending your inquiry...', 'loading');
-            
-            try {
-                // Submit form data to Formspree
-                const formData = new FormData(this);
-                const response = await fetch(this.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    // Show success message
-                    showStatus('Thank you! Your inquiry has been sent successfully. We will get back to you soon.', 'success');
-                    
-                    // Reset form
-                    document.getElementById('inquiry-form').reset();
-                } else {
-                    // Show error message
-                    const errorData = await response.json();
-                    showStatus('Sorry, there was an error sending your inquiry. Please try again or contact us directly at wp@wpatent.com.', 'error');
-                }
-            } catch (error) {
-                // Show error message
-                showStatus('Sorry, there was an error sending your inquiry. Please try again or contact us directly at wp@wpatent.com.', 'error');
-            }
-        });
-        
-        function showStatus(message, type) {
-            const statusElement = document.getElementById('form-status');
-            statusElement.textContent = message;
-            statusElement.className = type;
-            statusElement.style.display = 'block';
-            
-            // Scroll to status message
-            statusElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            // Auto-hide success messages after 5 seconds
-            if (type === 'success') {
-                setTimeout(() => {
-                    statusElement.style.display = 'none';
-                }, 5000);
-            }
+      function openModal(plan) {
+        if (plan) planSelect.value = plan;
+        modal.classList.add("show");
+        modal.setAttribute("aria-hidden", "false");
+      }
+
+      function closeModal() {
+        modal.classList.remove("show");
+        modal.setAttribute("aria-hidden", "true");
+      }
+
+      document.getElementById("openSignup").addEventListener("click", function () { openModal("Basic"); });
+      document.getElementById("heroSignup").addEventListener("click", function () { openModal("Pro"); });
+      document.getElementById("closeSignup").addEventListener("click", closeModal);
+      Array.prototype.forEach.call(document.querySelectorAll("[data-plan]"), function (btn) {
+        btn.addEventListener("click", function () { openModal(btn.getAttribute("data-plan")); });
+      });
+
+      document.getElementById("signupForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        var email = document.getElementById("signupEmail").value;
+        var plan = document.getElementById("signupPlan").value;
+        signupStatus.textContent = "Creating account for " + email + " on " + plan + "...";
+        setTimeout(function () {
+          signupStatus.textContent = "Signup successful. Demo ACP payment delegation and dashboard unlocked.";
+          dashboard.classList.add("show");
+          closeModal();
+        }, 700);
+      });
+
+      window.ucpTools = {
+        searchPatents: function (query) {
+          var list = [
+            "US 63/864,341 - Compliance Ring-Fenced Cross-Border Payments",
+            "US 63/864,366 - Licensed-Partnered Multi-Rail Loyalty",
+            "US 63/859,951 - Autonomous Network Healing",
+            "US 63/715,656 - Personalized Multimedia Narration",
+            "US 64/051,103 - Autonomous Payload Docking"
+          ];
+          return { query: query, results: list.filter(function (x) { return x.toLowerCase().indexOf(query.toLowerCase()) !== -1 || query === "AI patents"; }) };
+        },
+        bidPatent: function (patentId, amountUsd) {
+          return {
+            patentId: patentId,
+            amountUsd: amountUsd,
+            endpoint: "/agentic_commerce/delegate_payment",
+            provider: "stripe",
+            publishableKey: stripePublicKey,
+            status: "mock_escrow_initialized"
+          };
+        },
+        listPatent: function (payload) {
+          return { listed: true, valuationMode: "ai_estimate", payload: payload };
         }
-    </script>
+      };
+    })();
+  </script>
 </body>
 </html>

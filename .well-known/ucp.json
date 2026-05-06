@@ -1,0 +1,24 @@
+{
+  "capabilities": [
+    {
+      "name": "searchPatents",
+      "description": "Search patents by technology, assignee, or IPC code"
+    },
+    {
+      "name": "bidPatent",
+      "description": "Submit bid for patent with escrow protection"
+    },
+    {
+      "name": "listPatent",
+      "description": "List patent for sale with AI valuation"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "tokenUrl": "/api/auth/token"
+  },
+  "pricing": {
+    "model": "tiered",
+    "currency": "USD"
+  }
+}
