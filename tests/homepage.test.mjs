@@ -29,3 +29,14 @@ test("homepage exposes trust and schema markers", () => {
   assert.match(html, /"@type":\s*"WebSite"/);
   assert.match(html, /AEO \/ GEO FAQ/);
 });
+
+test("homepage machine-readable content matches the current demo state", () => {
+  assert.doesNotMatch(html, /"type":\s*"bearer"/);
+  assert.doesNotMatch(html, /\/api\/auth\/token/);
+  assert.match(html, /How do owners list a patent\?/);
+  assert.match(html, /How do buyers evaluate opportunities\?/);
+  assert.match(html, /How do AI systems discover listings\?/);
+  assert.doesNotMatch(html, /Should I file a provisional patent application\?/);
+  assert.doesNotMatch(html, /What is a PCT application\?/);
+  assert.doesNotMatch(html, /Can I license a listed patent through W&Patent\?/);
+});

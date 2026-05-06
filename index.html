@@ -20,18 +20,6 @@
   <link rel="stylesheet" href="site.css">
   <script async src="https://js.stripe.com/v3/"></script>
 
-  <script type="application/json" id="ucp-manifest">
-  {
-    "capabilities": [
-      {"name": "searchPatents", "description": "Search patents by technology, assignee, or IPC code"},
-      {"name": "bidPatent", "description": "Submit bid for patent with escrow protection"},
-      {"name": "listPatent", "description": "List patent for sale with AI valuation"}
-    ],
-    "auth": {"type": "bearer", "tokenUrl": "/api/auth/token"},
-    "pricing": {"model": "tiered", "currency": "USD"}
-  }
-  </script>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -66,9 +54,9 @@
       "cssSelector": ["#faq-summary", ".faq-q"]
     },
     "mainEntity": [
-      {"@type":"Question","name":"Should I file a provisional patent application?","acceptedAnswer":{"@type":"Answer","text":"A provisional is often useful for locking an early filing date while refining nonprovisional claim strategy."}},
-      {"@type":"Question","name":"What is a PCT application?","acceptedAnswer":{"@type":"Answer","text":"A PCT filing is an international route that supports coordinated national phase filings in participating countries."}},
-      {"@type":"Question","name":"Can I license a listed patent through W&Patent?","acceptedAnswer":{"@type":"Answer","text":"Yes, listings are positioned for sale or licensing inquiries with direct contact workflow."}}
+      {"@type":"Question","name":"How do owners list a patent?","acceptedAnswer":{"@type":"Answer","text":"They choose a plan, open the demo signup flow, and preview how a structured listing would appear."}},
+      {"@type":"Question","name":"How do buyers evaluate opportunities?","acceptedAnswer":{"@type":"Answer","text":"They browse detail pages that explain the market context, filing status, and commercial fit."}},
+      {"@type":"Question","name":"How do AI systems discover listings?","acceptedAnswer":{"@type":"Answer","text":"Through crawlable pages, JSON-LD, direct answers, and the static .well-known/ucp.json manifest."}}
     ]
   }
   </script>
