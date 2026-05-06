@@ -17,52 +17,8 @@
   <link rel="preconnect" href="https://js.stripe.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
   <script async src="https://js.stripe.com/v3/"></script>
-  <style>
-    :root { --bg:#f2f1ed; --surface:#ebeae5; --text:#26251e; --muted:rgba(38,37,30,.66); --accent:#f54e00; --line:rgba(38,37,30,.12); --ok:#1f8a65; --warn:#cf2d56; }
-    * { box-sizing:border-box; }
-    html, body { margin:0; padding:0; }
-    body { font-family:"Instrument Sans","Avenir Next",Helvetica,Arial,sans-serif; color:var(--text); background:radial-gradient(1200px 500px at 15% -10%,rgba(245,78,0,.09),transparent),radial-gradient(900px 400px at 90% 10%,rgba(192,168,221,.2),transparent),var(--bg); line-height:1.55; }
-    .container { width:min(1180px,92vw); margin:0 auto; }
-    .topbar { position:sticky; top:0; z-index:40; border-bottom:1px solid var(--line); backdrop-filter:blur(10px); background:rgba(242,241,237,.92); }
-    .topbar-inner { min-height:74px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
-    .brand { text-decoration:none; color:var(--text); font-size:1.45rem; letter-spacing:-.03em; }
-    .brand strong { color:var(--accent); font-weight:600; }
-    .nav { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
-    .nav a { color:var(--muted); text-decoration:none; font-size:.94rem; }
-    .nav a:hover,.nav .active { color:var(--text); }
-    .btn { border:1px solid var(--line); border-radius:9999px; background:var(--surface); color:var(--text); text-decoration:none; display:inline-block; padding:10px 16px; cursor:pointer; }
-    .btn:hover { color:var(--warn); }
-    .btn-solid { background:var(--text); color:var(--bg); border-color:var(--text); }
-    .eyebrow { display:inline-block; border:1px solid var(--line); border-radius:9999px; padding:4px 10px; background:var(--surface); color:var(--muted); font-size:.8rem; }
-    .mono { font-family:"IBM Plex Mono",Menlo,Monaco,Consolas,monospace; font-size:.85rem; }
-    .hero { padding:84px 0 56px; }
-    h1,h2,h3 { margin:0; letter-spacing:-.03em; line-height:1.12; }
-    h1 { margin-top:14px; font-size:clamp(2.2rem,6vw,4.2rem); max-width:14ch; }
-    h2 { font-size:clamp(1.8rem,4vw,2.7rem); }
-    .lead { margin-top:18px; max-width:65ch; color:var(--muted); font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif; font-size:clamp(1.2rem,2.5vw,1.4rem); }
-    .actions { margin-top:24px; display:flex; flex-wrap:wrap; gap:10px; }
-    .section { padding:30px 0 56px; }
-    .grid { display:grid; gap:16px; }
-    .cols-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
-    .cols-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
-    .card { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:20px; }
-    .card p,.card li { color:var(--muted); }
-    .kicker { color:var(--accent); text-transform:uppercase; letter-spacing:.08em; font-size:.82rem; margin-bottom:10px; }
-    ul { margin:10px 0 0 0; padding-left:18px; }
-    .pricing .price { font-size:2rem; color:var(--text); margin:.2rem 0 1rem; }
-    .pricing .featured { outline:2px solid var(--text); }
-    .status { display:inline-block; border:1px solid var(--line); border-radius:999px; padding:3px 8px; font-size:.75rem; color:var(--ok); background:#e7f2ee; }
-    .dashboard { display:none; }
-    .dashboard.show { display:block; }
-    .modal { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:60; padding:14px; }
-    .modal.show { display:flex; }
-    .modal-box { width:min(560px,96vw); background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:18px; }
-    label { display:block; margin:8px 0 6px; font-size:.9rem; }
-    input, select, textarea { width:100%; border:1px solid var(--line); border-radius:8px; padding:10px; font:inherit; background:#f7f6f2; }
-    footer { border-top:1px solid var(--line); margin-top:36px; padding:24px 0 40px; color:var(--muted); }
-    @media (max-width: 920px) { .cols-2,.cols-3 { grid-template-columns:1fr; } .topbar-inner { flex-direction:column; align-items:flex-start; padding:10px 0; } .hero { padding-top:50px; } }
-  </style>
 
   <script type="application/json" id="ucp-manifest">
   {
@@ -113,11 +69,13 @@
       <a class="brand" href="index.html">W&<strong>Patent</strong></a>
       <nav class="nav">
         <a class="active" href="index.html">Home</a>
+        <a href="listings.htm">Listings</a>
+        <a href="platform.htm">Platform</a>
         <a href="about.htm">About</a>
         <a href="why_us.htm">Why Us</a>
-        <a href="career.htm">Career</a>
         <a href="faq.htm">FAQ</a>
-        <button class="btn" id="openSignup" type="button">Start Free</button>
+        <a href="career.htm">Career</a>
+        <button class="btn" id="openSignup" type="button" data-open-signup data-plan="Basic">Start Free</button>
       </nav>
     </div>
   </header>
@@ -129,7 +87,7 @@
       <p class="lead">W&Patent showcases five active projects for sale or licensing and combines human strategy with agent-ready tooling for SEO, AEO, and GEO discoverability.</p>
       <p class="mono" style="margin-top:14px;">Andrew Leung, USPTO drafting 10+ years, patent filing strategy expert</p>
       <div class="actions">
-        <button class="btn btn-solid" type="button" id="heroSignup">Start Free</button>
+        <button class="btn btn-solid" type="button" id="heroSignup" data-open-signup data-plan="Pro">Start Free</button>
         <a class="btn" href="https://patent-eval.streamlit.app/" target="_blank" rel="noopener">Open AI Patent Analyzer</a>
       </div>
     </section>
@@ -150,9 +108,9 @@
       <span class="eyebrow mono">SaaS Plans</span>
       <h2 style="margin-top:14px;">Choose your access tier</h2>
       <div class="grid cols-3" style="margin-top:20px;">
-        <article class="card"><p class="kicker">Basic</p><p class="price">Free</p><ul><li>List 1 patent</li><li>UCP search</li><li>Basic analytics</li></ul><p><button class="btn" type="button" data-plan="Basic">Start Free</button></p></article>
-        <article class="card featured"><p class="kicker">Pro</p><p class="price">$49/mo</p><ul><li>Multi-patent listings</li><li>WebMCP bidding tools</li><li>Real-time analytics</li><li>AI analyzer access</li></ul><p><button class="btn btn-solid" type="button" data-plan="Pro">Start Free Trial</button></p></article>
-        <article class="card"><p class="kicker">Enterprise</p><p class="price">$199/mo</p><ul><li>ACP escrow APIs</li><li>Custom agents</li><li>White-label deployment</li><li>Dedicated support</li></ul><p><button class="btn" type="button" data-plan="Enterprise">Contact Sales</button></p></article>
+        <article class="card"><p class="kicker">Basic</p><p class="price">Free</p><ul><li>List 1 patent</li><li>UCP search</li><li>Basic analytics</li></ul><p><button class="btn" type="button" data-open-signup data-plan="Basic">Start Free</button></p></article>
+        <article class="card featured"><p class="kicker">Pro</p><p class="price">$49/mo</p><ul><li>Multi-patent listings</li><li>WebMCP bidding tools</li><li>Real-time analytics</li><li>AI analyzer access</li></ul><p><button class="btn btn-solid" type="button" data-open-signup data-plan="Pro">Start Free Trial</button></p></article>
+        <article class="card"><p class="kicker">Enterprise</p><p class="price">$199/mo</p><ul><li>ACP escrow APIs</li><li>Custom agents</li><li>White-label deployment</li><li>Dedicated support</li></ul><p><button class="btn" type="button" data-open-signup data-plan="Enterprise">Contact Sales</button></p></article>
       </div>
     </section>
 
@@ -264,5 +222,6 @@
       };
     })();
   </script>
+  <script src="site.js" defer></script>
 </body>
 </html>
