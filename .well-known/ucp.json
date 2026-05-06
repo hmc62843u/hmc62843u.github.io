@@ -2,16 +2,28 @@
   "version": "1.0",
   "capabilities": [
     {
-      "name": "searchPatents",
-      "description": "Search static patent listings by technology, assignee, or use case keyword."
-    },
-    {
-      "name": "bidPatent",
-      "description": "Preview a mocked bidding workflow for a featured patent listing."
-    },
-    {
       "name": "listPatent",
-      "description": "Preview how a patent listing would be structured in the static marketplace demo."
+      "description": "Preview a browser-simulated seller intake payload for a patent listing."
+    },
+    {
+      "name": "previewValuation",
+      "description": "Return a mock AI valuation preview for the staged patent listing."
+    },
+    {
+      "name": "discoverListings",
+      "description": "Show how a buyer-facing discovery result would appear in the static marketplace demo."
+    },
+    {
+      "name": "openListingFacts",
+      "description": "Reveal structured facts for a featured listing in the platform demo."
+    },
+    {
+      "name": "submitMockBid",
+      "description": "Advance the simulated buyer flow with a mock bid request."
+    },
+    {
+      "name": "advanceMockTransaction",
+      "description": "Move the demo through mock ACP-style states such as mock-approved and mock-settled."
     }
   ],
   "auth": {
