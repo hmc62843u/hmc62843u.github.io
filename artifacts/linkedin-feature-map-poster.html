@@ -47,6 +47,7 @@
       display: grid;
       grid-template-rows: auto auto 1fr auto;
       gap: 28px;
+      overflow: hidden;
     }
 
     .eyebrow {
@@ -77,6 +78,7 @@
 
     .subtitle {
       max-width: 44rem;
+      margin-top: 18px;
       color: var(--muted);
       font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
       font-size: 1.6rem;
@@ -90,12 +92,23 @@
     }
 
     .feature-card {
+      position: relative;
       display: grid;
       gap: 14px;
       padding: 24px;
       border: 1px solid var(--line);
       border-radius: 18px;
-      background: var(--surface);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.34), transparent 45%),
+        var(--surface);
+    }
+
+    .feature-card::before {
+      content: "";
+      width: 44px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--accent);
     }
 
     .feature-card h2 {
@@ -111,6 +124,11 @@
       gap: 10px;
       font-size: 1.02rem;
       line-height: 1.4;
+    }
+
+    .feature-card-accent {
+      box-shadow: var(--shadow);
+      outline: 1px solid rgba(245, 78, 0, 0.18);
     }
 
     .footer-line {
@@ -141,6 +159,8 @@
         <ul>
           <li>Crawlable static pages</li>
           <li>Unique titles, descriptions, and canonicals</li>
+          <li><code>robots.txt</code> and <code>sitemap.xml</code></li>
+          <li><code>JSON-LD</code> on core pages</li>
         </ul>
       </article>
       <article class="feature-card">
@@ -148,6 +168,8 @@
         <ul>
           <li>Direct-answer FAQ content</li>
           <li><code>FAQPage</code> schema</li>
+          <li>Quote-friendly Q&amp;A patterns</li>
+          <li><code>speakable</code> markup</li>
         </ul>
       </article>
       <article class="feature-card">
@@ -155,13 +177,17 @@
         <ul>
           <li>Entity-style structured data</li>
           <li>Static <code>.well-known/ucp.json</code> manifest</li>
+          <li>Visible protocol copy</li>
+          <li>Static JSON request/response examples</li>
         </ul>
       </article>
-      <article class="feature-card">
+      <article class="feature-card feature-card-accent">
         <h2>AI Demo Layer</h2>
         <ul>
           <li><code>JSON-LD</code>: real</li>
           <li><code>UCP</code>: real static metadata</li>
+          <li><code>WebMCP</code>: mock capability surface</li>
+          <li><code>ACP</code>: mock transaction states</li>
         </ul>
       </article>
     </section>

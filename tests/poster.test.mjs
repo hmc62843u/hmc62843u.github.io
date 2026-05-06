@@ -28,3 +28,23 @@ test("poster artifact exists with approved structure", () => {
     assert.match(html, new RegExp(escapeRegExp(fragment), "i"));
   }
 });
+
+test("poster includes final branded copy and technical labels", () => {
+  const html = readFileSync(posterRef, "utf8");
+
+  for (const fragment of [
+    "<code>robots.txt</code> and <code>sitemap.xml</code>",
+    "Quote-friendly Q&amp;A patterns",
+    "<code>speakable</code> markup",
+    "Visible protocol copy",
+    "Static JSON request/response examples",
+    "<code>JSON-LD</code>: real",
+    "<code>UCP</code>: real static metadata",
+    "<code>WebMCP</code>: mock capability surface",
+    "<code>ACP</code>: mock transaction states",
+    "--bg: #f2f1ed",
+    "--accent: #f54e00"
+  ]) {
+    assert.match(html, new RegExp(escapeRegExp(fragment), "i"));
+  }
+});
