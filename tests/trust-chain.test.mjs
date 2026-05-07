@@ -168,3 +168,17 @@ test("trust chain explainer page uses dedicated editorial scaffolding", () => {
     assert.match(styles, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
   }
 });
+
+test("trust chain article assets keep author, company, and canonical source connected", () => {
+  const explainer = read("trust-chain-explainer.htm");
+  const article = read("docs/articles/2026-05-07-startup-domain-trust-infrastructure.md");
+
+  for (const fragment of [
+    "By Andrew Leung, founder of W&Patent",
+    "Canonical source: https://hmc62843u.github.io/trust-chain-explainer.htm"
+  ]) {
+    const pattern = new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i");
+    assert.match(explainer, pattern);
+    assert.match(article, pattern);
+  }
+});
