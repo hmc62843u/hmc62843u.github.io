@@ -37,6 +37,7 @@ test("trust chain landing page explains the methodology honestly", () => {
     "Founder-led B2B firms",
     "Andrew Leung, founder of W&amp;Patent",
     "Trust Chain Scorecard",
+    'href="templates/trust-chain-starter.zip"',
     '"@type": "Organization"',
     '"@type": "Person"',
     '"@type": "FAQPage"'
@@ -55,6 +56,7 @@ test("trust chain demo page shows a complete authority-page example", () => {
     "Content",
     "Proof",
     "Machine-readable layer",
+    'href="templates/trust-chain-starter.zip"',
     '"@type": "WebPage"',
     '"@type": "FAQPage"',
     'href="trust-chain.htm"'
@@ -65,20 +67,25 @@ test("trust chain demo page shows a complete authority-page example", () => {
 
 test("starter-kit files and repo README document the trust chain assets", () => {
   assert.equal(existsSync(new URL("../templates/trust-chain-starter/README.md", import.meta.url)), true);
-  assert.equal(existsSync(new URL("../templates/trust-chain-starter/config.json", import.meta.url)), true);
+  assert.equal(existsSync(new URL("../templates/trust-chain-starter/config.js", import.meta.url)), true);
   assert.equal(existsSync(new URL("../templates/trust-chain-starter/index.html", import.meta.url)), true);
+  assert.equal(existsSync(new URL("../templates/trust-chain-starter.zip", import.meta.url)), true);
 
   const starterReadme = read("templates/trust-chain-starter/README.md");
-  const starterConfig = read("templates/trust-chain-starter/config.json");
+  const starterConfig = read("templates/trust-chain-starter/config.js");
   const starterHtml = read("templates/trust-chain-starter/index.html");
   const repoReadme = read("README.md");
 
   assert.match(starterReadme, /Trust Chain Starter Kit/i);
-  assert.match(starterConfig, /companyName/);
-  assert.match(starterHtml, /Founder-led authority page/i);
+  assert.match(starterReadme, /config\.js/);
+  assert.match(starterReadme, /zip/i);
+  assert.match(starterConfig, /window\.TRUST_CHAIN_CONFIG/);
+  assert.match(starterHtml, /script src="config\.js"/);
+  assert.match(starterHtml, /data-config-company/);
   assert.match(repoReadme, /Trust Chain/i);
   assert.match(repoReadme, /trust-chain\.htm/);
   assert.match(repoReadme, /templates\/trust-chain-starter\//);
+  assert.match(repoReadme, /templates\/trust-chain-starter\.zip/);
 });
 
 test("trust chain scorecard intake stays static and uses the shared script helper", () => {

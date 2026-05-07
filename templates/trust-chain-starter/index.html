@@ -4,26 +4,264 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Founder-led authority page</title>
+  <style>
+    :root {
+      --bg: #f6f4ee;
+      --surface: #ece9e1;
+      --ink: #232118;
+      --muted: rgba(35, 33, 24, 0.72);
+      --accent: #b84d1f;
+      --line: rgba(35, 33, 24, 0.12);
+      --radius: 14px;
+      --shadow: rgba(0, 0, 0, 0.12) 0 22px 55px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 420px at 15% -10%, rgba(184, 77, 31, 0.12), transparent),
+        linear-gradient(180deg, #fbfaf6, var(--bg));
+      line-height: 1.55;
+    }
+
+    .wrap {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      padding: 40px 0 72px;
+    }
+
+    .hero,
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .hero {
+      grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+      align-items: start;
+      padding: 36px 0 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .feature {
+      box-shadow: var(--shadow);
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.55);
+      color: var(--muted);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      margin-top: 16px;
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      max-width: 12ch;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+    }
+
+    p,
+    li {
+      color: var(--muted);
+    }
+
+    .lead {
+      max-width: 62ch;
+      font-size: 1.12rem;
+    }
+
+    .section {
+      padding-top: 26px;
+    }
+
+    .cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .actions {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.65);
+    }
+
+    .btn-solid {
+      background: var(--ink);
+      color: #f7f4ec;
+      border-color: var(--ink);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .meta {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .cols-2,
+      .cols-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <script src="config.js"></script>
 </head>
 <body>
-  <main>
-    <section>
-      <p>Founder-led authority page</p>
-      <h1>Your Company makes one clear claim.</h1>
-      <p>Use this file to explain the entity, the founder, the method, and the proof behind the claim.</p>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <span class="pill">Trust Chain Starter</span>
+        <h1><span data-config-company>Your Company</span> makes one clear claim.</h1>
+        <p class="lead" data-config-claim>Use this page to explain the company entity, the founder, the method, and the proof behind the claim.</p>
+        <p class="meta" data-config-subhead>Use this page to connect the company entity, the founder, the method, and the proof behind the claim.</p>
+        <div class="actions">
+          <a class="btn btn-solid" data-config-cta href="mailto:wp@wpatent.com?subject=Trust%20Chain%20Scorecard">Request a Trust Chain Scorecard</a>
+        </div>
+      </div>
+      <aside class="card feature">
+        <p class="pill">Author</p>
+        <h2 data-config-company>Your Company</h2>
+        <p><strong data-config-founder>Your Founder</strong> <span data-config-role>Founder and CEO</span></p>
+        <p data-config-founder-bio>Describe the expert who stands behind the company and why their perspective should be trusted.</p>
+      </aside>
     </section>
-    <section>
-      <h2>Founder</h2>
-      <p>Describe the expert who stands behind the company.</p>
+
+    <section class="section grid cols-3">
+      <article class="card">
+        <p class="pill">Domain</p>
+        <h3>State the entity clearly</h3>
+        <p>Explain what the company is, who it serves, and what main claim it is qualified to make.</p>
+      </article>
+      <article class="card">
+        <p class="pill">Method</p>
+        <h3 data-config-method-title>Explain the method behind the claim</h3>
+        <p data-config-method-summary>Show the framework, process, or point of view that makes the company worth trusting.</p>
+      </article>
+      <article class="card">
+        <p class="pill">Content</p>
+        <h3>Make the proof easy to inspect</h3>
+        <p>Keep the core explanation, citations, FAQs, and trust signals on the same page whenever you can.</p>
+      </article>
     </section>
-    <section>
-      <h2>Method</h2>
-      <p>Show the framework, process, or point of view that makes the company worth trusting.</p>
-    </section>
-    <section>
-      <h2>Proof</h2>
-      <p>Add citations, artifacts, and case evidence before publishing.</p>
+
+    <section class="section grid cols-2">
+      <article class="card">
+        <p class="pill">Proof</p>
+        <h2>Evidence before claims</h2>
+        <ul data-proof-list>
+          <li>Add citations, artifacts, and case evidence before publishing.</li>
+          <li>Link to public proof wherever possible.</li>
+          <li>Keep your strongest verification signals near the main claim.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <p class="pill">FAQ</p>
+        <div data-faq-list>
+          <h3>Who is this page for?</h3>
+          <p>Explain the buyer or audience in one direct sentence.</p>
+          <h3>Why should someone trust this company?</h3>
+          <p>Point to the founder, the method, and the proof that supports the claim.</p>
+        </div>
+      </article>
     </section>
   </main>
+  <script>
+    const config = window.TRUST_CHAIN_CONFIG || {};
+    const textMap = new Map([
+      ["[data-config-company]", config.companyName],
+      ["[data-config-founder]", config.founderName],
+      ["[data-config-role]", config.founderRole],
+      ["[data-config-claim]", config.primaryClaim],
+      ["[data-config-subhead]", config.subhead],
+      ["[data-config-founder-bio]", config.founderBio],
+      ["[data-config-method-title]", config.methodTitle],
+      ["[data-config-method-summary]", config.methodSummary]
+    ]);
+
+    for (const [selector, value] of textMap.entries()) {
+      if (!value) continue;
+      document.querySelectorAll(selector).forEach((node) => {
+        node.textContent = value;
+      });
+    }
+
+    const cta = document.querySelector("[data-config-cta]");
+    if (cta) {
+      if (config.ctaLabel) cta.textContent = config.ctaLabel;
+      if (config.ctaHref) cta.href = config.ctaHref;
+    }
+
+    const proofList = document.querySelector("[data-proof-list]");
+    if (proofList && Array.isArray(config.proofBullets) && config.proofBullets.length > 0) {
+      proofList.innerHTML = "";
+      config.proofBullets.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        proofList.appendChild(li);
+      });
+    }
+
+    const faqList = document.querySelector("[data-faq-list]");
+    if (faqList && Array.isArray(config.faqItems) && config.faqItems.length > 0) {
+      faqList.innerHTML = "";
+      config.faqItems.forEach((item) => {
+        const question = document.createElement("h3");
+        question.textContent = item.question;
+        faqList.appendChild(question);
+
+        const answer = document.createElement("p");
+        answer.textContent = item.answer;
+        faqList.appendChild(answer);
+      });
+    }
+  </script>
 </body>
 </html>

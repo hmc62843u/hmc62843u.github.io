@@ -12,6 +12,7 @@ W&Patent is a static GitHub Pages site that combines a patent marketplace demo w
 ## Starter kit
 
 - `templates/trust-chain-starter/`: three-file starter kit for founder-led authority pages
+- `templates/trust-chain-starter.zip`: packaged download for sharing the starter kit directly
 
 ## Development
 
