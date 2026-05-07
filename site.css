@@ -155,6 +155,13 @@ h2 {
   align-items: start;
 }
 
+.trust-hero {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.85fr);
+  align-items: start;
+}
+
 .btn-solid {
   background: var(--text);
   color: var(--bg);
@@ -241,6 +248,20 @@ h2 {
 .split-benefits,
 .listing-preview,
 .pricing-preview {
+  margin-top: 20px;
+}
+
+.trust-note {
+  margin-top: 18px;
+  color: var(--accent);
+}
+
+.trust-aside h2 {
+  font-size: 1.8rem;
+}
+
+.trust-pillars,
+.audience-grid {
   margin-top: 20px;
 }
 
@@ -449,6 +470,10 @@ td {
   }
 
   .hero-split {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-hero {
     grid-template-columns: 1fr;
   }
 

@@ -21,3 +21,26 @@ test("trust chain landing and demo pages exist with canonical links", () => {
   assert.match(demo, /<link rel="canonical" href="https:\/\/hmc62843u\.github\.io\/trust-chain-demo\.htm">/);
   assert.match(demo, /href="trust-chain\.htm"/);
 });
+
+test("trust chain landing page explains the methodology honestly", () => {
+  const landing = read("trust-chain.htm");
+
+  for (const fragment of [
+    "<title>Trust Chain Template | W&amp;Patent</title>",
+    "A free template for founder-led startups and B2B firms",
+    "This template helps structure trust. It does not manufacture it.",
+    "Domain",
+    "Author",
+    "Content",
+    "Who This Is For",
+    "Who This Is Not For",
+    "Founder-led B2B firms",
+    "Andrew Leung, founder of W&amp;Patent",
+    "Trust Chain Scorecard",
+    '"@type": "Organization"',
+    '"@type": "Person"',
+    '"@type": "FAQPage"'
+  ]) {
+    assert.match(landing, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+  }
+});
