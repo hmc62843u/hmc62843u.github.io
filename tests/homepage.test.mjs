@@ -40,3 +40,9 @@ test("homepage machine-readable content matches the current demo state", () => {
   assert.doesNotMatch(html, /What is a PCT application\?/);
   assert.doesNotMatch(html, /Can I license a listed patent through W&Patent\?/);
 });
+
+test("homepage links to the Trust Chain methodology and demo", () => {
+  assert.match(html, /Trust Chain/i);
+  assert.match(html, /href="trust-chain\.htm"/);
+  assert.match(html, /href="trust-chain-demo\.htm"/);
+});

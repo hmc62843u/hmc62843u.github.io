@@ -15,6 +15,8 @@ test("sitemap lists every public page", () => {
     "https://hmc62843u.github.io/",
     "https://hmc62843u.github.io/listings.htm",
     "https://hmc62843u.github.io/platform.htm",
+    "https://hmc62843u.github.io/trust-chain.htm",
+    "https://hmc62843u.github.io/trust-chain-demo.htm",
     "https://hmc62843u.github.io/about.htm",
     "https://hmc62843u.github.io/why_us.htm",
     "https://hmc62843u.github.io/faq.htm",
