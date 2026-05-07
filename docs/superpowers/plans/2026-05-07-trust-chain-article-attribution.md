@@ -43,7 +43,7 @@ test("trust chain article assets keep author, company, and canonical source conn
 
   for (const fragment of [
     "By Andrew Leung, founder of W&Patent",
-    "Canonical source: https://hmc62843u.github.io/trust-chain-explainer.htm"
+    "Canonical source: https://wpatent.com/trust-chain-explainer.htm"
   ]) {
     const pattern = new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i");
     assert.match(explainer, pattern);
@@ -79,7 +79,7 @@ Insert these two lines directly below the italic subhead in `docs/articles/2026-
 
 ```md
 By Andrew Leung, founder of W&Patent  
-Canonical source: https://hmc62843u.github.io/trust-chain-explainer.htm
+Canonical source: https://wpatent.com/trust-chain-explainer.htm
 ```
 
 - [ ] **Step 2: Add the matching attribution block to the public explainer page**
@@ -87,7 +87,7 @@ Canonical source: https://hmc62843u.github.io/trust-chain-explainer.htm
 Insert this block in `trust-chain-explainer.htm` directly below the existing lead paragraph inside `.article-header`:
 
 ```html
-      <p class="mono article-attribution">By Andrew Leung, founder of W&amp;Patent<br>Canonical source: https://hmc62843u.github.io/trust-chain-explainer.htm</p>
+      <p class="mono article-attribution">By Andrew Leung, founder of W&amp;Patent<br>Canonical source: https://wpatent.com/trust-chain-explainer.htm</p>
 ```
 
 - [ ] **Step 3: Add a small dedicated style for the attribution block**

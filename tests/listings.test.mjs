@@ -29,7 +29,7 @@ for (const page of detailPages) {
   test(`${page} exposes canonical, inquiry CTA, and schema`, () => {
     assert.equal(existsSync(new URL(`../${page}`, import.meta.url)), true);
     const html = read(page);
-    assert.match(html, /<link rel="canonical" href="https:\/\/hmc62843u\.github\.io\//);
+    assert.match(html, /<link rel="canonical" href="https:\/\/wpatent\.com\//);
     assert.match(html, /mailto:wp@wpatent\.com/);
     assert.match(html, /<script type="application\/ld\+json">/);
   });

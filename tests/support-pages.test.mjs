@@ -13,7 +13,7 @@ test("about page ties expertise to marketplace evaluation", () => {
   assert.match(about, /commercialization/i);
   assert.match(about, /startup defensibility/i);
   assert.match(about, /sharper market positioning/i);
-  assert.match(about, /<link rel="canonical" href="https:\/\/hmc62843u\.github\.io\/about\.htm">/);
+  assert.match(about, /<link rel="canonical" href="https:\/\/wpatent\.com\/about\.htm">/);
 });
 
 test("why us page compares W&Patent to generic alternatives", () => {
@@ -22,18 +22,18 @@ test("why us page compares W&Patent to generic alternatives", () => {
   assert.match(whyUs, /advisory/i);
   assert.match(whyUs, /use IP strategically/i);
   assert.match(whyUs, /defensibility and commercialization/i);
-  assert.match(whyUs, /<link rel="canonical" href="https:\/\/hmc62843u\.github\.io\/why_us\.htm">/);
+  assert.match(whyUs, /<link rel="canonical" href="https:\/\/wpatent\.com\/why_us\.htm">/);
 });
 
 test("faq page covers listing and agent discovery topics", () => {
   assert.match(faq, /How does listing work\?/);
   assert.match(faq, /How do AI agents discover listings\?/);
   assert.match(faq, /"@type":\s*"FAQPage"/);
-  assert.match(faq, /<link rel="canonical" href="https:\/\/hmc62843u\.github\.io\/faq\.htm">/);
+  assert.match(faq, /<link rel="canonical" href="https:\/\/wpatent\.com\/faq\.htm">/);
 });
 
 test("career page reflects the hybrid marketplace mission", () => {
   assert.match(career, /marketplace/i);
   assert.match(career, /advisory/i);
-  assert.match(career, /<link rel="canonical" href="https:\/\/hmc62843u\.github\.io\/career\.htm">/);
+  assert.match(career, /<link rel="canonical" href="https:\/\/wpatent\.com\/career\.htm">/);
 });

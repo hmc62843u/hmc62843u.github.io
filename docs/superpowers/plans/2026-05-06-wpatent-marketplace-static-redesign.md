@@ -313,8 +313,8 @@ Update the head metadata in `index.html` so it is explicit about the dual audien
   content="Browse featured patent opportunities, preview marketplace plans, and learn how W&Patent combines advisory expertise with agent-ready discoverability."
 >
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://hmc62843u.github.io/">
-<link rel="canonical" href="https://hmc62843u.github.io/">
+<meta property="og:url" content="https://wpatent.com/">
+<link rel="canonical" href="https://wpatent.com/">
 ```
 
 Replace the homepage `<main>` with this section order and wording:
@@ -401,7 +401,7 @@ Add a `WebSite` schema block beside the existing organization schema:
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "W&Patent Marketplace",
-  "url": "https://hmc62843u.github.io/",
+  "url": "https://wpatent.com/",
   "description": "Static patent marketplace demo for owners, buyers, and licensees."
 }
 </script>
@@ -527,8 +527,8 @@ Create `listings.htm` with crawlable cards and JavaScript-enhanced filtering:
   <meta property="og:title" content="Patent Listings | W&Patent Marketplace">
   <meta property="og:description" content="Explore detailed patent opportunities for sale or licensing.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hmc62843u.github.io/listings.htm">
-  <link rel="canonical" href="https://hmc62843u.github.io/listings.htm">
+  <meta property="og:url" content="https://wpatent.com/listings.htm">
+  <link rel="canonical" href="https://wpatent.com/listings.htm">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -539,11 +539,11 @@ Create `listings.htm` with crawlable cards and JavaScript-enhanced filtering:
     "@type": "ItemList",
     "name": "W&Patent marketplace listings",
     "itemListElement": [
-      {"@type":"ListItem","position":1,"url":"https://hmc62843u.github.io/listing-points2perks.htm"},
-      {"@type":"ListItem","position":2,"url":"https://hmc62843u.github.io/listing-tourist-aid.htm"},
-      {"@type":"ListItem","position":3,"url":"https://hmc62843u.github.io/listing-persona-album.htm"},
-      {"@type":"ListItem","position":4,"url":"https://hmc62843u.github.io/listing-sign-language-chat.htm"},
-      {"@type":"ListItem","position":5,"url":"https://hmc62843u.github.io/listing-dashing-robo.htm"}
+      {"@type":"ListItem","position":1,"url":"https://wpatent.com/listing-points2perks.htm"},
+      {"@type":"ListItem","position":2,"url":"https://wpatent.com/listing-tourist-aid.htm"},
+      {"@type":"ListItem","position":3,"url":"https://wpatent.com/listing-persona-album.htm"},
+      {"@type":"ListItem","position":4,"url":"https://wpatent.com/listing-sign-language-chat.htm"},
+      {"@type":"ListItem","position":5,"url":"https://wpatent.com/listing-dashing-robo.htm"}
     ]
   }
   </script>
@@ -666,7 +666,7 @@ Create the five detail pages using the same shell, each with page-specific metad
 <!-- listing-points2perks.htm -->
 <title>Points2Perks x Local Licensed Issuer | W&Patent Marketplace</title>
 <meta name="description" content="Explore the Points2Perks patent opportunity covering compliance ring-fenced cross-border payments and licensed-partnered multi-rail loyalty infrastructure.">
-<link rel="canonical" href="https://hmc62843u.github.io/listing-points2perks.htm">
+<link rel="canonical" href="https://wpatent.com/listing-points2perks.htm">
 <section class="page-title detail-hero">
   <div>
     <span class="eyebrow mono">Payments infrastructure</span>
@@ -686,7 +686,7 @@ Create the five detail pages using the same shell, each with page-specific metad
 <!-- listing-tourist-aid.htm -->
 <title>Tourist Aid | W&Patent Marketplace</title>
 <meta name="description" content="Review the Tourist Aid patent opportunity for off-grid travel safety, LoRa mesh support, and autonomous SOS escalation.">
-<link rel="canonical" href="https://hmc62843u.github.io/listing-tourist-aid.htm">
+<link rel="canonical" href="https://wpatent.com/listing-tourist-aid.htm">
 <section class="page-title detail-hero">
   <div>
     <span class="eyebrow mono">Travel safety</span>
@@ -705,7 +705,7 @@ Create the five detail pages using the same shell, each with page-specific metad
 <!-- listing-persona-album.htm -->
 <title>Persona Album | W&Patent Marketplace</title>
 <meta name="description" content="Review the Persona Album opportunity for AI storytelling, personality-driven narration, and personalized multimedia experiences.">
-<link rel="canonical" href="https://hmc62843u.github.io/listing-persona-album.htm">
+<link rel="canonical" href="https://wpatent.com/listing-persona-album.htm">
 <section class="page-title detail-hero">
   <div>
     <span class="eyebrow mono">AI storytelling</span>
@@ -724,7 +724,7 @@ Create the five detail pages using the same shell, each with page-specific metad
 <!-- listing-sign-language-chat.htm -->
 <title>Sign Language Chat | W&Patent Marketplace</title>
 <meta name="description" content="Review the Sign Language Chat opportunity for inclusive teletherapy, sign-language interfaces, and conversational support workflows.">
-<link rel="canonical" href="https://hmc62843u.github.io/listing-sign-language-chat.htm">
+<link rel="canonical" href="https://wpatent.com/listing-sign-language-chat.htm">
 <section class="page-title detail-hero">
   <div>
     <span class="eyebrow mono">Accessible teletherapy</span>
@@ -743,7 +743,7 @@ Create the five detail pages using the same shell, each with page-specific metad
 <!-- listing-dashing-robo.htm -->
 <title>Dashing Robo | W&Patent Marketplace</title>
 <meta name="description" content="Review the Dashing Robo opportunity for autonomous building logistics, robot payload docking, and delivery workflow automation.">
-<link rel="canonical" href="https://hmc62843u.github.io/listing-dashing-robo.htm">
+<link rel="canonical" href="https://wpatent.com/listing-dashing-robo.htm">
 <section class="page-title detail-hero">
   <div>
     <span class="eyebrow mono">Robotics logistics</span>
@@ -766,7 +766,7 @@ For every detail page, include a supporting body section with three cards titled
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Points2Perks x Local Licensed Issuer | W&Patent Marketplace",
-  "url": "https://hmc62843u.github.io/listing-points2perks.htm",
+  "url": "https://wpatent.com/listing-points2perks.htm",
   "description": "Patent marketplace detail page for the Points2Perks opportunity.",
   "about": {
     "@type": "Thing",
@@ -775,7 +775,7 @@ For every detail page, include a supporting body section with three cards titled
   "publisher": {
     "@type": "Organization",
     "name": "W&Patent",
-    "url": "https://hmc62843u.github.io/"
+    "url": "https://wpatent.com/"
   }
 }
 </script>
@@ -854,8 +854,8 @@ Create `platform.htm` with shared nav, page metadata, plan cards, dashboard teas
   <meta property="og:title" content="Platform Plans | W&Patent Marketplace">
   <meta property="og:description" content="Explore Basic, Pro, and Enterprise plans in the W&Patent static product demo.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hmc62843u.github.io/platform.htm">
-  <link rel="canonical" href="https://hmc62843u.github.io/platform.htm">
+  <meta property="og:url" content="https://wpatent.com/platform.htm">
+  <link rel="canonical" href="https://wpatent.com/platform.htm">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -865,7 +865,7 @@ Create `platform.htm` with shared nav, page metadata, plan cards, dashboard teas
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "W&Patent Marketplace Platform",
-    "url": "https://hmc62843u.github.io/platform.htm",
+    "url": "https://wpatent.com/platform.htm",
     "description": "Static demo of a patent marketplace platform for listings, buyer discovery, and agent-ready metadata."
   }
   </script>
@@ -1001,8 +1001,8 @@ Update `.well-known/ucp.json` so it stays machine-readable without implying a ba
     "currency": "USD"
   },
   "endpoints": {
-    "platform": "https://hmc62843u.github.io/platform.htm",
-    "listings": "https://hmc62843u.github.io/listings.htm"
+    "platform": "https://wpatent.com/platform.htm",
+    "listings": "https://wpatent.com/listings.htm"
   }
 }
 ```
@@ -1096,8 +1096,8 @@ Update `about.htm` to connect founder expertise to the marketplace:
 <meta property="og:title" content="About W&Patent">
 <meta property="og:description" content="Founder and company context behind the W&Patent marketplace and advisory approach.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://hmc62843u.github.io/about.htm">
-<link rel="canonical" href="https://hmc62843u.github.io/about.htm">
+<meta property="og:url" content="https://wpatent.com/about.htm">
+<link rel="canonical" href="https://wpatent.com/about.htm">
 <section class="page-title">
   <span class="eyebrow mono">About W&Patent</span>
   <h1>Advisory judgment behind a clearer patent marketplace.</h1>
@@ -1126,8 +1126,8 @@ Update `why_us.htm` to compare against alternatives directly:
 <meta property="og:title" content="Why W&Patent">
 <meta property="og:description" content="Why W&Patent offers more context than generic brokers, law-firm brochures, or plain listing boards.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://hmc62843u.github.io/why_us.htm">
-<link rel="canonical" href="https://hmc62843u.github.io/why_us.htm">
+<meta property="og:url" content="https://wpatent.com/why_us.htm">
+<link rel="canonical" href="https://wpatent.com/why_us.htm">
 <section class="page-title">
   <span class="eyebrow mono">Why W&Patent</span>
   <h1>More context than a listing board, more product visibility than a generic advisory site.</h1>
@@ -1151,8 +1151,8 @@ Update `faq.htm` so it mixes filing, listing, and agent questions, and add a `FA
 <meta property="og:title" content="Patent Marketplace FAQ | W&Patent">
 <meta property="og:description" content="Answers covering patent filings, marketplace listings, buyers, and agent discoverability.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://hmc62843u.github.io/faq.htm">
-<link rel="canonical" href="https://hmc62843u.github.io/faq.htm">
+<meta property="og:url" content="https://wpatent.com/faq.htm">
+<link rel="canonical" href="https://wpatent.com/faq.htm">
 <section class="section grid cols-2">
   <article class="card"><h3>Should I file a provisional first?</h3><p>Often yes when speed matters and you need an early filing date while refining claim strategy.</p></article>
   <article class="card"><h3>How does listing work?</h3><p>In this static demo, owners choose a plan, preview a signup workflow, and then reveal a mocked dashboard showing how a listing could be managed.</p></article>
@@ -1185,8 +1185,8 @@ Update `career.htm` so it reflects the hybrid product mission:
 <meta property="og:title" content="Careers | W&Patent Marketplace">
 <meta property="og:description" content="Career paths for builders who care about marketplace clarity and patent commercialization support.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://hmc62843u.github.io/career.htm">
-<link rel="canonical" href="https://hmc62843u.github.io/career.htm">
+<meta property="og:url" content="https://wpatent.com/career.htm">
+<link rel="canonical" href="https://wpatent.com/career.htm">
 <section class="page-title">
   <span class="eyebrow mono">Career</span>
   <h1>Help shape a marketplace that makes patent opportunities easier to understand.</h1>
@@ -1241,18 +1241,18 @@ test("robots exposes sitemap", () => {
 
 test("sitemap lists every public page", () => {
   for (const url of [
-    "https://hmc62843u.github.io/",
-    "https://hmc62843u.github.io/listings.htm",
-    "https://hmc62843u.github.io/platform.htm",
-    "https://hmc62843u.github.io/about.htm",
-    "https://hmc62843u.github.io/why_us.htm",
-    "https://hmc62843u.github.io/faq.htm",
-    "https://hmc62843u.github.io/career.htm",
-    "https://hmc62843u.github.io/listing-points2perks.htm",
-    "https://hmc62843u.github.io/listing-tourist-aid.htm",
-    "https://hmc62843u.github.io/listing-persona-album.htm",
-    "https://hmc62843u.github.io/listing-sign-language-chat.htm",
-    "https://hmc62843u.github.io/listing-dashing-robo.htm"
+    "https://wpatent.com/",
+    "https://wpatent.com/listings.htm",
+    "https://wpatent.com/platform.htm",
+    "https://wpatent.com/about.htm",
+    "https://wpatent.com/why_us.htm",
+    "https://wpatent.com/faq.htm",
+    "https://wpatent.com/career.htm",
+    "https://wpatent.com/listing-points2perks.htm",
+    "https://wpatent.com/listing-tourist-aid.htm",
+    "https://wpatent.com/listing-persona-album.htm",
+    "https://wpatent.com/listing-sign-language-chat.htm",
+    "https://wpatent.com/listing-dashing-robo.htm"
   ]) {
     assert.match(sitemap, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
@@ -1277,7 +1277,7 @@ Create `robots.txt`:
 User-agent: *
 Allow: /
 
-Sitemap: https://hmc62843u.github.io/sitemap.xml
+Sitemap: https://wpatent.com/sitemap.xml
 ```
 
 Create `sitemap.xml`:
@@ -1285,18 +1285,18 @@ Create `sitemap.xml`:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://hmc62843u.github.io/</loc></url>
-  <url><loc>https://hmc62843u.github.io/listings.htm</loc></url>
-  <url><loc>https://hmc62843u.github.io/platform.htm</loc></url>
-  <url><loc>https://hmc62843u.github.io/about.htm</loc></url>
-  <url><loc>https://hmc62843u.github.io/why_us.htm</loc></url>
-  <url><loc>https://hmc62843u.github.io/faq.htm</loc></url>
-  <url><loc>https://hmc62843u.github.io/career.htm</loc></url>
-  <url><loc>https://hmc62843u.github.io/listing-points2perks.htm</loc></url>
-  <url><loc>https://hmc62843u.github.io/listing-tourist-aid.htm</loc></url>
-  <url><loc>https://hmc62843u.github.io/listing-persona-album.htm</loc></url>
-  <url><loc>https://hmc62843u.github.io/listing-sign-language-chat.htm</loc></url>
-  <url><loc>https://hmc62843u.github.io/listing-dashing-robo.htm</loc></url>
+  <url><loc>https://wpatent.com/</loc></url>
+  <url><loc>https://wpatent.com/listings.htm</loc></url>
+  <url><loc>https://wpatent.com/platform.htm</loc></url>
+  <url><loc>https://wpatent.com/about.htm</loc></url>
+  <url><loc>https://wpatent.com/why_us.htm</loc></url>
+  <url><loc>https://wpatent.com/faq.htm</loc></url>
+  <url><loc>https://wpatent.com/career.htm</loc></url>
+  <url><loc>https://wpatent.com/listing-points2perks.htm</loc></url>
+  <url><loc>https://wpatent.com/listing-tourist-aid.htm</loc></url>
+  <url><loc>https://wpatent.com/listing-persona-album.htm</loc></url>
+  <url><loc>https://wpatent.com/listing-sign-language-chat.htm</loc></url>
+  <url><loc>https://wpatent.com/listing-dashing-robo.htm</loc></url>
 </urlset>
 ```
 

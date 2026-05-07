@@ -86,8 +86,8 @@ const pages = [
 Extend the sitemap URL list in `tests/discovery.test.mjs` with these entries:
 
 ```js
-    "https://hmc62843u.github.io/trust-chain.htm",
-    "https://hmc62843u.github.io/trust-chain-demo.htm",
+    "https://wpatent.com/trust-chain.htm",
+    "https://wpatent.com/trust-chain-demo.htm",
 ```
 
 Create `tests/trust-chain.test.mjs` with this initial contract:
@@ -156,8 +156,8 @@ Create `trust-chain.htm` with this minimal shell:
   <meta property="og:title" content="Trust Chain Template | W&Patent">
   <meta property="og:description" content="See how W&Patent frames domain, author, and content into a clearer trust chain for AI-readable authority pages.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hmc62843u.github.io/trust-chain.htm">
-  <link rel="canonical" href="https://hmc62843u.github.io/trust-chain.htm">
+  <meta property="og:url" content="https://wpatent.com/trust-chain.htm">
+  <link rel="canonical" href="https://wpatent.com/trust-chain.htm">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -210,8 +210,8 @@ Create `trust-chain-demo.htm` with this minimal shell:
   <meta property="og:title" content="Trust Chain Demo | W&Patent">
   <meta property="og:description" content="Inspect a static authority-page demo with domain, author, proof, and machine-readable trust layers.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hmc62843u.github.io/trust-chain-demo.htm">
-  <link rel="canonical" href="https://hmc62843u.github.io/trust-chain-demo.htm">
+  <meta property="og:url" content="https://wpatent.com/trust-chain-demo.htm">
+  <link rel="canonical" href="https://wpatent.com/trust-chain-demo.htm">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -251,8 +251,8 @@ Create `trust-chain-demo.htm` with this minimal shell:
 Add the two new URLs in `sitemap.xml` directly before `about.htm`:
 
 ```xml
-  <url><loc>https://hmc62843u.github.io/trust-chain.htm</loc></url>
-  <url><loc>https://hmc62843u.github.io/trust-chain-demo.htm</loc></url>
+  <url><loc>https://wpatent.com/trust-chain.htm</loc></url>
+  <url><loc>https://wpatent.com/trust-chain-demo.htm</loc></url>
 ```
 
 - [ ] **Step 4: Run the targeted tests and confirm they pass**
@@ -430,7 +430,7 @@ Add these JSON-LD blocks in the `<head>` of `trust-chain.htm`:
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "W&Patent",
-    "url": "https://hmc62843u.github.io/",
+    "url": "https://wpatent.com/",
     "description": "Andrew-led authority systems, patent advisory, and structured web experiences."
   }
   </script>
@@ -630,7 +630,7 @@ Add these JSON-LD blocks inside the `<head>` of `trust-chain-demo.htm`:
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Trust Chain Demo",
-    "url": "https://hmc62843u.github.io/trust-chain-demo.htm",
+    "url": "https://wpatent.com/trust-chain-demo.htm",
     "description": "Static demo of a founder-led authority page built with the Trust Chain method."
   }
   </script>

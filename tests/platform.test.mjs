@@ -64,7 +64,7 @@ test("ucp manifest aligns to the platform demo capabilities", () => {
       "advanceMockTransaction"
     ]
   );
-  assert.equal(ucp.endpoints.platform, "https://hmc62843u.github.io/platform.htm");
+  assert.equal(ucp.endpoints.platform, "https://wpatent.com/platform.htm");
 });
 
 test("site script exposes protocol scenarios, mock states, and tool helpers", () => {

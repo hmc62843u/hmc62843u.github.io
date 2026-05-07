@@ -62,7 +62,7 @@ const pages = [
 Insert the new URL into the list in `tests/discovery.test.mjs` immediately after `trust-chain-demo.htm`:
 
 ```js
-    "https://hmc62843u.github.io/trust-chain-explainer.htm",
+    "https://wpatent.com/trust-chain-explainer.htm",
 ```
 
 - [ ] **Step 3: Extend the Trust Chain contract test file with explainer expectations**
@@ -84,7 +84,7 @@ test("trust chain explainer page is public, crawlable, and tied back to the syst
 
   for (const fragment of [
     "<title>When a Startup Domain Becomes Trust Infrastructure | W&amp;Patent</title>",
-    '<link rel="canonical" href="https://hmc62843u.github.io/trust-chain-explainer.htm">',
+    '<link rel="canonical" href="https://wpatent.com/trust-chain-explainer.htm">',
     '"@type": "WebPage"',
     "When a Startup Domain Becomes Trust Infrastructure",
     "Why SEO, AEO, and GEO are converging",
@@ -155,8 +155,8 @@ Create `trust-chain-explainer.htm` with this complete HTML:
     content="Why SEO, AEO, and GEO are converging into a more founder-led model of credibility, and what that means for startup domains in 2026."
   >
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://hmc62843u.github.io/trust-chain-explainer.htm">
-  <link rel="canonical" href="https://hmc62843u.github.io/trust-chain-explainer.htm">
+  <meta property="og:url" content="https://wpatent.com/trust-chain-explainer.htm">
+  <link rel="canonical" href="https://wpatent.com/trust-chain-explainer.htm">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -166,7 +166,7 @@ Create `trust-chain-explainer.htm` with this complete HTML:
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "When a Startup Domain Becomes Trust Infrastructure",
-    "url": "https://hmc62843u.github.io/trust-chain-explainer.htm",
+    "url": "https://wpatent.com/trust-chain-explainer.htm",
     "description": "Founder-facing Trust Chain explainer on why startup domains now function as part of trust infrastructure across SEO, AEO, and GEO."
   }
   </script>
@@ -275,7 +275,7 @@ Create `trust-chain-explainer.htm` with this complete HTML:
 Insert this line in `sitemap.xml` directly after the existing `trust-chain-demo.htm` entry:
 
 ```xml
-  <url><loc>https://hmc62843u.github.io/trust-chain-explainer.htm</loc></url>
+  <url><loc>https://wpatent.com/trust-chain-explainer.htm</loc></url>
 ```
 
 - [ ] **Step 4: Run the targeted tests to verify the new route contract passes**

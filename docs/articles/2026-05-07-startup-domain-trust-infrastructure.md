@@ -1,9 +1,9 @@
 # When a Startup Domain Becomes Trust Infrastructure
 
-_Why SEO, AEO, and GEO are converging into a more founder-led model of credibility, and how the W&Patent rework helped make that shift visible._
+_Why SEO, AEO, and GEO are converging into a more founder-led model of authority and credibility, and how the W&Patent rework helped make that shift visible._
 
 By Andrew Leung, founder of W&Patent  
-Canonical source: https://hmc62843u.github.io/trust-chain-explainer.htm
+Canonical source: https://wpatent.com/trust-chain-explainer.htm
 
 For a long time, building a good startup website mostly meant getting the right pages up, writing decent copy, and making sure the site could rank. That model still matters, but it no longer feels complete. In 2026, a domain is not just where a company describes itself. It is increasingly part of how the company gets understood, judged, and trusted across the web, including by AI systems that now shape more of how discovery happens.
 
@@ -16,6 +16,8 @@ In that environment, a domain becomes more than a brochure. By following an appr
 ## Three Layers
 
 What became clearer to me through the W&Patent rework is that this breaks into at least three overlapping layers: SEO, AEO, and GEO. They are related, but they are not identical.
+
+Same domain, different jobs.
 
 | Area | Simple Meaning | What It Helps With |
 | --- | --- | --- |

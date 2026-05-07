@@ -14,11 +14,11 @@ test("trust chain landing and demo pages exist with canonical links", () => {
   const demo = read("trust-chain-demo.htm");
 
   assert.match(landing, /<title>Trust Chain Template \| W&amp;Patent<\/title>/);
-  assert.match(landing, /<link rel="canonical" href="https:\/\/hmc62843u\.github\.io\/trust-chain\.htm">/);
+  assert.match(landing, /<link rel="canonical" href="https:\/\/wpatent\.com\/trust-chain\.htm">/);
   assert.match(landing, /href="trust-chain-demo\.htm"/);
 
   assert.match(demo, /<title>Trust Chain Demo \| W&amp;Patent<\/title>/);
-  assert.match(demo, /<link rel="canonical" href="https:\/\/hmc62843u\.github\.io\/trust-chain-demo\.htm">/);
+  assert.match(demo, /<link rel="canonical" href="https:\/\/wpatent\.com\/trust-chain-demo\.htm">/);
   assert.match(demo, /href="trust-chain\.htm"/);
 });
 
@@ -127,13 +127,14 @@ test("trust chain explainer page is public, crawlable, and tied back to the syst
 
   for (const fragment of [
     "<title>When a Startup Domain Becomes Trust Infrastructure | W&amp;Patent</title>",
-    '<link rel="canonical" href="https://hmc62843u.github.io/trust-chain-explainer.htm">',
+    '<link rel="canonical" href="https://wpatent.com/trust-chain-explainer.htm">',
     '"@type": "WebPage"',
     "When a Startup Domain Becomes Trust Infrastructure",
-    "Why SEO, AEO, and GEO are converging",
+    "Why SEO, AEO, and GEO are converging into a more founder-led model of authority and credibility",
     "SEO",
     "AEO",
     "GEO",
+    "Same domain, different jobs.",
     "Trust Chain",
     "The goal is not to manufacture trust, but to make real credibility easier for AI systems to interpret, cite, and use.",
     'href="trust-chain.htm"',
@@ -178,7 +179,7 @@ test("trust chain article assets keep author, company, and canonical source conn
   assert.match(explainer, /By Andrew Leung, founder of W(?:&|&amp;)Patent/i);
   assert.match(article, /By Andrew Leung, founder of W(?:&|&amp;)Patent/i);
 
-  const canonicalPattern = /Canonical source: https:\/\/hmc62843u\.github\.io\/trust-chain-explainer\.htm/i;
+  const canonicalPattern = /Canonical source: https:\/\/wpatent\.com\/trust-chain-explainer\.htm/i;
   assert.match(explainer, canonicalPattern);
   assert.match(article, canonicalPattern);
 });

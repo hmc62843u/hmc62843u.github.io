@@ -88,7 +88,7 @@ test("ucp manifest aligns to the platform demo capabilities", () => {
       "advanceMockTransaction"
     ]
   );
-  assert.equal(ucp.endpoints.platform, "https://hmc62843u.github.io/platform.htm");
+  assert.equal(ucp.endpoints.platform, "https://wpatent.com/platform.htm");
 });
 ```
 
@@ -113,7 +113,7 @@ Update the head copy in `platform.htm` so the page advertises the browser-simula
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "W&Patent Marketplace Platform",
-    "url": "https://hmc62843u.github.io/platform.htm",
+    "url": "https://wpatent.com/platform.htm",
     "description": "Browser-simulated demo of a patent marketplace platform for listing intake, buyer discovery, and mock transaction states."
   }
   </script>
@@ -329,8 +329,8 @@ Replace `.well-known/ucp.json` with this aligned capability set:
     "currency": "USD"
   },
   "endpoints": {
-    "platform": "https://hmc62843u.github.io/platform.htm",
-    "listings": "https://hmc62843u.github.io/listings.htm"
+    "platform": "https://wpatent.com/platform.htm",
+    "listings": "https://wpatent.com/listings.htm"
   }
 }
 ```

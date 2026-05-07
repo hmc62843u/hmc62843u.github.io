@@ -35,7 +35,7 @@
     "currency": "USD"
   },
   "endpoints": {
-    "platform": "https://hmc62843u.github.io/platform.htm",
-    "listings": "https://hmc62843u.github.io/listings.htm"
+    "platform": "https://wpatent.com/platform.htm",
+    "listings": "https://wpatent.com/listings.htm"
   }
 }

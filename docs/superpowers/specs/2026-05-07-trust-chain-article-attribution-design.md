@@ -45,7 +45,7 @@ Use one compact editorial block directly below the title/subhead area.
 Required content:
 
 - `By Andrew Leung, founder of W&Patent`
-- `Canonical source: https://hmc62843u.github.io/trust-chain-explainer.htm`
+- `Canonical source: https://wpatent.com/trust-chain-explainer.htm`
 
 ## Placement
 
