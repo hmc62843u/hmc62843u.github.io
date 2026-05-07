@@ -112,3 +112,34 @@ test("trust chain scorecard intake stays static and uses the shared script helpe
     assert.match(script, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
   }
 });
+
+test("trust chain methodology links to the explainer companion", () => {
+  const landing = read("trust-chain.htm");
+
+  assert.match(landing, /href="trust-chain-explainer\.htm"/);
+  assert.match(landing, /Read why this matters in 2026/i);
+});
+
+test("trust chain explainer page is public, crawlable, and tied back to the system", () => {
+  assert.equal(existsSync(new URL("../trust-chain-explainer.htm", import.meta.url)), true);
+
+  const explainer = read("trust-chain-explainer.htm");
+
+  for (const fragment of [
+    "<title>When a Startup Domain Becomes Trust Infrastructure | W&amp;Patent</title>",
+    '<link rel="canonical" href="https://hmc62843u.github.io/trust-chain-explainer.htm">',
+    '"@type": "WebPage"',
+    "When a Startup Domain Becomes Trust Infrastructure",
+    "Why SEO, AEO, and GEO are converging",
+    "SEO",
+    "AEO",
+    "GEO",
+    "Trust Chain",
+    "The goal is not to manufacture trust, but to make real credibility easier for AI systems to interpret, cite, and use.",
+    'href="trust-chain.htm"',
+    'href="trust-chain-demo.htm"',
+    'href="templates/trust-chain-starter.zip"'
+  ]) {
+    assert.match(explainer, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+  }
+});

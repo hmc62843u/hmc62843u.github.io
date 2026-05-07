@@ -9,7 +9,8 @@ const pages = [
   "faq.htm",
   "career.htm",
   "trust-chain.htm",
-  "trust-chain-demo.htm"
+  "trust-chain-demo.htm",
+  "trust-chain-explainer.htm"
 ];
 
 function read(page) {
