@@ -44,3 +44,39 @@ test("trust chain landing page explains the methodology honestly", () => {
     assert.match(landing, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
   }
 });
+
+test("trust chain demo page shows a complete authority-page example", () => {
+  const demo = read("trust-chain-demo.htm");
+
+  for (const fragment of [
+    "Signal Atlas",
+    "Domain",
+    "Author",
+    "Content",
+    "Proof",
+    "Machine-readable layer",
+    '"@type": "WebPage"',
+    '"@type": "FAQPage"',
+    'href="trust-chain.htm"'
+  ]) {
+    assert.match(demo, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+  }
+});
+
+test("starter-kit files and repo README document the trust chain assets", () => {
+  assert.equal(existsSync(new URL("../templates/trust-chain-starter/README.md", import.meta.url)), true);
+  assert.equal(existsSync(new URL("../templates/trust-chain-starter/config.json", import.meta.url)), true);
+  assert.equal(existsSync(new URL("../templates/trust-chain-starter/index.html", import.meta.url)), true);
+
+  const starterReadme = read("templates/trust-chain-starter/README.md");
+  const starterConfig = read("templates/trust-chain-starter/config.json");
+  const starterHtml = read("templates/trust-chain-starter/index.html");
+  const repoReadme = read("README.md");
+
+  assert.match(starterReadme, /Trust Chain Starter Kit/i);
+  assert.match(starterConfig, /companyName/);
+  assert.match(starterHtml, /Founder-led authority page/i);
+  assert.match(repoReadme, /Trust Chain/i);
+  assert.match(repoReadme, /trust-chain\.htm/);
+  assert.match(repoReadme, /templates\/trust-chain-starter\//);
+});

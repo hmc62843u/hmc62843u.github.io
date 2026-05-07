@@ -17,6 +17,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Trust Chain Demo",
+    "url": "https://hmc62843u.github.io/trust-chain-demo.htm",
+    "description": "Static demo of a founder-led authority page built with the Trust Chain method."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What makes this page different from a normal startup homepage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It shows the company, founder, method, proof, and machine-readable structure in one place so the trust story is easier to inspect."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="topbar">
@@ -36,11 +61,39 @@
   <main class="container">
     <section class="hero">
       <span class="eyebrow mono">Live Demo</span>
-      <h1>Inspect the Trust Chain method on a single authority page.</h1>
-      <p class="lead">This static demo shows how a founder-led B2B firm can make its domain, author, proof, and structured content easier to parse.</p>
+      <h1>Signal Atlas makes operational analytics easier for revenue teams to trust.</h1>
+      <p class="lead">This fictional founder-led B2B company shows the Trust Chain method on one static page: clear entity language, visible authorship, proof blocks, and machine-readable explanation.</p>
       <div class="actions">
         <a class="btn btn-solid" href="trust-chain.htm">Back to the methodology</a>
+        <a class="btn" href="templates/trust-chain-starter/index.html">Open the starter kit</a>
       </div>
+    </section>
+
+    <section class="section grid cols-2">
+      <article class="card">
+        <p class="kicker">Domain</p>
+        <h2>Signal Atlas</h2>
+        <p>A founder-led software firm that helps revenue teams understand why pipeline changed, what accounts are at risk, and what evidence supports each recommendation.</p>
+      </article>
+      <article class="card">
+        <p class="kicker">Author</p>
+        <h2>Priya Raman, founder</h2>
+        <p>Priya spent eight years building B2B analytics workflows and now publishes the operating method behind the product, the scoring logic, and the proof expectations.</p>
+      </article>
+    </section>
+
+    <section class="section grid cols-3">
+      <article class="card"><h3>Content</h3><p>Plain-language positioning, FAQ answers, and a visible method section make the claim legible.</p></article>
+      <article class="card"><h3>Proof</h3><p>Case snapshots, source citations, and product artifacts show why the claim is believable.</p></article>
+      <article class="card"><h3>Machine-readable layer</h3><p>JSON-LD, canonical URLs, and consistent entity naming help the page stay parseable.</p></article>
+    </section>
+
+    <section class="section">
+      <article class="card">
+        <p class="kicker">FAQ</p>
+        <h3>What makes this page different from a normal startup homepage?</h3>
+        <p>It explains the company, the founder, the method, and the evidence in one place instead of scattering trust across disconnected pages.</p>
+      </article>
     </section>
   </main>
   <footer><div class="container mono">W&Patent - Andrew-led authority systems for clearer trust on the web.</div></footer>
