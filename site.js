@@ -6,6 +6,8 @@
   const searchForm = document.querySelector("[data-listing-search]");
   const searchInput = document.querySelector("[data-listing-query]");
   const cards = Array.from(document.querySelectorAll("[data-listing-card]"));
+  const scorecardForm = document.querySelector("[data-scorecard-form]");
+  const scorecardStatus = document.querySelector("[data-scorecard-status]");
 
   function openSignupModal(plan = "Basic") {
     if (!modal) return;
@@ -36,6 +38,19 @@
     if (emptyState) {
       emptyState.hidden = visibleCount !== 0;
     }
+  }
+
+  function buildScorecardMailto({ company, url, goal }) {
+    const subject = `Trust Chain Scorecard: ${company}`;
+    const body = [
+      "I'd like a Trust Chain Scorecard.",
+      "",
+      `Company: ${company}`,
+      `Primary URL: ${url}`,
+      `Main trust gap: ${goal}`
+    ].join("\n");
+
+    return `mailto:wp@wpatent.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   document.querySelectorAll("[data-open-signup]").forEach((button) => {
@@ -69,6 +84,23 @@
       filterCards(searchInput.value);
     });
     searchInput.addEventListener("input", () => filterCards(searchInput.value));
+  }
+
+  if (scorecardForm) {
+    scorecardForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(scorecardForm);
+      const company = String(formData.get("company") || "").trim();
+      const url = String(formData.get("url") || "").trim();
+      const goal = String(formData.get("goal") || "").trim();
+      const mailto = buildScorecardMailto({ company, url, goal });
+
+      if (scorecardStatus) {
+        scorecardStatus.textContent = "Opening your email client with a prefilled Trust Chain Scorecard request.";
+      }
+
+      window.location.href = mailto;
+    });
   }
 
   const protocolRoot = document.querySelector("[data-protocol-demo]");

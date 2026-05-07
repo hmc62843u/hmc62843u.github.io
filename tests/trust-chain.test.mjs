@@ -80,3 +80,28 @@ test("starter-kit files and repo README document the trust chain assets", () => 
   assert.match(repoReadme, /trust-chain\.htm/);
   assert.match(repoReadme, /templates\/trust-chain-starter\//);
 });
+
+test("trust chain scorecard intake stays static and uses the shared script helper", () => {
+  const landing = read("trust-chain.htm");
+  const script = read("site.js");
+
+  for (const fragment of [
+    'data-scorecard-form',
+    'id="scorecardCompany"',
+    'id="scorecardUrl"',
+    'id="scorecardGoal"',
+    'data-scorecard-status',
+    'mailto:wp@wpatent.com'
+  ]) {
+    assert.match(landing, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+  }
+
+  for (const fragment of [
+    'const scorecardForm = document.querySelector("[data-scorecard-form]")',
+    "function buildScorecardMailto(",
+    "wp@wpatent.com",
+    "Opening your email client with a prefilled Trust Chain Scorecard request."
+  ]) {
+    assert.match(script, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+  }
+});

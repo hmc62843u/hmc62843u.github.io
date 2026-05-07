@@ -265,6 +265,14 @@ h2 {
   margin-top: 20px;
 }
 
+.scorecard-card {
+  max-width: 820px;
+}
+
+.scorecard-card form {
+  margin-top: 18px;
+}
+
 .featured {
   outline: 2px solid var(--text);
 }

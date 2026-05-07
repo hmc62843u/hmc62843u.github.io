@@ -161,13 +161,26 @@
     </section>
 
     <section class="section">
-      <article class="card">
+      <article class="card scorecard-card">
         <p class="kicker">Trust Chain Scorecard</p>
-        <h2>Get a structured teardown of your current trust surface.</h2>
-        <p>The scorecard grades domain clarity, founder visibility, method articulation, proof quality, and machine-readable signals so you can see where trust breaks down first.</p>
-        <div class="actions">
-          <a class="btn btn-solid" href="mailto:wp@wpatent.com?subject=Trust%20Chain%20Scorecard">Request the scorecard</a>
-        </div>
+        <h2>Request an async teardown of your current trust surface.</h2>
+        <p>Tell W&amp;Patent what company you run, which URL matters most, and what trust gap you want to close first. This stays fully static: the form opens your email client with a prefilled request instead of pretending there is a backend.</p>
+        <form data-scorecard-form>
+          <label for="scorecardCompany">Company</label>
+          <input id="scorecardCompany" name="company" type="text" required>
+
+          <label for="scorecardUrl">Primary URL</label>
+          <input id="scorecardUrl" name="url" type="url" required>
+
+          <label for="scorecardGoal">Main trust gap</label>
+          <textarea id="scorecardGoal" name="goal" rows="4" required></textarea>
+
+          <div class="actions">
+            <button class="btn btn-solid" type="submit">Request the scorecard</button>
+            <a class="btn" href="mailto:wp@wpatent.com?subject=Trust%20Chain%20Scorecard">Email directly instead</a>
+          </div>
+        </form>
+        <p class="mono" data-scorecard-status></p>
       </article>
     </section>
 
