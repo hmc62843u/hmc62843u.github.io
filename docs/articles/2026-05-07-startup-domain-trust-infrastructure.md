@@ -2,6 +2,9 @@
 
 _Why SEO, AEO, and GEO are converging into a more founder-led model of credibility, and how the W&Patent rework helped make that shift visible._
 
+By Andrew Leung, founder of W&Patent  
+Canonical source: https://hmc62843u.github.io/trust-chain-explainer.htm
+
 For a long time, building a good startup website mostly meant getting the right pages up, writing decent copy, and making sure the site could rank. That model still matters, but it no longer feels complete. In 2026, a domain is not just where a company describes itself. It is increasingly part of how the company gets understood, judged, and trusted across the web, including by AI systems that now shape more of how discovery happens.
 
 That shift matters most for founders who are still unknown by default. Most young companies do not have years of brand recognition, press coverage, or market trust to lean on. For them, the website is doing more than marketing work. It is helping build the first durable layer of public credibility.

@@ -153,7 +153,8 @@ test("trust chain explainer page uses dedicated editorial scaffolding", () => {
     "article-header",
     "article-body",
     "article-table",
-    "article-cta"
+    "article-cta",
+    "article-attribution"
   ]) {
     assert.match(explainer, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
   }
@@ -163,7 +164,8 @@ test("trust chain explainer page uses dedicated editorial scaffolding", () => {
     ".article-header",
     ".article-body",
     ".article-table",
-    ".article-cta"
+    ".article-cta",
+    ".article-attribution"
   ]) {
     assert.match(styles, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
   }
@@ -173,12 +175,10 @@ test("trust chain article assets keep author, company, and canonical source conn
   const explainer = read("trust-chain-explainer.htm");
   const article = read("docs/articles/2026-05-07-startup-domain-trust-infrastructure.md");
 
-  for (const fragment of [
-    "By Andrew Leung, founder of W&Patent",
-    "Canonical source: https://hmc62843u.github.io/trust-chain-explainer.htm"
-  ]) {
-    const pattern = new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i");
-    assert.match(explainer, pattern);
-    assert.match(article, pattern);
-  }
+  assert.match(explainer, /By Andrew Leung, founder of W(?:&|&amp;)Patent/i);
+  assert.match(article, /By Andrew Leung, founder of W(?:&|&amp;)Patent/i);
+
+  const canonicalPattern = /Canonical source: https:\/\/hmc62843u\.github\.io\/trust-chain-explainer\.htm/i;
+  assert.match(explainer, canonicalPattern);
+  assert.match(article, canonicalPattern);
 });

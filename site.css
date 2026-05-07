@@ -483,6 +483,16 @@ td {
   max-width: 15ch;
 }
 
+.article-attribution {
+  margin-top: 14px;
+  color: var(--muted);
+}
+
+.article-attribution br {
+  display: block;
+  margin-top: 4px;
+}
+
 .article-body {
   max-width: 760px;
 }
