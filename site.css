@@ -471,6 +471,45 @@ td {
   vertical-align: top;
 }
 
+.article-shell {
+  padding: 78px 0 56px;
+}
+
+.article-header {
+  max-width: 900px;
+}
+
+.article-header h1 {
+  max-width: 15ch;
+}
+
+.article-body {
+  max-width: 760px;
+}
+
+.article-body h2 {
+  margin: 34px 0 12px;
+}
+
+.article-body p {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.article-table {
+  margin: 20px 0 24px;
+  overflow-x: auto;
+}
+
+.article-table table {
+  margin-top: 0;
+  background: var(--surface);
+}
+
+.article-cta {
+  margin-top: 34px;
+}
+
 @media (max-width: 900px) {
   .cols-3,
   .cols-2 {
@@ -500,6 +539,10 @@ td {
   }
 
   .hero {
+    padding-top: 50px;
+  }
+
+  .article-shell {
     padding-top: 50px;
   }
 }

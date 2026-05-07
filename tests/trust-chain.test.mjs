@@ -143,3 +143,28 @@ test("trust chain explainer page is public, crawlable, and tied back to the syst
     assert.match(explainer, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
   }
 });
+
+test("trust chain explainer page uses dedicated editorial scaffolding", () => {
+  const explainer = read("trust-chain-explainer.htm");
+  const styles = read("site.css");
+
+  for (const fragment of [
+    "article-shell",
+    "article-header",
+    "article-body",
+    "article-table",
+    "article-cta"
+  ]) {
+    assert.match(explainer, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+  }
+
+  for (const fragment of [
+    ".article-shell",
+    ".article-header",
+    ".article-body",
+    ".article-table",
+    ".article-cta"
+  ]) {
+    assert.match(styles, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+  }
+});
