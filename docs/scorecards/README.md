@@ -12,8 +12,11 @@ This folder holds internal before/after measurement assets for the W&Patent Trus
 ## Provider policy
 
 - `perplexity` rows are the main production evidence source for the Trust Chain scorecard.
-- `openai_web_search`, `opencode_dev`, and `kilocode_dev` rows are development or comparison outputs unless explicitly promoted later.
+- `exa_answer` rows are a production comparison source.
+- `openai_web_search` rows are comparison or development outputs unless explicitly promoted later.
+- `opencode_dev` and `kilocode_dev` rows are development or public-site simulation outputs.
 - The default prompt-evidence command stays production-safe by running `perplexity` only.
+- Use `--include-exa` when you want to compare Exa against the production benchmark.
 - Use `--include-dev` when you want to compare development providers or test the pipeline locally.
 
 ## Update routine
