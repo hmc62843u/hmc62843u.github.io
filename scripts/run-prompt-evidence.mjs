@@ -1,8 +1,11 @@
+import { execFile } from "node:child_process";
 import { appendFileSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
 import promptEvidence from "./lib/prompt-evidence.js";
 
+const execFileAsync = promisify(execFile);
 const { buildRow, csvEscape } = promptEvidence;
 
 const __filename = fileURLToPath(import.meta.url);
@@ -19,6 +22,17 @@ function requireEnv(name) {
     throw new Error(`Missing required environment variable: ${name}`);
   }
   return value;
+}
+
+function optionalEnv(name) {
+  const value = process.env[name];
+  return value ? value : "";
+}
+
+function parseArgs(argv) {
+  return {
+    includeDev: argv.includes("--include-dev")
+  };
 }
 
 function readPrompts() {
@@ -48,7 +62,8 @@ async function runPerplexity(prompt, apiKey) {
   const data = await response.json();
   return {
     answerText: data.choices?.[0]?.message?.content || "",
-    citations: data.citations || []
+    citations: data.citations || [],
+    notes: ""
   };
 }
 
@@ -88,8 +103,69 @@ async function runOpenAI(prompt, apiKey) {
 
   return {
     answerText: outputText,
-    citations
+    citations,
+    notes: "openai comparison run"
   };
+}
+
+async function runOpenCode(prompt) {
+  const { stdout } = await execFileAsync("opencode", ["run", prompt], {
+    cwd: repoRoot,
+    maxBuffer: 1024 * 1024
+  });
+
+  return {
+    answerText: stdout.trim(),
+    citations: [],
+    notes: "opencode local run via CLI; dev provider run; citations unavailable"
+  };
+}
+
+async function runKiloCode(prompt) {
+  const { stdout } = await execFileAsync("kilocode", ["run", "--auto", prompt], {
+    cwd: repoRoot,
+    maxBuffer: 1024 * 1024
+  });
+
+  return {
+    answerText: stdout.trim(),
+    citations: [],
+    notes: "kilocode local run via CLI; dev provider run; citations unavailable"
+  };
+}
+
+function buildProviders({ includeDev, openAIKey, prompt }) {
+  const providers = [
+    {
+      system: "perplexity",
+      run: () => runPerplexity(prompt, requireEnv("PERPLEXITY_API_KEY"))
+    }
+  ];
+
+  if (!includeDev) {
+    return providers;
+  }
+
+  if (openAIKey) {
+    providers.push({
+      system: "openai_web_search",
+      run: () => runOpenAI(prompt, openAIKey)
+    });
+  } else {
+    providers.push({
+      system: "openai_web_search",
+      run: async () => {
+        throw new Error("openai_web_search run skipped: OPENAI_API_KEY not configured");
+      }
+    });
+  }
+
+  providers.push(
+    { system: "opencode_dev", run: () => runOpenCode(prompt) },
+    { system: "kilocode_dev", run: () => runKiloCode(prompt) }
+  );
+
+  return providers;
 }
 
 function serializeRow(row) {
@@ -117,38 +193,51 @@ function ensureCsvHeader() {
   }
 }
 
+function isMissingCommandError(error) {
+  return Boolean(error) && typeof error === "object" && "code" in error && error.code === "ENOENT";
+}
+
+function noteFromError(system, error) {
+  if (isMissingCommandError(error)) {
+    return `${system} run skipped: command not found`;
+  }
+
+  return error instanceof Error ? error.message : String(error);
+}
+
 async function main() {
-  const perplexityKey = requireEnv("PERPLEXITY_API_KEY");
-  const openAIKey = requireEnv("OPENAI_API_KEY");
+  const { includeDev } = parseArgs(process.argv.slice(2));
   const prompts = readPrompts();
+  const openAIKey = optionalEnv("OPENAI_API_KEY");
 
   ensureCsvHeader();
 
   for (const prompt of prompts) {
     const timestamp = new Date().toISOString();
+    const providers = buildProviders({ includeDev, openAIKey, prompt });
 
-    for (const [system, runner, apiKey] of [
-      ["perplexity", runPerplexity, perplexityKey],
-      ["openai_web_search", runOpenAI, openAIKey]
-    ]) {
+    for (const provider of providers) {
       try {
-        const result = await runner(prompt, apiKey);
+        const result = await provider.run();
         const row = buildRow({
           timestamp,
-          system,
+          system: provider.system,
           prompt,
           answerText: result.answerText,
-          citations: result.citations
+          citations: result.citations,
+          notes: result.notes || ""
         });
         appendFileSync(csvPath, `${serializeRow(row)}\n`, "utf8");
       } catch (error) {
+        const note = noteFromError(provider.system, error);
+        console.warn(note);
         const row = buildRow({
           timestamp,
-          system,
+          system: provider.system,
           prompt,
           answerText: "",
           citations: [],
-          notes: error instanceof Error ? error.message : String(error)
+          notes: note
         });
         appendFileSync(csvPath, `${serializeRow(row)}\n`, "utf8");
       }
