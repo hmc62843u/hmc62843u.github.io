@@ -21,6 +21,29 @@
 - `.well-known/ucp.json` exposes machine-readable platform and listings endpoints.
 - The starter kit and Trust Chain Scorecard request flow are both live.
 
+## AEO/GEO Comparison
+
+- Development AEO/GEO: `11/20`
+- Production AEO/GEO: `3/20`
+
+### Development breakdown
+
+- Concept Alignment: `2/4`
+- Entity Recognition: `1/4`
+- Founder Recognition: `0/4`
+- Authority Framing: `4/4`
+- Reference Quality: `4/4`
+
+### Production breakdown
+
+- Concept Alignment: `1/4`
+- Entity Recognition: `0/4`
+- Founder Recognition: `0/4`
+- Authority Framing: `1/4`
+- Citation Quality: `1/4`
+
+Interpretation: internal and provider-assisted framing is stronger than public external citation so far.
+
 ## Prompt Set
 
 Use the same prompts before and after each score refresh:
