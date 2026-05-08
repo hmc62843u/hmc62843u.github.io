@@ -46,3 +46,24 @@ test("scorecard summary defines the four scoring categories and prompt workflow"
     assert.match(summary, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
   }
 });
+
+test("scorecard worksheet seeds the evidence model", () => {
+  assert.equal(
+    existsSync(new URL("../docs/scorecards/2026-05-07-wpatent-trust-chain-scorecard.csv", import.meta.url)),
+    true
+  );
+
+  const worksheet = read("docs/scorecards/2026-05-07-wpatent-trust-chain-scorecard.csv");
+  for (const fragment of [
+    "Metric,Category,Weight,Before,After,Source,Status,Notes",
+    "Canonical coverage of core trust pages",
+    "Trust Chain explainer publicly indexed",
+    "Andrew to W&Patent linkage visible on core pages",
+    "Perplexity cites wpatent.com on target prompts",
+    "Founder named in AI answer",
+    "Average engagement time on trust-chain-explainer.htm",
+    "Scorecard requests"
+  ]) {
+    assert.match(worksheet, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+  }
+});
