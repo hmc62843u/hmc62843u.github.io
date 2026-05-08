@@ -67,20 +67,22 @@ Interpretation: internal and provider-assisted framing is stronger than public e
   The public-site simulation fetched and grounded the answer in `https://wpatent.com/`, `trust-chain.htm`, `trust-chain-explainer.htm`, and `trust-chain-demo.htm`.
 
 **Production evidence used**
+- A live `exa_answer` rerun was completed on `2026-05-08` after the Trust Chain disambiguation and founder-linkage copy went live.
+- That rerun still produced `0/10` W&Patent mentions and `0/10` W&Patent citations across the fixed prompt set.
+- The `trust chain for websites` prompt still resolved to TLS or certificate-chain language rather than W&Patent's methodology framing.
 - Current production score remains provisional pending a fuller Perplexity-led prompt run.
-- Existing production assumptions come from the current Trust Chain scorecard setup rather than a fresh committed production evidence snapshot in the raw prompt log.
 
 **Production scoring notes**
 - Concept Alignment: `1/4`
-  Production evidence is not yet strong enough to show consistent Trust Chain interpretation across external systems.
+  Production evidence is still not strong enough to show consistent Trust Chain interpretation across external systems, even after the live disambiguation update.
 - Entity Recognition: `0/4`
-  No committed production prompt run yet shows reliable W&Patent recognition.
+  The post-deploy Exa rerun still showed no reliable W&Patent recognition.
 - Founder Recognition: `0/4`
-  No committed production prompt run yet shows consistent Andrew Leung naming.
+  The post-deploy Exa rerun still showed no consistent Andrew Leung naming.
 - Authority Framing: `1/4`
-  The site structure supports the intended framing, but committed external answer evidence remains sparse.
+  The site structure supports the intended framing, but the immediate external rerun suggests that copy-level clarification alone is not enough to change external answer behavior.
 - Citation Quality: `1/4`
-  Production citation evidence is still limited pending a fuller prompt run.
+  Production citation evidence is still absent in the current Exa snapshot and limited overall pending a fuller prompt run.
 
 ## Discovery Improvement Roadmap
 
@@ -101,9 +103,9 @@ The current working roadmap lives in `docs/scorecards/2026-05-08-wpatent-discove
 
 | Priority | Evidence pattern | Interpretation | Recommended action |
 | --- | --- | --- | --- |
-| `P1` | Public-site simulation is strong, but committed live production citation evidence is sparse. | W&Patent is relatively legible once the right pages are in context, but external discovery systems are not yet surfacing it reliably. | Expand and tighten topic-space pages around the highest-value prompt clusters, then rerun live provider checks to measure whether W&Patent starts appearing without prompt-side help. |
+| `P1` | Public-site simulation is strong, but the post-deploy Exa rerun still returned `0/10` W&Patent mentions and citations. | W&Patent is relatively legible once the right pages are in context, but external discovery systems are still not surfacing it reliably after a copy-only improvement pass. | Shift the next effort from copy polish alone to publishing dedicated topic-space pages around the highest-value prompt clusters, then rerun live provider checks to measure whether W&Patent starts appearing without prompt-side help. |
 | `P1` | Founder recognition is weak in both development and production scoring. | Authority transfer from Andrew Leung to W&Patent is still not durable enough in retrieved answers. | Strengthen founder naming, role repetition, and person-to-organization linkage across core pages and schema, especially on pages most likely to be cited. |
-| `P2` | Current evidence suggests the Trust Chain framing is clearer than the surrounding service/category framing. | W&Patent may be easier to interpret on its proprietary concept than on broader advisory topic spaces. | Build or sharpen pages mapped to prompt clusters such as founder-led authority building, AI-readable company websites, and startup patent strategy so the site can surface beyond branded or Trust Chain-specific prompts. |
+| `P2` | Current evidence suggests the Trust Chain framing is clearer than the surrounding service/category framing, but even that proprietary framing is still not winning externally on its own. | W&Patent may be easier to interpret on its proprietary concept than on broader advisory topic spaces, yet the current site still lacks enough topic ownership to break through. | Build or sharpen pages mapped to prompt clusters such as founder-led authority building, AI-readable company websites, startup patent strategy, and patent commercialization so the site can surface beyond branded or Trust Chain-specific prompts. |
 | `P2` | Citation quality is limited and may depend too much on a small set of pages. | The preferred citation targets are not yet obvious enough to external systems. | Make the explainer and adjacent topic pages easier to cite with sharper introductions, direct-answer sections, stronger internal anchor text, and cleaner page-level summaries. |
 | `P3` | The scorecard flow and starter kit are live, but business-outcome evidence is still incomplete. | Discovery gains may arrive before conversion and proof signals are fully validated. | Once live visibility improves, review scorecard CTA clarity, proof blocks, and destination flow so discovery wins translate into inquiries or starter-kit engagement. |
 
