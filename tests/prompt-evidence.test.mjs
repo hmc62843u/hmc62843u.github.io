@@ -47,6 +47,8 @@ test("scorecards README documents the prompt evidence artifacts", () => {
 test("scorecard docs describe production and development providers", () => {
   const readme = read("docs/scorecards/README.md");
   assert.match(readme, /perplexity.*production evidence source/i);
+  assert.match(readme, /exa_answer.*production comparison source/i);
+  assert.match(readme, /--include-exa/i);
   assert.match(readme, /openai_web_search.*development/i);
   assert.match(readme, /opencode_dev.*development/i);
   assert.match(readme, /kilocode_dev.*development/i);
@@ -103,10 +105,12 @@ test("runner script documents required APIs and append-only output", () => {
   for (const fragment of [
     "PERPLEXITY_API_KEY",
     "OPENAI_API_KEY",
+    "EXA_API_KEY",
     "docs/scorecards/prompts.txt",
     "docs/scorecards/2026-05-08-wpatent-prompt-runs.csv",
     "api.perplexity.ai",
     "api.openai.com",
+    "api.exa.ai",
     "appendFileSync",
     "buildRow"
   ]) {
@@ -117,7 +121,9 @@ test("runner script documents required APIs and append-only output", () => {
 test("runner defaults to perplexity only and supports dev providers", () => {
   const runner = read("scripts/run-prompt-evidence.mjs");
   assert.match(runner, /--include-dev/);
+  assert.match(runner, /--include-exa/);
   assert.match(runner, /perplexity/);
+  assert.match(runner, /exa_answer/);
   assert.match(runner, /openai_web_search/);
   assert.match(runner, /opencode_dev/);
   assert.match(runner, /kilocode_dev/);
