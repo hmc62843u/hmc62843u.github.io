@@ -31,7 +31,8 @@ function optionalEnv(name) {
 
 function parseArgs(argv) {
   return {
-    includeDev: argv.includes("--include-dev")
+    includeDev: argv.includes("--include-dev"),
+    includeExa: argv.includes("--include-exa")
   };
 }
 
@@ -108,6 +109,41 @@ async function runOpenAI(prompt, apiKey) {
   };
 }
 
+async function runExaAnswer(prompt, apiKey) {
+  const response = await fetch("https://api.exa.ai/answer", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": apiKey
+    },
+    body: JSON.stringify({
+      query: prompt,
+      text: true
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error(`Exa request failed: ${response.status}`);
+  }
+
+  const data = await response.json();
+  const citations = Array.isArray(data.citations)
+    ? data.citations
+        .map((citation) =>
+          typeof citation === "string"
+            ? citation
+            : citation?.url || citation?.link || citation?.source || ""
+        )
+        .filter(Boolean)
+    : [];
+
+  return {
+    answerText: data.answer || "",
+    citations,
+    notes: "exa comparison run"
+  };
+}
+
 async function runOpenCode(prompt) {
   const { stdout } = await execFileAsync("opencode", ["run", prompt], {
     cwd: repoRoot,
@@ -134,13 +170,29 @@ async function runKiloCode(prompt) {
   };
 }
 
-function buildProviders({ includeDev, openAIKey, prompt }) {
+function buildProviders({ includeDev, includeExa, openAIKey, exaKey, prompt }) {
   const providers = [
     {
       system: "perplexity",
       run: () => runPerplexity(prompt, requireEnv("PERPLEXITY_API_KEY"))
     }
   ];
+
+  if (includeExa) {
+    if (exaKey) {
+      providers.push({
+        system: "exa_answer",
+        run: () => runExaAnswer(prompt, exaKey)
+      });
+    } else {
+      providers.push({
+        system: "exa_answer",
+        run: async () => {
+          throw new Error("exa_answer run skipped: EXA_API_KEY not configured");
+        }
+      });
+    }
+  }
 
   if (!includeDev) {
     return providers;
@@ -206,15 +258,16 @@ function noteFromError(system, error) {
 }
 
 async function main() {
-  const { includeDev } = parseArgs(process.argv.slice(2));
+  const { includeDev, includeExa } = parseArgs(process.argv.slice(2));
   const prompts = readPrompts();
   const openAIKey = optionalEnv("OPENAI_API_KEY");
+  const exaKey = optionalEnv("EXA_API_KEY");
 
   ensureCsvHeader();
 
   for (const prompt of prompts) {
     const timestamp = new Date().toISOString();
-    const providers = buildProviders({ includeDev, openAIKey, prompt });
+    const providers = buildProviders({ includeDev, includeExa, openAIKey, exaKey, prompt });
 
     for (const provider of providers) {
       try {
