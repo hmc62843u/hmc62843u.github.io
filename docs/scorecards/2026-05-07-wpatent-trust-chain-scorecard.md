@@ -23,14 +23,14 @@
 
 ## AEO/GEO Comparison
 
-- Development AEO/GEO: `11/20`
+- Development AEO/GEO: `18/20`
 - Production AEO/GEO: `3/20`
 
 ### Development breakdown
 
-- Concept Alignment: `2/4`
-- Entity Recognition: `1/4`
-- Founder Recognition: `0/4`
+- Concept Alignment: `4/4`
+- Entity Recognition: `4/4`
+- Founder Recognition: `2/4`
 - Authority Framing: `4/4`
 - Reference Quality: `4/4`
 
@@ -43,6 +43,44 @@
 - Citation Quality: `1/4`
 
 Interpretation: internal and provider-assisted framing is stronger than public external citation so far.
+
+### Scoring Notes
+
+**Development evidence used**
+- `opencode_dev` — prompt: `trust chain for websites`
+  Notes: `manual dev E2E test via opencode CLI; citations unavailable`
+- `kilocode_dev` — prompt: `trust chain for websites`
+  Notes: `manual dev E2E test via kilo CLI with --model kilo/kilo-auto/free; citations unavailable`
+- `kilocode_dev` — prompt: `What is the Trust Chain for websites? Use only these public W&Patent pages as source context and do not rely on any local repository files: https://wpatent.com/ https://wpatent.com/trust-chain.htm https://wpatent.com/trust-chain-explainer.htm https://wpatent.com/trust-chain-demo.htm`
+  Notes: `public-site simulation; ran from /tmp with only public URLs in prompt; used kilo CLI with --model kilo/kilo-auto/free`
+
+**Development scoring notes**
+- Concept Alignment: `4/4`
+  The public-site Kilo simulation interpreted Trust Chain as W&Patent’s authority methodology rather than TLS or generic web security.
+- Entity Recognition: `4/4`
+  The public-site Kilo simulation recognized W&Patent and cited live W&Patent URLs from the site itself.
+- Founder Recognition: `2/4`
+  The public-site simulation preserved founder-linked authority framing, but did not explicitly name Andrew Leung in the returned answer.
+- Authority Framing: `4/4`
+  The public-site simulation connected domain, founder or author, and content in the intended Trust Chain structure.
+- Reference Quality: `4/4`
+  The public-site simulation fetched and grounded the answer in `https://wpatent.com/`, `trust-chain.htm`, `trust-chain-explainer.htm`, and `trust-chain-demo.htm`.
+
+**Production evidence used**
+- Current production score remains provisional pending a fuller Perplexity-led prompt run.
+- Existing production assumptions come from the current Trust Chain scorecard setup rather than a fresh committed production evidence snapshot in the raw prompt log.
+
+**Production scoring notes**
+- Concept Alignment: `1/4`
+  Production evidence is not yet strong enough to show consistent Trust Chain interpretation across external systems.
+- Entity Recognition: `0/4`
+  No committed production prompt run yet shows reliable W&Patent recognition.
+- Founder Recognition: `0/4`
+  No committed production prompt run yet shows consistent Andrew Leung naming.
+- Authority Framing: `1/4`
+  The site structure supports the intended framing, but committed external answer evidence remains sparse.
+- Citation Quality: `1/4`
+  Production citation evidence is still limited pending a fuller prompt run.
 
 ## Prompt Set
 
