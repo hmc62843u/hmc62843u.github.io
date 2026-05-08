@@ -44,6 +44,14 @@ test("scorecards README documents the prompt evidence artifacts", () => {
   assert.match(readme, /append/i);
 });
 
+test("scorecard docs describe production and development providers", () => {
+  const readme = read("docs/scorecards/README.md");
+  assert.match(readme, /perplexity.*production evidence source/i);
+  assert.match(readme, /openai_web_search.*development/i);
+  assert.match(readme, /opencode_dev.*development/i);
+  assert.match(readme, /kilocode_dev.*development/i);
+});
+
 test("normalization helpers identify W&Patent and Andrew signals", () => {
   const citations = normalizeCitations([
     "https://wpatent.com/trust-chain-explainer.htm",
@@ -104,4 +112,20 @@ test("runner script documents required APIs and append-only output", () => {
   ]) {
     assert.match(runner, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
   }
+});
+
+test("runner defaults to perplexity only and supports dev providers", () => {
+  const runner = read("scripts/run-prompt-evidence.mjs");
+  assert.match(runner, /--include-dev/);
+  assert.match(runner, /perplexity/);
+  assert.match(runner, /openai_web_search/);
+  assert.match(runner, /opencode_dev/);
+  assert.match(runner, /kilocode_dev/);
+});
+
+test("runner includes CLI-based dev provider handling", () => {
+  const runner = read("scripts/run-prompt-evidence.mjs");
+  assert.match(runner, /execFile/);
+  assert.match(runner, /opencode/);
+  assert.match(runner, /kilocode/);
 });
