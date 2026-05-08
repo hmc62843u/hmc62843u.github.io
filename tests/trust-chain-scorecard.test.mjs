@@ -21,3 +21,28 @@ test("root README points to scorecard assets", () => {
   assert.match(rootReadme, /docs\/scorecards\//);
   assert.match(rootReadme, /trust-chain-scorecard/i);
 });
+
+test("scorecard summary defines the four scoring categories and prompt workflow", () => {
+  assert.equal(
+    existsSync(new URL("../docs/scorecards/2026-05-07-wpatent-trust-chain-scorecard.md", import.meta.url)),
+    true
+  );
+
+  const summary = read("docs/scorecards/2026-05-07-wpatent-trust-chain-scorecard.md");
+  for (const fragment of [
+    "# W&Patent Trust Chain Scorecard",
+    "Summary Dashboard",
+    "Trust Surface Score",
+    "AI Visibility Score",
+    "Authority Transfer Score",
+    "Business Outcome Score",
+    "Headline Signals",
+    "Prompt Set",
+    "Perplexity",
+    "ChatGPT / AI Mode",
+    "Update Workflow",
+    "wpatent.com"
+  ]) {
+    assert.match(summary, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+  }
+});
