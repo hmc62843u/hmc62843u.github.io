@@ -87,3 +87,21 @@ test("csvEscape quotes commas and quotes safely", () => {
   assert.equal(csvEscape("alpha,beta"), "\"alpha,beta\"");
   assert.equal(csvEscape("say \"hello\""), "\"say \"\"hello\"\"\"");
 });
+
+test("runner script documents required APIs and append-only output", () => {
+  assert.equal(existsSync(new URL("../scripts/run-prompt-evidence.mjs", import.meta.url)), true);
+
+  const runner = read("scripts/run-prompt-evidence.mjs");
+  for (const fragment of [
+    "PERPLEXITY_API_KEY",
+    "OPENAI_API_KEY",
+    "docs/scorecards/prompts.txt",
+    "docs/scorecards/2026-05-08-wpatent-prompt-runs.csv",
+    "api.perplexity.ai",
+    "api.openai.com",
+    "appendFileSync",
+    "buildRow"
+  ]) {
+    assert.match(runner, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+  }
+});
