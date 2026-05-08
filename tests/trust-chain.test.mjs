@@ -28,6 +28,7 @@ test("trust chain landing page explains the methodology honestly", () => {
   for (const fragment of [
     "<title>Trust Chain Template | W&amp;Patent</title>",
     "A free template for founder-led startups and B2B firms",
+    "not the HTTPS/TLS certificate chain",
     "This template helps structure trust. It does not manufacture it.",
     "Domain",
     "Author",
@@ -36,6 +37,7 @@ test("trust chain landing page explains the methodology honestly", () => {
     "Who This Is Not For",
     "Founder-led B2B firms",
     "Andrew Leung, founder of W&amp;Patent",
+    "Andrew Leung created Trust Chain",
     "Trust Chain Scorecard",
     'href="templates/trust-chain-starter.zip"',
     '"@type": "Organization"',
@@ -128,9 +130,11 @@ test("trust chain explainer page is public, crawlable, and tied back to the syst
   for (const fragment of [
     "<title>When a Startup Domain Becomes Trust Infrastructure | W&amp;Patent</title>",
     '<link rel="canonical" href="https://wpatent.com/trust-chain-explainer.htm">',
+    '"@type": "Article"',
     '"@type": "WebPage"',
     "When a Startup Domain Becomes Trust Infrastructure",
     "Why SEO, AEO, and GEO are converging into a more founder-led model of authority and credibility",
+    "I do not mean the HTTPS/TLS certificate chain",
     "SEO",
     "AEO",
     "GEO",
@@ -177,6 +181,7 @@ test("trust chain article assets keep author, company, and canonical source conn
   const article = read("docs/articles/2026-05-07-startup-domain-trust-infrastructure.md");
 
   assert.match(explainer, /By Andrew Leung, founder of W(?:&|&amp;)Patent/i);
+  assert.match(explainer, /creator of the Trust Chain method/i);
   assert.match(article, /By Andrew Leung, founder of W(?:&|&amp;)Patent/i);
 
   const canonicalPattern = /Canonical source: https:\/\/wpatent\.com\/trust-chain-explainer\.htm/i;

@@ -18,6 +18,7 @@ W&Patent is a static GitHub Pages site that combines a patent marketplace demo w
 
 - `docs/scorecards/2026-05-07-wpatent-trust-chain-scorecard.md`: before/after Trust Chain scorecard summary
 - `docs/scorecards/2026-05-07-wpatent-trust-chain-scorecard.csv`: detailed evidence worksheet
+- `docs/scorecards/2026-05-08-wpatent-discovery-roadmap.md`: prioritized discovery roadmap tied to the current evidence snapshot
 
 ## Development
 

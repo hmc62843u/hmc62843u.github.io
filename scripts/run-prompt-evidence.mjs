@@ -30,9 +30,12 @@ function optionalEnv(name) {
 }
 
 function parseArgs(argv) {
+  const onlyExa = argv.includes("--only-exa");
+
   return {
     includeDev: argv.includes("--include-dev"),
-    includeExa: argv.includes("--include-exa")
+    includeExa: argv.includes("--include-exa") || onlyExa,
+    onlyExa
   };
 }
 
@@ -170,13 +173,15 @@ async function runKiloCode(prompt) {
   };
 }
 
-function buildProviders({ includeDev, includeExa, openAIKey, exaKey, prompt }) {
-  const providers = [
-    {
+function buildProviders({ includeDev, includeExa, onlyExa, openAIKey, exaKey, prompt }) {
+  const providers = [];
+
+  if (!onlyExa) {
+    providers.push({
       system: "perplexity",
       run: () => runPerplexity(prompt, requireEnv("PERPLEXITY_API_KEY"))
-    }
-  ];
+    });
+  }
 
   if (includeExa) {
     if (exaKey) {
@@ -194,7 +199,7 @@ function buildProviders({ includeDev, includeExa, openAIKey, exaKey, prompt }) {
     }
   }
 
-  if (!includeDev) {
+  if (onlyExa || !includeDev) {
     return providers;
   }
 
@@ -258,7 +263,7 @@ function noteFromError(system, error) {
 }
 
 async function main() {
-  const { includeDev, includeExa } = parseArgs(process.argv.slice(2));
+  const { includeDev, includeExa, onlyExa } = parseArgs(process.argv.slice(2));
   const prompts = readPrompts();
   const openAIKey = optionalEnv("OPENAI_API_KEY");
   const exaKey = optionalEnv("EXA_API_KEY");
@@ -267,7 +272,7 @@ async function main() {
 
   for (const prompt of prompts) {
     const timestamp = new Date().toISOString();
-    const providers = buildProviders({ includeDev, includeExa, openAIKey, exaKey, prompt });
+    const providers = buildProviders({ includeDev, includeExa, onlyExa, openAIKey, exaKey, prompt });
 
     for (const provider of providers) {
       try {

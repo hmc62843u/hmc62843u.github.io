@@ -20,6 +20,7 @@ test("root README points to scorecard assets", () => {
   const rootReadme = read("README.md");
   assert.match(rootReadme, /docs\/scorecards\//);
   assert.match(rootReadme, /trust-chain-scorecard/i);
+  assert.match(rootReadme, /discovery-roadmap/i);
 });
 
 test("scorecard summary defines the four scoring categories and prompt workflow", () => {
@@ -57,6 +58,29 @@ test("scorecard summary includes the AEO/GEO comparison block", () => {
   assert.match(summary, /Founder Recognition/i);
   assert.match(summary, /Authority Framing/i);
   assert.match(summary, /Reference Quality|Citation Quality/i);
+});
+
+test("discovery roadmap turns current evidence into prioritized actions", () => {
+  assert.equal(
+    existsSync(new URL("../docs/scorecards/2026-05-08-wpatent-discovery-roadmap.md", import.meta.url)),
+    true
+  );
+
+  const roadmap = read("docs/scorecards/2026-05-08-wpatent-discovery-roadmap.md");
+  for (const fragment of [
+    "# W&Patent Discovery Improvement Roadmap",
+    "Current Evidence Snapshot",
+    "Priority Workstreams",
+    "public-site simulation",
+    "external discovery evidence",
+    "trust chain for websites",
+    "0/10",
+    "Andrew Leung",
+    "Validation",
+    "Recommended Build Order"
+  ]) {
+    assert.match(roadmap, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+  }
 });
 
 test("scorecard worksheet seeds the evidence model", () => {

@@ -24,9 +24,11 @@ test("homepage previews every featured listing detail page", () => {
 });
 
 test("homepage exposes trust and schema markers", () => {
-  assert.match(html, /Andrew Leung/);
+  assert.match(html, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
   assert.match(html, /10\+ years helping startups use patent strategy to build defensibility, sharper positioning, and long-term commercial leverage\./);
+  assert.match(html, /not the HTTPS\/TLS certificate trust chain/i);
   assert.match(html, /"@type":\s*"Organization"/);
+  assert.match(html, /"@type":\s*"Person"/);
   assert.match(html, /"@type":\s*"WebSite"/);
   assert.match(html, /AEO \/ GEO FAQ/);
 });

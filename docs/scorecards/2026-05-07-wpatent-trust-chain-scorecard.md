@@ -82,6 +82,38 @@ Interpretation: internal and provider-assisted framing is stronger than public e
 - Citation Quality: `1/4`
   Production citation evidence is still limited pending a fuller prompt run.
 
+## Discovery Improvement Roadmap
+
+This framework should produce a prioritized discovery improvement roadmap, not just score snapshots.
+Each recommendation should be grounded in a specific evidence class so measurement and action stay tied together.
+The current working roadmap lives in `docs/scorecards/2026-05-08-wpatent-discovery-roadmap.md`.
+
+### Evidence classes
+
+- `external discovery evidence`
+  Live Perplexity, Exa, OpenAI web search, Search Console, GA, and any real third-party mentions or citations.
+- `public-site simulation`
+  Public-URL-constrained tests or development-provider runs that show how the live W&Patent pages can be interpreted.
+- `site structure evidence`
+  Repo HTML, schema, internal links, canonical signals, and test-backed implementation facts.
+
+### Current priorities
+
+| Priority | Evidence pattern | Interpretation | Recommended action |
+| --- | --- | --- | --- |
+| `P1` | Public-site simulation is strong, but committed live production citation evidence is sparse. | W&Patent is relatively legible once the right pages are in context, but external discovery systems are not yet surfacing it reliably. | Expand and tighten topic-space pages around the highest-value prompt clusters, then rerun live provider checks to measure whether W&Patent starts appearing without prompt-side help. |
+| `P1` | Founder recognition is weak in both development and production scoring. | Authority transfer from Andrew Leung to W&Patent is still not durable enough in retrieved answers. | Strengthen founder naming, role repetition, and person-to-organization linkage across core pages and schema, especially on pages most likely to be cited. |
+| `P2` | Current evidence suggests the Trust Chain framing is clearer than the surrounding service/category framing. | W&Patent may be easier to interpret on its proprietary concept than on broader advisory topic spaces. | Build or sharpen pages mapped to prompt clusters such as founder-led authority building, AI-readable company websites, and startup patent strategy so the site can surface beyond branded or Trust Chain-specific prompts. |
+| `P2` | Citation quality is limited and may depend too much on a small set of pages. | The preferred citation targets are not yet obvious enough to external systems. | Make the explainer and adjacent topic pages easier to cite with sharper introductions, direct-answer sections, stronger internal anchor text, and cleaner page-level summaries. |
+| `P3` | The scorecard flow and starter kit are live, but business-outcome evidence is still incomplete. | Discovery gains may arrive before conversion and proof signals are fully validated. | Once live visibility improves, review scorecard CTA clarity, proof blocks, and destination flow so discovery wins translate into inquiries or starter-kit engagement. |
+
+### Prioritization rules
+
+- External discovery evidence outranks simulation when roadmap priorities conflict.
+- Simulation evidence should be used to diagnose copy, page, or structure issues rather than to claim public visibility.
+- Fixes that improve understanding across multiple prompt clusters should outrank one-off prompt tuning.
+- Every roadmap item should name the metric or evidence check that will confirm whether the change worked.
+
 ## Prompt Set
 
 Use the same prompts before and after each score refresh:
@@ -103,4 +135,6 @@ Use the same prompts before and after each score refresh:
 2. Confirm the current site state for `index.html`, `trust-chain.htm`, `trust-chain-demo.htm`, `trust-chain-explainer.htm`, `platform.htm`, `listings.htm`, `robots.txt`, `sitemap.xml`, and `.well-known/ucp.json`.
 3. Run the fixed prompt set and record whether W&Patent is mentioned, whether `wpatent.com` is cited, which page is cited, and whether Andrew is named.
 4. Pull Search Console and GA data for impressions, clicks, engagement time, and any scorecard or starter-kit destination traffic that is available.
-5. Update the CSV worksheet first, then refresh this summary with the latest before/after narrative.
+5. Classify the latest findings as `external discovery evidence`, `public-site simulation`, or `site structure evidence`.
+6. Refresh the discovery improvement roadmap before adjusting headline interpretations.
+7. Update the CSV worksheet first, then refresh this summary with the latest before/after narrative.

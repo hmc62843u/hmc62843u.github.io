@@ -49,9 +49,29 @@ test("scorecard docs describe production and development providers", () => {
   assert.match(readme, /perplexity.*production evidence source/i);
   assert.match(readme, /exa_answer.*production comparison source/i);
   assert.match(readme, /--include-exa/i);
+  assert.match(readme, /--only-exa/i);
   assert.match(readme, /openai_web_search.*development/i);
   assert.match(readme, /opencode_dev.*development/i);
   assert.match(readme, /kilocode_dev.*development/i);
+});
+
+test("env file hygiene assets are documented", () => {
+  assert.equal(existsSync(new URL("../.env.example", import.meta.url)), true);
+  assert.equal(existsSync(new URL("../.gitignore", import.meta.url)), true);
+
+  const example = read(".env.example");
+  const ignore = read(".gitignore");
+  const readme = read("docs/scorecards/README.md");
+
+  assert.match(example, /EXA_API_KEY=/);
+  assert.match(example, /PERPLEXITY_API_KEY=/);
+  assert.match(example, /OPENAI_API_KEY=/);
+  assert.match(ignore, /^\.env$/m);
+  assert.match(ignore, /^\.env\.local$/m);
+  assert.match(ignore, /^\.env\.\*$/m);
+  assert.match(ignore, /^!\.env\.example$/m);
+  assert.match(readme, /--env-file=.env\.local/i);
+  assert.match(readme, /--env-file-if-exists=.env\.local/i);
 });
 
 test("normalization helpers identify W&Patent and Andrew signals", () => {
@@ -122,6 +142,7 @@ test("runner defaults to perplexity only and supports dev providers", () => {
   const runner = read("scripts/run-prompt-evidence.mjs");
   assert.match(runner, /--include-dev/);
   assert.match(runner, /--include-exa/);
+  assert.match(runner, /--only-exa/);
   assert.match(runner, /perplexity/);
   assert.match(runner, /exa_answer/);
   assert.match(runner, /openai_web_search/);

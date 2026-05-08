@@ -9,10 +9,15 @@ const career = readFileSync(new URL("../career.htm", import.meta.url), "utf8");
 
 test("about page ties expertise to marketplace evaluation", () => {
   assert.match(about, /Andrew Leung/);
+  assert.match(about, /founded W&(?:amp;)?Patent/i);
   assert.match(about, /marketplace/);
   assert.match(about, /commercialization/i);
   assert.match(about, /startup defensibility/i);
   assert.match(about, /sharper market positioning/i);
+  assert.match(about, /Trust Chain/i);
+  assert.match(about, /not the HTTPS\/TLS certificate chain/i);
+  assert.match(about, /"@type":\s*"Organization"/);
+  assert.match(about, /"@type":\s*"Person"/);
   assert.match(about, /<link rel="canonical" href="https:\/\/wpatent\.com\/about\.htm">/);
 });
 
