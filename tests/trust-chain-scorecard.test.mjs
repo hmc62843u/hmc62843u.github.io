@@ -47,6 +47,18 @@ test("scorecard summary defines the four scoring categories and prompt workflow"
   }
 });
 
+test("scorecard summary includes the AEO/GEO comparison block", () => {
+  const summary = read("docs/scorecards/2026-05-07-wpatent-trust-chain-scorecard.md");
+  assert.match(summary, /## AEO\/GEO Comparison/i);
+  assert.match(summary, /Development AEO\/GEO/i);
+  assert.match(summary, /Production AEO\/GEO/i);
+  assert.match(summary, /Concept Alignment/i);
+  assert.match(summary, /Entity Recognition/i);
+  assert.match(summary, /Founder Recognition/i);
+  assert.match(summary, /Authority Framing/i);
+  assert.match(summary, /Reference Quality|Citation Quality/i);
+});
+
 test("scorecard worksheet seeds the evidence model", () => {
   assert.equal(
     existsSync(new URL("../docs/scorecards/2026-05-07-wpatent-trust-chain-scorecard.csv", import.meta.url)),
