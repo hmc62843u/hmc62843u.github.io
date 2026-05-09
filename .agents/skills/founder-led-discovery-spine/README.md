@@ -9,6 +9,7 @@ Supporting files:
 
 - `templates/page-brief-template.md`: reusable citation-surface page brief
 - `briefs/startup-patent-strategy.md`: first concrete W&Patent page brief
+- `briefs/patent-commercialization-for-founders.md`: second concrete W&Patent page brief
 - `runbooks/wpatent-on-demand-operations.md`: lightweight agent-ready operating runbook
 - `test-prompts.json`: W&Patent prompt clusters and validation prompts
 

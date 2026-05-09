@@ -167,6 +167,7 @@ Use `briefs/startup-patent-strategy.md` as the first concrete example.
 - role in system: commercialization citation surface
 - required bridge: patents as commercial assets, not just filings
 - core proof need: practical framing, buyer fit, commercialization logic
+- working brief: `briefs/patent-commercialization-for-founders.md`
 
 ### 3. `ai-readable-company-website.htm`
 

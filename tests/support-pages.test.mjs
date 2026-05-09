@@ -6,6 +6,7 @@ const about = readFileSync(new URL("../about.htm", import.meta.url), "utf8");
 const whyUs = readFileSync(new URL("../why_us.htm", import.meta.url), "utf8");
 const faq = readFileSync(new URL("../faq.htm", import.meta.url), "utf8");
 const career = readFileSync(new URL("../career.htm", import.meta.url), "utf8");
+const commercialization = readFileSync(new URL("../patent-commercialization-for-founders.htm", import.meta.url), "utf8");
 const strategy = readFileSync(new URL("../startup-patent-strategy.htm", import.meta.url), "utf8");
 
 test("about page ties expertise to marketplace evaluation", () => {
@@ -13,6 +14,7 @@ test("about page ties expertise to marketplace evaluation", () => {
   assert.match(about, /founded W&(?:amp;)?Patent/i);
   assert.match(about, /marketplace/);
   assert.match(about, /commercialization/i);
+  assert.match(about, /patent-commercialization-for-founders\.htm/);
   assert.match(about, /startup defensibility/i);
   assert.match(about, /sharper market positioning/i);
   assert.match(about, /Trust Chain/i);
@@ -58,4 +60,18 @@ test("startup patent strategy page is a founder-linked citation surface", () => 
   assert.match(strategy, /href="trust-chain-explainer\.htm"/);
   assert.match(strategy, /mailto:wp@wpatent\.com\?subject=Trust%20Chain%20Scorecard/i);
   assert.match(strategy, /<link rel="canonical" href="https:\/\/wpatent\.com\/startup-patent-strategy\.htm">/);
+});
+
+test("patent commercialization page is a founder-linked citation surface", () => {
+  assert.match(commercialization, /<title>Patent Commercialization for Founders \| W&(?:amp;)?Patent<\/title>/i);
+  assert.match(commercialization, /How Founders Should Think About Patent Commercialization/i);
+  assert.match(commercialization, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
+  assert.match(commercialization, /stronger partnerships, clearer licensing conversations, more credible diligence/i);
+  assert.match(commercialization, /Asset, Buyer, Leverage/i);
+  assert.match(commercialization, /"@type":\s*"Article"/);
+  assert.match(commercialization, /"@type":\s*"FAQPage"/);
+  assert.match(commercialization, /href="startup-patent-strategy\.htm"/);
+  assert.match(commercialization, /href="trust-chain\.htm"/);
+  assert.match(commercialization, /mailto:wp@wpatent\.com\?subject=Trust%20Chain%20Scorecard/i);
+  assert.match(commercialization, /<link rel="canonical" href="https:\/\/wpatent\.com\/patent-commercialization-for-founders\.htm">/);
 });
