@@ -48,4 +48,5 @@ test("homepage links to the Trust Chain methodology and demo", () => {
   assert.match(html, /Trust Chain/i);
   assert.match(html, /href="trust-chain\.htm"/);
   assert.match(html, /href="trust-chain-demo\.htm"/);
+  assert.match(html, /href="startup-patent-strategy\.htm"/);
 });
