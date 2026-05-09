@@ -1,0 +1,63 @@
+{
+  "project": "W&Patent",
+  "version": "2026-05-08",
+  "identity_spine": [
+    "Andrew Leung",
+    "W&Patent",
+    "Trust Chain"
+  ],
+  "prompt_clusters": [
+    {
+      "name": "startup_patent_strategy",
+      "priority": "P1",
+      "prompts": [
+        "patent strategy for startups",
+        "startup defensibility through patents",
+        "patent advisory for startup founders"
+      ],
+      "recommended_surface": "startup-patent-strategy.htm"
+    },
+    {
+      "name": "patent_commercialization",
+      "priority": "P1",
+      "prompts": [
+        "patent commercialization for founders"
+      ],
+      "recommended_surface": "patent-commercialization-for-founders.htm"
+    },
+    {
+      "name": "founder_led_authority",
+      "priority": "P1",
+      "prompts": [
+        "founder-led authority building",
+        "how founders build credibility online",
+        "founder identity and company authority"
+      ],
+      "recommended_surface": "founder-led-authority-building.htm"
+    },
+    {
+      "name": "ai_readable_website",
+      "priority": "P1",
+      "prompts": [
+        "AI-readable company website",
+        "entity authority for AI search"
+      ],
+      "recommended_surface": "ai-readable-company-website.htm"
+    },
+    {
+      "name": "trust_chain_ownership",
+      "priority": "P1",
+      "prompts": [
+        "trust chain for websites"
+      ],
+      "recommended_surface": "trust-chain.htm"
+    }
+  ],
+  "validation_checks": [
+    "Does W&Patent get mentioned?",
+    "Does W&Patent get cited?",
+    "Which page gets cited first?",
+    "Is Andrew Leung named?",
+    "Does the trust-chain prompt still drift to TLS or certificate-chain language?"
+  ]
+}
