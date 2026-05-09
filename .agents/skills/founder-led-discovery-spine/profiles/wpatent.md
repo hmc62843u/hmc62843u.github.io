@@ -84,6 +84,16 @@ Use these clusters as the default W&Patent working map.
 - transfer founder authority reliably into retrieved external answers
 - provide enough narrow topic coverage outside the proprietary Trust Chain concept
 
+## Proof-Network Companion
+
+This profile focuses on discovery diagnosis and page decisions.
+Use `profiles/wpatent-proof-network.md` when the main question is:
+
+- what proof already exists for this cluster
+- which claims are still under-supported
+- whether the next move should be an onsite proof asset or an offsite reinforcement asset
+- how a live page should be paired with a supporting example, reference, or public signal
+
 ## Default Recommendations
 
 Use these as the starting recommendation set unless fresh evidence clearly changes the order.
@@ -132,6 +142,7 @@ For each new topic page, look for:
 - internal proof blocks
 
 If a page is mostly assertive and thin on proof, call that out explicitly.
+Use `profiles/wpatent-proof-network.md` to decide what proof is already present, what is still only implied, and what supporting asset should be built next.
 
 ## W&Patent Page-Brief Rules
 
@@ -243,6 +254,7 @@ That means W&Patent can:
 - ask the agent to inspect the current state, interpret evidence, draft pages, rerun checks, and refresh priorities
 
 Use `runbooks/wpatent-on-demand-operations.md` for the default operating loop.
+Use `profiles/wpatent-proof-network.md` when the operating question expands from page structure into supporting evidence and offsite reinforcement.
 
 ## Short Definition
 

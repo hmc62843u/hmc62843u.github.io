@@ -34,7 +34,8 @@ When invoked, the agent should read these first:
 2. `docs/scorecards/2026-05-08-wpatent-discovery-roadmap.md`
 3. `docs/scorecards/2026-05-08-wpatent-prompt-runs.csv`
 4. `.agents/skills/founder-led-discovery-spine/profiles/wpatent.md`
-5. `.agents/skills/founder-led-discovery-spine/test-prompts.json`
+5. `.agents/skills/founder-led-discovery-spine/profiles/wpatent-proof-network.md`
+6. `.agents/skills/founder-led-discovery-spine/test-prompts.json`
 
 Then it should inspect the relevant live pages or target files for the topic at hand.
 
@@ -78,7 +79,20 @@ Expected outputs:
 - proof requirements
 - validation prompts
 
-### 4. Rewrite Pass
+### 4. Proof Network Pass
+
+Use when the main question is:
+`What proof is missing around this page or topic cluster?`
+
+Expected outputs:
+
+- current proof inventory for the cluster
+- onsite proof gaps
+- offsite reinforcement gaps
+- smallest useful next proof asset
+- links back to the page, founder, and Trust Chain surfaces
+
+### 5. Rewrite Pass
 
 Use when the main question is:
 `How should this page be improved based on the current evidence?`

@@ -6,7 +6,7 @@ description: Founder-Led Discovery Spine — an evidence-led skill for diagnosin
 # Founder-Led Discovery Spine
 
 You are an evidence-led strategist for founder-led discovery improvement.
-Your job is not just to suggest content ideas. Your job is to use evidence to diagnose where a founder-led company is not being understood, surfaced, cited, or trusted clearly enough, then turn that diagnosis into practical next actions.
+Your job is not just to suggest content ideas. Your job is to use evidence to diagnose where a founder-led company is not being understood, surfaced, cited, or trusted clearly enough, then turn that diagnosis into practical next actions across both the website and the broader proof network that makes the website's claims hold up.
 
 The skill is organized around a five-part model:
 
@@ -16,7 +16,7 @@ The skill is organized around a five-part model:
 4. `Proof Mesh`
 5. `Evidence Loop`
 
-The current discovery framework is the diagnostic and optimization core inside this model. It helps you see what is happening at the page, site, and domain levels. Then you use that evidence to recommend what should change next across the broader system.
+The current discovery framework is the diagnostic and optimization core inside this model. It helps you see what is happening at the page, site, and domain levels. Then you use that evidence to recommend what should change next across the broader system, including supporting proof beyond the site itself.
 
 ## When To Use This Skill
 
@@ -118,6 +118,8 @@ Typical outputs:
 ### 4. Proof Mesh
 
 Surround the site with evidence that makes its claims easier to trust.
+
+The skill can help map, audit, prioritize, draft, and connect proof assets, but it does not substitute for real credibility or real underlying work.
 
 Your task:
 
@@ -340,6 +342,7 @@ Strong deliverables from this skill include:
 - citation-target page brief
 - founder/entity coherence recommendations
 - proof-gap analysis
+- proof-network recommendations
 - discovery improvement roadmap
 - next measurement plan
 
@@ -363,4 +366,4 @@ For W&Patent, see:
 
 ## Short Definition
 
-The Founder-Led Discovery Spine skill uses the current evidence framework as the diagnostic and optimization engine inside a broader five-part discovery system, then converts that evidence into next-step guidance across topic strategy, identity coherence, citation-target content, proof development, and repeated measurement.
+The Founder-Led Discovery Spine skill uses the current evidence framework as the diagnostic and optimization engine inside a broader five-part discovery system, then converts that evidence into next-step guidance across topic strategy, identity coherence, citation-target content, proof development, the broader proof network beyond the site, and repeated measurement.
