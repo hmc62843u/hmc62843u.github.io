@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Add a lightweight, human-in-the-loop Proof Flow MVP that can capture proof tasks, generate draft proof assets, package approved proof for a few routing channels, and log feedback in a repo-native format compatible with the current W&Patent discovery framework.
+**Goal:** Add a lightweight, human-in-the-loop Proof Flow MVP that can capture proof tasks, generate draft proof assets, package approved proof for a few routing channels, and log feedback in a repo-native format compatible with the current W&Patent discovery framework, including early social-proof signals from communities and follower networks.
 
-**Architecture:** Build the MVP as a file-based workflow rather than a web app. Keep one JSON workspace in `data/proof-flow/`, store reusable markdown templates in `templates/proof-flow/`, implement small Node CLIs in `scripts/`, and protect the workflow with a dedicated test file. The CLIs should support five states: intake, draft creation, human approval, routing packet generation, and feedback logging. Human review remains mandatory before anything is treated as approved or routed externally.
+**Architecture:** Build the MVP as a file-based workflow rather than a web app. Keep one JSON workspace in `data/proof-flow/`, store reusable markdown templates in `templates/proof-flow/`, implement small Node CLIs in `scripts/`, and protect the workflow with a dedicated test file. The CLIs should support five states: intake, draft creation, human approval, routing packet generation, and feedback logging. Human review remains mandatory before anything is treated as approved or routed externally, and the feedback model should capture both funding signals and early social-proof signals.
 
 **Tech Stack:** Node 23, CommonJS helper module, `.mjs` CLI entry points, JSON file storage, markdown templates, built-in `node:test`
 
@@ -100,7 +100,7 @@ The MVP is compatible with the current W&Patent discovery framework:
 
 - discovery and proof gaps can open proof tasks
 - approved proof assets can link back to live topic pages
-- routing and feedback can be reviewed alongside roadmap refreshes
+- routing and feedback can be reviewed alongside roadmap refreshes and early social-proof movement
 
 ## Commands
 
@@ -114,8 +114,8 @@ The MVP is compatible with the current W&Patent discovery framework:
 1. Open a proof task from a real topic gap or proof gap.
 2. Draft the proof asset from a template.
 3. Review it manually before approval.
-4. Build a routing packet for the right channels.
-5. Record the feedback after distribution.
+4. Build a routing packet for the right channels and communities.
+5. Record the feedback after distribution, including traction and social-proof signals.
 ```
 
 Create `templates/proof-flow/case-note.md` with:
@@ -1014,6 +1014,9 @@ After an asset is routed, record the meaningful response:
 
 - citation movement
 - investor interest
+- community mentions
+- reposts or shares
+- endorsements or positive replies
 - reply quality
 - intro acceptance
 - follow-up meeting signals
@@ -1082,7 +1085,7 @@ git commit -m "feat: add proof flow feedback loop"
 - `Proof Formation`: covered by Task 2 through draft asset creation
 - `Proof Validation`: covered by Task 3 through explicit human approval before routing
 - `Proof Routing`: covered by Task 3
-- `Proof Feedback`: covered by Task 4
+- `Proof Feedback`: covered by Task 4, including funding and social-proof signals
 - compatibility with the current framework: covered by Task 4 runbook and proof-network updates
 
 ## Self-Review
