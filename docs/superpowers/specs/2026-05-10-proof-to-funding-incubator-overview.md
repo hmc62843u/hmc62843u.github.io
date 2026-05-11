@@ -83,6 +83,32 @@ In short:
 - the current framework anchors it
 - the incubator helps it travel until it becomes visible social proof
 
+## Mixed-Mode Model
+
+The strongest version of this system may not be fully centralized.
+It may be mixed mode:
+
+1. `Private founder instance`
+   The founder keeps sensitive notes, drafts, investor context, internal examples, and unfinished proof in a private operating system.
+
+2. `Incubator community operating system`
+   The incubator provides shared structure, routines, templates, routing patterns, channels, and community amplification.
+
+3. `Selective sync layer`
+   The founder decides which approved proof assets move from the private instance into the shared incubator layer for circulation and reinforcement.
+
+This model gives the founder privacy and control without losing the benefits of a shared system.
+It also gives the incubator a way to help proof travel through its own followers, founder audiences, and community members without requiring every sensitive artifact to live in one central place.
+
+In practice, the boundary should work like this:
+
+- raw notes stay private
+- sensitive drafts stay private until approved
+- approved proof assets can sync outward
+- routing packets, amplification events, and selected feedback signals can flow back in
+
+That is often a stronger model than forcing founders to work entirely inside one incubator-owned system.
+
 ## Human-In-The-Loop Automation
 
 This should not be framed as automating trust.
@@ -123,6 +149,13 @@ A lightweight incubator-side automation layer could help with five things:
 5. `Proof Feedback`
    Track which proof assets are actually helping with traction, visible social proof, intros, and fundability.
 
+In a mixed-mode version of the system, these functions would work across both layers:
+
+- intake can begin in the founder's private instance
+- validation can stay private until approval
+- routing can happen from the incubator community layer
+- feedback can be shared back selectively
+
 ## Why This Matters To An Incubator
 
 This model gives an incubator something more durable than one-off pitch coaching.
@@ -137,6 +170,10 @@ It can help founders build:
 
 It also gives the incubator a more repeatable operating model.
 Instead of waiting for each founder to produce a good deck under pressure, the incubator can help build a continuing proof system around the founder and company.
+
+The mixed-mode structure also makes the model easier to adopt.
+Founders do not have to surrender all operating context to get value from the incubator system.
+They can keep private operating memory on their side while still participating in shared circulation and community reinforcement.
 
 ## What A Good MVP Looks Like
 
@@ -157,6 +194,9 @@ That is enough to prove whether the model is useful before building anything lar
 
 The current W&Patent framework already helps anchor proof for discovery.
 A compatible incubator-side system can extend that into a fuller Proof-to-Funding System by helping founders create stronger proof, circulate it through the right networks, and learn which proof is turning into visible social proof and improving fundability.
+
+The most practical long-term shape may be a mixed-mode system:
+private proof creation and approval on the founder side, shared circulation and amplification on the incubator side, and selective sync between them.
 
 The point is not more content for its own sake.
 The point is to turn real proof into stronger trust, stronger access, stronger social reinforcement, and better funding outcomes.

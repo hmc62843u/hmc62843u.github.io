@@ -4,11 +4,33 @@
 
 **Goal:** Add a lightweight, human-in-the-loop Proof Flow MVP that can capture proof tasks, generate draft proof assets, package approved proof for a few routing channels, and log feedback in a repo-native format compatible with the current W&Patent discovery framework, including early social-proof signals from communities and follower networks.
 
-**Architecture:** Build the MVP as a file-based workflow rather than a web app. Keep one JSON workspace in `data/proof-flow/`, store reusable markdown templates in `templates/proof-flow/`, implement small Node CLIs in `scripts/`, and protect the workflow with a dedicated test file. The CLIs should support five states: intake, draft creation, human approval, routing packet generation, and feedback logging. Human review remains mandatory before anything is treated as approved or routed externally, and the feedback model should capture both funding signals and early social-proof signals.
+**Architecture:** Build the MVP as a file-based workflow rather than a web app. Keep one JSON workspace in `data/proof-flow/`, store reusable markdown templates in `templates/proof-flow/`, implement small Node CLIs in `scripts/`, and protect the workflow with a dedicated test file. The CLIs should support five states: intake, draft creation, human approval, routing packet generation, and feedback logging. Human review remains mandatory before anything is treated as approved or routed externally, and the feedback model should capture both funding signals and early social-proof signals. This MVP starts with a founder-private workspace first. Mixed-mode sync between a private founder instance and an incubator community operating system is a likely next architecture, but stays out of scope for v1.
 
 **Tech Stack:** Node 23, CommonJS helper module, `.mjs` CLI entry points, JSON file storage, markdown templates, built-in `node:test`
 
 ---
+
+## Mixed-Mode Boundary
+
+This plan does **not** implement a full multi-tenant incubator platform.
+It implements the founder-private side first.
+
+Assume for v1:
+
+- the workspace in `data/proof-flow/workspace.json` is founder-private
+- proof assets remain private until explicitly approved
+- routing packets are the handoff artifact into incubator or community circulation
+- community amplification and follower visibility are represented through feedback signals, not through live sync yet
+
+Defer to a later design phase:
+
+- shared incubator tenancy
+- permissions across multiple founders
+- selective sync rules between private and shared instances
+- conflict resolution between local and shared state
+- community-member-specific amplification tracking
+
+This keeps the MVP small while preserving compatibility with a later mixed-mode architecture.
 
 ### Task 1: Scaffold the Proof Flow workspace, templates, and contract test
 
@@ -101,6 +123,10 @@ The MVP is compatible with the current W&Patent discovery framework:
 - discovery and proof gaps can open proof tasks
 - approved proof assets can link back to live topic pages
 - routing and feedback can be reviewed alongside roadmap refreshes and early social-proof movement
+- the private workspace can later become the founder-side instance in a mixed-mode system
+
+The v1 workspace is founder-private by default.
+Approved assets can then be routed outward into incubator or community channels.
 
 ## Commands
 
@@ -1087,6 +1113,18 @@ git commit -m "feat: add proof flow feedback loop"
 - `Proof Routing`: covered by Task 3
 - `Proof Feedback`: covered by Task 4, including funding and social-proof signals
 - compatibility with the current framework: covered by Task 4 runbook and proof-network updates
+- mixed-mode compatibility: preserved through the private-workspace-first architecture and deferred sync layer
+
+## Deferred Architecture Note
+
+This MVP is intentionally founder-private first.
+The likely next architecture is mixed mode:
+
+- a private founder instance for sensitive proof work
+- an incubator community operating system for shared circulation
+- a selective sync layer between them
+
+That architecture is acknowledged here so the MVP can evolve into it later without forcing v1 to solve tenancy, permissions, or sync rules too early.
 
 ## Self-Review
 
