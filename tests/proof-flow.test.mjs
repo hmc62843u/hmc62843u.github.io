@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import proofFlow from "../scripts/lib/proof-flow.js";
 
-const { createProofTask, loadWorkspace, slugify } = proofFlow;
+const { approveAsset, buildProofPacket, createProofTask, loadWorkspace, slugify } = proofFlow;
 
 function read(relativePath) {
   return readFileSync(new URL(`../${relativePath}`, import.meta.url), "utf8");
@@ -107,4 +107,106 @@ test("create-proof-task CLI writes the updated workspace", () => {
   assert.equal(nextWorkspace.tasks.length, 1);
   assert.equal(nextWorkspace.assets.length, 1);
   assert.equal(nextWorkspace.tasks[0].title, "Why leverage matters in startup patents");
+});
+
+test("approveAsset marks a draft asset as approved", () => {
+  const workspace = {
+    version: 1,
+    tasks: [],
+    assets: [
+      {
+        id: "asset-001",
+        task_id: "task-001",
+        title: "Why leverage matters in startup patents",
+        asset_type: "case-note",
+        topic_cluster: "startup patent strategy",
+        claim: "A strong startup patent strategy protects leverage.",
+        linked_page: "startup-patent-strategy.htm",
+        status: "draft"
+      }
+    ],
+    distributions: [],
+    feedback: []
+  };
+
+  const asset = approveAsset(workspace, {
+    assetId: "asset-001",
+    reviewer: "Andrew Leung"
+  });
+
+  assert.equal(asset.status, "approved");
+  assert.equal(asset.approved_by, "Andrew Leung");
+});
+
+test("buildProofPacket produces channel-ready sections", () => {
+  const asset = {
+    id: "asset-001",
+    title: "Why leverage matters in startup patents",
+    asset_type: "case-note",
+    topic_cluster: "startup patent strategy",
+    claim: "A strong startup patent strategy protects leverage.",
+    linked_page: "startup-patent-strategy.htm",
+    status: "approved"
+  };
+
+  const packet = buildProofPacket(asset, ["site-note", "founder-post", "intro-note"]);
+  assert.match(packet, /Site Note/i);
+  assert.match(packet, /Founder Post/i);
+  assert.match(packet, /Intro Note/i);
+  assert.match(packet, /startup-patent-strategy\.htm/i);
+});
+
+test("build-proof-packet CLI writes a packet for an approved asset", () => {
+  const sandboxDir = mkdtempSync(join(tmpdir(), "proof-flow-packet-"));
+  const workspacePath = join(sandboxDir, "workspace.json");
+  const workspace = {
+    version: 1,
+    tasks: [],
+    assets: [
+      {
+        id: "asset-001",
+        task_id: "task-001",
+        title: "Why leverage matters in startup patents",
+        asset_type: "case-note",
+        topic_cluster: "startup patent strategy",
+        claim: "A strong startup patent strategy protects leverage.",
+        linked_page: "startup-patent-strategy.htm",
+        status: "approved"
+      }
+    ],
+    distributions: [],
+    feedback: []
+  };
+
+  writeFileSync(workspacePath, JSON.stringify(workspace, null, 2));
+
+  execFileSync("node", [
+    "scripts/approve-proof-asset.mjs",
+    "--workspace",
+    workspacePath,
+    "--asset-id",
+    "asset-001",
+    "--reviewer",
+    "Andrew Leung"
+  ]);
+
+  execFileSync("node", [
+    "scripts/build-proof-packet.mjs",
+    "--workspace",
+    workspacePath,
+    "--asset-id",
+    "asset-001",
+    "--channels",
+    "site-note,founder-post,intro-note",
+    "--output-dir",
+    sandboxDir
+  ]);
+
+  const packet = readFileSync(join(sandboxDir, "asset-001-packet.md"), "utf8");
+  const nextWorkspace = loadWorkspace(workspacePath);
+
+  assert.match(packet, /Founder Post/i);
+  assert.equal(nextWorkspace.assets[0].status, "approved");
+  assert.equal(nextWorkspace.distributions.length, 3);
+  assert.equal(nextWorkspace.distributions[0].asset_id, "asset-001");
 });
