@@ -8,6 +8,14 @@ function saveWorkspace(filePath, workspace) {
   writeFileSync(filePath, `${JSON.stringify(workspace, null, 2)}\n`);
 }
 
+function loadCommunityWorkspace(filePath) {
+  return JSON.parse(readFileSync(filePath, "utf8"));
+}
+
+function saveCommunityWorkspace(filePath, workspace) {
+  writeFileSync(filePath, `${JSON.stringify(workspace, null, 2)}\n`);
+}
+
 function slugify(value) {
   return String(value || "")
     .toLowerCase()
@@ -105,13 +113,37 @@ function recordFeedback(workspace, { distributionId, feedbackType, signalStrengt
   return event;
 }
 
+function buildSharePacket({ workspace, assetId, channels, exportedAt }) {
+  const asset = workspace.assets.find((item) => item.id === assetId);
+  if (!asset || asset.status !== "approved") {
+    throw new Error(`Approved asset not found for ${assetId}`);
+  }
+
+  return {
+    packet_type: "proof-share",
+    sync_id: `${asset.id}--${String(exportedAt).replace(/[:.]/g, "-")}`,
+    asset_id: asset.id,
+    title: asset.title,
+    topic_cluster: asset.topic_cluster,
+    claim: asset.claim,
+    linked_page: asset.linked_page,
+    approved_by: asset.approved_by || "",
+    channels: channels.map((value) => String(value || "").trim()).filter(Boolean),
+    packet_markdown: buildProofPacket(asset, channels),
+    exported_at: exportedAt
+  };
+}
+
 module.exports = {
   approveAsset,
   buildProofPacket,
+  buildSharePacket,
   createProofTask,
+  loadCommunityWorkspace,
   loadWorkspace,
   recordFeedback,
   registerDistributions,
+  saveCommunityWorkspace,
   saveWorkspace,
   slugify
 };
