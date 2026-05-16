@@ -156,12 +156,30 @@ function applySharePacket(communityWorkspace, packet) {
   return { communityWorkspace, duplicated: false };
 }
 
+function importCommunityFeedback(workspace, packet) {
+  for (const event of packet.events) {
+    workspace.feedback.push({
+      id: nextId("feedback", workspace.feedback),
+      distribution_id: `shared:${packet.asset_id}`,
+      feedback_type: event.feedback_type,
+      signal_strength: event.signal_strength,
+      notes: event.notes,
+      related_funding_stage: event.related_funding_stage || "",
+      source_channel: event.source_channel || "",
+      origin: event.origin || "community"
+    });
+  }
+
+  return workspace;
+}
+
 module.exports = {
   approveAsset,
   applySharePacket,
   buildProofPacket,
   buildSharePacket,
   createProofTask,
+  importCommunityFeedback,
   loadCommunityWorkspace,
   loadWorkspace,
   recordFeedback,

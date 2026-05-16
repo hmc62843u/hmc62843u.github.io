@@ -6,7 +6,13 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import proofFlow from "../scripts/lib/proof-flow.js";
 
-const { applySharePacket, buildSharePacket, loadCommunityWorkspace, loadWorkspace } = proofFlow;
+const {
+  applySharePacket,
+  buildSharePacket,
+  importCommunityFeedback,
+  loadCommunityWorkspace,
+  loadWorkspace
+} = proofFlow;
 
 function read(relativePath) {
   return readFileSync(new URL(`../${relativePath}`, import.meta.url), "utf8");
@@ -216,4 +222,90 @@ test("apply-proof-sync CLI writes the imported asset to the community workspace"
   const community = loadCommunityWorkspace(communityPath);
   assert.equal(community.shared_assets.length, 1);
   assert.equal(community.shared_assets[0].asset_id, "asset-001");
+});
+
+test("importCommunityFeedback appends selected community signals to the founder workspace", () => {
+  const workspace = {
+    version: 1,
+    tasks: [],
+    assets: [],
+    distributions: [],
+    feedback: []
+  };
+
+  importCommunityFeedback(workspace, {
+    packet_type: "community-feedback",
+    asset_id: "asset-001",
+    events: [
+      {
+        feedback_type: "community-mention",
+        signal_strength: "medium",
+        notes: "Mentioned in incubator member digest.",
+        related_funding_stage: "pre-seed",
+        source_channel: "member-digest",
+        origin: "community"
+      }
+    ]
+  });
+
+  assert.equal(workspace.feedback.length, 1);
+  assert.equal(workspace.feedback[0].distribution_id, "shared:asset-001");
+  assert.equal(workspace.feedback[0].source_channel, "member-digest");
+  assert.equal(workspace.feedback[0].origin, "community");
+});
+
+test("import-proof-feedback CLI writes selected shared feedback into the founder workspace", () => {
+  const sandboxDir = mkdtempSync(join(tmpdir(), "proof-flow-feedback-"));
+  const workspacePath = join(sandboxDir, "workspace.json");
+  const packetPath = join(sandboxDir, "feedback.json");
+
+  writeFileSync(
+    workspacePath,
+    JSON.stringify(
+      {
+        version: 1,
+        tasks: [],
+        assets: [],
+        distributions: [],
+        feedback: []
+      },
+      null,
+      2
+    )
+  );
+
+  writeFileSync(
+    packetPath,
+    JSON.stringify(
+      {
+        packet_type: "community-feedback",
+        asset_id: "asset-001",
+        events: [
+          {
+            feedback_type: "investor-interest",
+            signal_strength: "high",
+            notes: "Investor asked for a follow-up after seeing the founder post.",
+            related_funding_stage: "pre-seed",
+            source_channel: "incubator-newsletter",
+            origin: "incubator"
+          }
+        ]
+      },
+      null,
+      2
+    )
+  );
+
+  execFileSync("node", [
+    "scripts/import-proof-feedback.mjs",
+    "--workspace",
+    workspacePath,
+    "--packet",
+    packetPath
+  ]);
+
+  const workspace = loadWorkspace(workspacePath);
+  assert.equal(workspace.feedback.length, 1);
+  assert.equal(workspace.feedback[0].feedback_type, "investor-interest");
+  assert.equal(workspace.feedback[0].origin, "incubator");
 });

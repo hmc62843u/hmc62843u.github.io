@@ -16,6 +16,7 @@ Approved assets can then be routed outward into incubator or community channels.
 
 - founder workspace: `data/proof-flow/workspace.json`
 - community workspace: `data/proof-flow/community-workspace.json`
+- outbox: `data/proof-flow/sync-outbox/`
 - mixed-mode guide: `docs/proof-flow/mixed-mode.md`
 
 ## Commands
@@ -24,6 +25,9 @@ Approved assets can then be routed outward into incubator or community channels.
 - `node scripts/approve-proof-asset.mjs ...`
 - `node scripts/build-proof-packet.mjs ...`
 - `node scripts/record-proof-feedback.mjs ...`
+- `node scripts/export-proof-sync.mjs ...`
+- `node scripts/apply-proof-sync.mjs ...`
+- `node scripts/import-proof-feedback.mjs ...`
 
 ## Workflow
 
@@ -31,7 +35,9 @@ Approved assets can then be routed outward into incubator or community channels.
 2. Draft the proof asset from a template.
 3. Review it manually before approval.
 4. Build a routing packet for the right channels and communities.
-5. Record the feedback after distribution, including traction and social-proof signals.
+5. Export the approved asset into the sync outbox.
+6. Apply the sync packet to the community workspace.
+7. Import selected community feedback back into the founder workspace.
 
 ## Feedback loop
 

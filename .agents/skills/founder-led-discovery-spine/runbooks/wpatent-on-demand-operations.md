@@ -37,6 +37,7 @@ When invoked, the agent should read these first:
 5. `.agents/skills/founder-led-discovery-spine/profiles/wpatent-proof-network.md`
 6. `.agents/skills/founder-led-discovery-spine/test-prompts.json`
 7. `docs/proof-flow/README.md`
+8. `docs/proof-flow/mixed-mode.md`
 
 Then it should inspect the relevant live pages or target files for the topic at hand.
 
@@ -117,6 +118,18 @@ Expected outputs:
 - current proof task status
 - whether the next step is intake, validation, routing, or feedback
 - the exact file or script to use next
+
+### 7. Mixed-Mode Sync Review
+
+Use when the main question is:
+`What should move from the private founder instance into the incubator layer, or back again?`
+
+Expected outputs:
+
+- whether the asset should stay private or sync outward
+- whether the feedback should stay shared or sync back
+- the exact sync packet or script to use next
+- any privacy or approval gate that must be cleared first
 
 ## Standard Commands
 

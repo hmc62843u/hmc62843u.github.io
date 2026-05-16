@@ -117,6 +117,14 @@ When the proof gap should become an actual task, use the Proof Flow MVP:
 - package approved proof with `scripts/build-proof-packet.mjs`
 - log outcome signals with `scripts/record-proof-feedback.mjs`
 
+## Mixed-Mode Sync
+
+When a proof asset is approved and should move into incubator or community circulation:
+
+- export it with `scripts/export-proof-sync.mjs`
+- apply it to the shared layer with `scripts/apply-proof-sync.mjs`
+- import selected response signals back with `scripts/import-proof-feedback.mjs`
+
 ## Short Definition
 
 This file tracks the proof assets that help W&Patent's topic pages hold up.
