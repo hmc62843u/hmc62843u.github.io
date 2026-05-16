@@ -12,6 +12,12 @@ The MVP is compatible with the current W&Patent discovery framework:
 The v1 workspace is founder-private by default.
 Approved assets can then be routed outward into incubator or community channels.
 
+## Mixed mode
+
+- founder workspace: `data/proof-flow/workspace.json`
+- community workspace: `data/proof-flow/community-workspace.json`
+- mixed-mode guide: `docs/proof-flow/mixed-mode.md`
+
 ## Commands
 
 - `node scripts/create-proof-task.mjs ...`
