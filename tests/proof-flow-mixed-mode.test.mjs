@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import proofFlow from "../scripts/lib/proof-flow.js";
 
-const { buildSharePacket, loadWorkspace } = proofFlow;
+const { applySharePacket, buildSharePacket, loadCommunityWorkspace, loadWorkspace } = proofFlow;
 
 function read(relativePath) {
   return readFileSync(new URL(`../${relativePath}`, import.meta.url), "utf8");
@@ -130,4 +130,90 @@ test("export-proof-sync CLI writes a sync packet to the outbox", () => {
   assert.equal(packet.asset_id, "asset-001");
   assert.deepEqual(packet.channels, ["founder-post", "community-post"]);
   assert.equal(workspace.assets[0].status, "approved");
+});
+
+test("applySharePacket imports a shared asset and deduplicates by sync id", () => {
+  const communityWorkspace = {
+    version: 1,
+    received_sync_ids: [],
+    shared_assets: [],
+    amplification_events: []
+  };
+
+  const packet = {
+    packet_type: "proof-share",
+    sync_id: "asset-001--2026-05-10T00-00-00-000Z",
+    asset_id: "asset-001",
+    title: "Why leverage matters in startup patents",
+    topic_cluster: "startup patent strategy",
+    claim: "A strong startup patent strategy protects leverage.",
+    linked_page: "startup-patent-strategy.htm",
+    approved_by: "Andrew Leung",
+    channels: ["founder-post", "community-post"],
+    packet_markdown: "# Proof Packet: asset-001",
+    exported_at: "2026-05-10T00:00:00.000Z"
+  };
+
+  const first = applySharePacket(communityWorkspace, packet);
+  const second = applySharePacket(communityWorkspace, packet);
+
+  assert.equal(first.duplicated, false);
+  assert.equal(second.duplicated, true);
+  assert.equal(communityWorkspace.shared_assets.length, 1);
+  assert.deepEqual(communityWorkspace.received_sync_ids, [
+    "asset-001--2026-05-10T00-00-00-000Z"
+  ]);
+});
+
+test("apply-proof-sync CLI writes the imported asset to the community workspace", () => {
+  const sandboxDir = mkdtempSync(join(tmpdir(), "proof-flow-community-"));
+  const communityPath = join(sandboxDir, "community-workspace.json");
+  const packetPath = join(sandboxDir, "asset-001-share.json");
+
+  writeFileSync(
+    communityPath,
+    JSON.stringify(
+      {
+        version: 1,
+        received_sync_ids: [],
+        shared_assets: [],
+        amplification_events: []
+      },
+      null,
+      2
+    )
+  );
+
+  writeFileSync(
+    packetPath,
+    JSON.stringify(
+      {
+        packet_type: "proof-share",
+        sync_id: "asset-001--2026-05-10T00-00-00-000Z",
+        asset_id: "asset-001",
+        title: "Why leverage matters in startup patents",
+        topic_cluster: "startup patent strategy",
+        claim: "A strong startup patent strategy protects leverage.",
+        linked_page: "startup-patent-strategy.htm",
+        approved_by: "Andrew Leung",
+        channels: ["founder-post", "community-post"],
+        packet_markdown: "# Proof Packet: asset-001",
+        exported_at: "2026-05-10T00:00:00.000Z"
+      },
+      null,
+      2
+    )
+  );
+
+  execFileSync("node", [
+    "scripts/apply-proof-sync.mjs",
+    "--community-workspace",
+    communityPath,
+    "--packet",
+    packetPath
+  ]);
+
+  const community = loadCommunityWorkspace(communityPath);
+  assert.equal(community.shared_assets.length, 1);
+  assert.equal(community.shared_assets[0].asset_id, "asset-001");
 });

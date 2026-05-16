@@ -134,8 +134,31 @@ function buildSharePacket({ workspace, assetId, channels, exportedAt }) {
   };
 }
 
+function applySharePacket(communityWorkspace, packet) {
+  if (communityWorkspace.received_sync_ids.includes(packet.sync_id)) {
+    return { communityWorkspace, duplicated: true };
+  }
+
+  communityWorkspace.received_sync_ids.push(packet.sync_id);
+  communityWorkspace.shared_assets.push({
+    sync_id: packet.sync_id,
+    asset_id: packet.asset_id,
+    title: packet.title,
+    topic_cluster: packet.topic_cluster,
+    claim: packet.claim,
+    linked_page: packet.linked_page,
+    approved_by: packet.approved_by,
+    channels: packet.channels,
+    packet_markdown: packet.packet_markdown,
+    exported_at: packet.exported_at
+  });
+
+  return { communityWorkspace, duplicated: false };
+}
+
 module.exports = {
   approveAsset,
+  applySharePacket,
   buildProofPacket,
   buildSharePacket,
   createProofTask,
