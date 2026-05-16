@@ -109,6 +109,14 @@ When asked to improve the W&Patent proof network:
 4. connect the proof asset back to Andrew Leung, W&Patent, and the relevant citation surface
 5. define what discovery rerun or citation check should happen after publish
 
+## MVP Tooling Link
+
+When the proof gap should become an actual task, use the Proof Flow MVP:
+
+- open the task with `scripts/create-proof-task.mjs`
+- package approved proof with `scripts/build-proof-packet.mjs`
+- log outcome signals with `scripts/record-proof-feedback.mjs`
+
 ## Short Definition
 
 This file tracks the proof assets that help W&Patent's topic pages hold up.

@@ -36,6 +36,7 @@ When invoked, the agent should read these first:
 4. `.agents/skills/founder-led-discovery-spine/profiles/wpatent.md`
 5. `.agents/skills/founder-led-discovery-spine/profiles/wpatent-proof-network.md`
 6. `.agents/skills/founder-led-discovery-spine/test-prompts.json`
+7. `docs/proof-flow/README.md`
 
 Then it should inspect the relevant live pages or target files for the topic at hand.
 
@@ -104,6 +105,18 @@ Expected outputs:
 - linking recommendations
 - schema or attribution adjustments
 - rerun plan after publish
+
+### 6. Proof Flow Review
+
+Use when the main question is:
+`What proof asset should we create, route, or review next?`
+
+Expected outputs:
+
+- the linked topic cluster
+- current proof task status
+- whether the next step is intake, validation, routing, or feedback
+- the exact file or script to use next
 
 ## Standard Commands
 

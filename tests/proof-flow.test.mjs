@@ -6,7 +6,14 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import proofFlow from "../scripts/lib/proof-flow.js";
 
-const { approveAsset, buildProofPacket, createProofTask, loadWorkspace, slugify } = proofFlow;
+const {
+  approveAsset,
+  buildProofPacket,
+  createProofTask,
+  loadWorkspace,
+  recordFeedback,
+  slugify
+} = proofFlow;
 
 function read(relativePath) {
   return readFileSync(new URL(`../${relativePath}`, import.meta.url), "utf8");
@@ -209,4 +216,66 @@ test("build-proof-packet CLI writes a packet for an approved asset", () => {
   assert.equal(nextWorkspace.assets[0].status, "approved");
   assert.equal(nextWorkspace.distributions.length, 3);
   assert.equal(nextWorkspace.distributions[0].asset_id, "asset-001");
+});
+
+test("recordFeedback appends a funding-related signal", () => {
+  const workspace = {
+    version: 1,
+    tasks: [],
+    assets: [],
+    distributions: [{ id: "dist-001", asset_id: "asset-001", channel: "founder-post", status: "sent" }],
+    feedback: []
+  };
+
+  const event = recordFeedback(workspace, {
+    distributionId: "dist-001",
+    feedbackType: "investor-interest",
+    signalStrength: "high",
+    notes: "Investor requested a follow-up meeting.",
+    relatedFundingStage: "pre-seed"
+  });
+
+  assert.equal(event.id, "feedback-001");
+  assert.equal(event.feedback_type, "investor-interest");
+  assert.equal(workspace.feedback.length, 1);
+});
+
+test("record-proof-feedback CLI appends a feedback event", () => {
+  const sandboxDir = mkdtempSync(join(tmpdir(), "proof-flow-feedback-"));
+  const workspacePath = join(sandboxDir, "workspace.json");
+
+  writeFileSync(
+    workspacePath,
+    JSON.stringify(
+      {
+        version: 1,
+        tasks: [],
+        assets: [],
+        distributions: [{ id: "dist-001", asset_id: "asset-001", channel: "founder-post", status: "sent" }],
+        feedback: []
+      },
+      null,
+      2
+    )
+  );
+
+  execFileSync("node", [
+    "scripts/record-proof-feedback.mjs",
+    "--workspace",
+    workspacePath,
+    "--distribution-id",
+    "dist-001",
+    "--feedback-type",
+    "investor-interest",
+    "--signal-strength",
+    "high",
+    "--notes",
+    "Investor requested a follow-up meeting.",
+    "--related-funding-stage",
+    "pre-seed"
+  ]);
+
+  const workspace = loadWorkspace(workspacePath);
+  assert.equal(workspace.feedback.length, 1);
+  assert.equal(workspace.feedback[0].related_funding_stage, "pre-seed");
 });

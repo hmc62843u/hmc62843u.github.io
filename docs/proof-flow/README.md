@@ -26,3 +26,20 @@ Approved assets can then be routed outward into incubator or community channels.
 3. Review it manually before approval.
 4. Build a routing packet for the right channels and communities.
 5. Record the feedback after distribution, including traction and social-proof signals.
+
+## Feedback loop
+
+After an asset is routed, record the meaningful response:
+
+- citation movement
+- investor interest
+- community mentions
+- reposts or shares
+- endorsements or positive replies
+- reply quality
+- intro acceptance
+- follow-up meeting signals
+
+Use:
+
+- `node scripts/record-proof-feedback.mjs ...`

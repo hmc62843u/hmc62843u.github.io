@@ -92,11 +92,25 @@ function registerDistributions(workspace, assetId, channels) {
   return workspace;
 }
 
+function recordFeedback(workspace, { distributionId, feedbackType, signalStrength, notes, relatedFundingStage }) {
+  const event = {
+    id: nextId("feedback", workspace.feedback),
+    distribution_id: distributionId,
+    feedback_type: feedbackType,
+    signal_strength: signalStrength,
+    notes,
+    related_funding_stage: relatedFundingStage
+  };
+  workspace.feedback.push(event);
+  return event;
+}
+
 module.exports = {
   approveAsset,
   buildProofPacket,
   createProofTask,
   loadWorkspace,
+  recordFeedback,
   registerDistributions,
   saveWorkspace,
   slugify
