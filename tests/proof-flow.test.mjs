@@ -1,6 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import proofFlow from "../scripts/lib/proof-flow.js";
+
+const { createProofTask, loadWorkspace, slugify } = proofFlow;
 
 function read(relativePath) {
   return readFileSync(new URL(`../${relativePath}`, import.meta.url), "utf8");
@@ -36,4 +42,69 @@ test("proof flow MVP scaffolds the workspace, templates, and README", () => {
   assert.match(caseNote, /\{\{claim\}\}/);
   assert.match(founderMemo, /\{\{title\}\}/);
   assert.match(founderMemo, /\{\{claim\}\}/);
+});
+
+test("createProofTask appends a task and draft asset in memory", () => {
+  const workspace = {
+    version: 1,
+    tasks: [],
+    assets: [],
+    distributions: [],
+    feedback: []
+  };
+
+  const result = createProofTask({
+    workspace,
+    topicCluster: "startup patent strategy",
+    assetType: "case-note",
+    title: "Why a startup patent strategy needs business leverage",
+    claim: "Patent strategy should protect leverage, not just generate filings.",
+    linkedPage: "startup-patent-strategy.htm",
+    frameworkSource: "docs/scorecards/2026-05-08-wpatent-discovery-roadmap.md"
+  });
+
+  assert.equal(result.task.id, "task-001");
+  assert.equal(result.asset.id, "asset-001");
+  assert.equal(result.task.status, "open");
+  assert.equal(result.asset.status, "draft");
+  assert.equal(result.asset.topic_cluster, "startup patent strategy");
+  assert.equal(result.asset.linked_page, "startup-patent-strategy.htm");
+  assert.equal(slugify("Startup Patent Strategy"), "startup-patent-strategy");
+});
+
+test("create-proof-task CLI writes the updated workspace", () => {
+  const sandboxDir = mkdtempSync(join(tmpdir(), "proof-flow-"));
+  const workspacePath = join(sandboxDir, "workspace.json");
+  const workspace = {
+    version: 1,
+    tasks: [],
+    assets: [],
+    distributions: [],
+    feedback: []
+  };
+
+  writeFileSync(workspacePath, JSON.stringify(workspace, null, 2));
+
+  execFileSync("node", [
+    "scripts/create-proof-task.mjs",
+    "--workspace",
+    workspacePath,
+    "--topic-cluster",
+    "startup patent strategy",
+    "--asset-type",
+    "case-note",
+    "--title",
+    "Why leverage matters in startup patents",
+    "--claim",
+    "A strong startup patent strategy protects leverage.",
+    "--linked-page",
+    "startup-patent-strategy.htm",
+    "--framework-source",
+    "docs/scorecards/2026-05-08-wpatent-discovery-roadmap.md"
+  ]);
+
+  const nextWorkspace = loadWorkspace(workspacePath);
+  assert.equal(nextWorkspace.tasks.length, 1);
+  assert.equal(nextWorkspace.assets.length, 1);
+  assert.equal(nextWorkspace.tasks[0].title, "Why leverage matters in startup patents");
 });
