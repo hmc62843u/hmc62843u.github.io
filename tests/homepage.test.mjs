@@ -12,6 +12,8 @@ test("homepage routes both owners and buyers", () => {
 });
 
 test("homepage previews every featured listing detail page", () => {
+  assert.match(html, /Five live marketplace listings/);
+  assert.doesNotMatch(html, /Five live marketplace examples/);
   for (const href of [
     "listing-points2perks.htm",
     "listing-tourist-aid.htm",
