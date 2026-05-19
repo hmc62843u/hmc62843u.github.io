@@ -51,6 +51,8 @@ test("proof flow MVP scaffolds the workspace, templates, and README", () => {
   const founderMemo = read("templates/proof-flow/founder-memo.md");
   const liveCaseNote = read("docs/proof-flow/assets/asset-001-startup-patent-strategy-case-note.md");
   const founderPost = read("docs/proof-flow/assets/asset-001-founder-post.md");
+  const introNote = read("docs/proof-flow/assets/asset-001-intro-note.md");
+  const communityPost = read("docs/proof-flow/assets/asset-001-community-post.md");
   const packet = read("docs/proof-flow/packets/asset-001-packet.md");
   assert.match(caseNote, /\{\{title\}\}/);
   assert.match(caseNote, /\{\{claim\}\}/);
@@ -60,6 +62,11 @@ test("proof flow MVP scaffolds the workspace, templates, and README", () => {
   assert.match(liveCaseNote, /protect business leverage/i);
   assert.match(founderPost, /distribution id: `dist-002`/i);
   assert.match(founderPost, /Protecting the mechanism that changes copy risk/i);
+  assert.match(founderPost, /## LinkedIn-style Version/i);
+  assert.match(introNote, /distribution id: `dist-003`/i);
+  assert.match(introNote, /whether the distinction between patent activity and leverage-driven patent strategy feels clear/i);
+  assert.match(communityPost, /channel: `community-post`/i);
+  assert.match(communityPost, /Curious how others here think about the gap between filing activity and actual strategic leverage/i);
   assert.match(packet, /## Founder Post/i);
 });
 
