@@ -35,10 +35,12 @@ test("proof flow MVP scaffolds the workspace, templates, and README", () => {
   ]);
   assert.ok(Array.isArray(workspace.tasks));
   assert.ok(Array.isArray(workspace.assets));
-  assert.deepEqual(workspace.distributions, []);
+  assert.ok(Array.isArray(workspace.distributions));
   assert.deepEqual(workspace.feedback, []);
   assert.ok(workspace.tasks.some((task) => task.topic_cluster === "startup patent strategy"));
   assert.ok(workspace.assets.some((asset) => asset.linked_page === "startup-patent-strategy.htm"));
+  assert.ok(workspace.assets.some((asset) => asset.status === "approved"));
+  assert.ok(workspace.distributions.some((distribution) => distribution.channel === "founder-post"));
 
   const readme = read("docs/proof-flow/README.md");
   assert.match(readme, /Proof Flow/i);
@@ -48,12 +50,17 @@ test("proof flow MVP scaffolds the workspace, templates, and README", () => {
   const caseNote = read("templates/proof-flow/case-note.md");
   const founderMemo = read("templates/proof-flow/founder-memo.md");
   const liveCaseNote = read("docs/proof-flow/assets/asset-001-startup-patent-strategy-case-note.md");
+  const founderPost = read("docs/proof-flow/assets/asset-001-founder-post.md");
+  const packet = read("docs/proof-flow/packets/asset-001-packet.md");
   assert.match(caseNote, /\{\{title\}\}/);
   assert.match(caseNote, /\{\{claim\}\}/);
   assert.match(founderMemo, /\{\{title\}\}/);
   assert.match(founderMemo, /\{\{claim\}\}/);
   assert.match(liveCaseNote, /startup patent strategy/i);
   assert.match(liveCaseNote, /protect business leverage/i);
+  assert.match(founderPost, /distribution id: `dist-002`/i);
+  assert.match(founderPost, /Protecting the mechanism that changes copy risk/i);
+  assert.match(packet, /## Founder Post/i);
 });
 
 test("createProofTask appends a task and draft asset in memory", () => {

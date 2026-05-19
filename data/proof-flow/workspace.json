@@ -21,9 +21,29 @@
       "topic_cluster": "startup patent strategy",
       "claim": "A strong startup patent strategy should protect business leverage, not just produce filings.",
       "linked_page": "startup-patent-strategy.htm",
-      "status": "draft"
+      "status": "approved",
+      "approved_by": "Andrew Leung"
     }
   ],
-  "distributions": [],
+  "distributions": [
+    {
+      "id": "dist-001",
+      "asset_id": "asset-001",
+      "channel": "site-note",
+      "status": "drafted"
+    },
+    {
+      "id": "dist-002",
+      "asset_id": "asset-001",
+      "channel": "founder-post",
+      "status": "drafted"
+    },
+    {
+      "id": "dist-003",
+      "asset_id": "asset-001",
+      "channel": "intro-note",
+      "status": "drafted"
+    }
+  ],
   "feedback": []
 }
