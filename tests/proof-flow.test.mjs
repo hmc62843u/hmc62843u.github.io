@@ -41,6 +41,9 @@ test("proof flow MVP scaffolds the workspace, templates, and README", () => {
   assert.ok(workspace.assets.some((asset) => asset.linked_page === "startup-patent-strategy.htm"));
   assert.ok(workspace.assets.some((asset) => asset.status === "approved"));
   assert.ok(workspace.distributions.some((distribution) => distribution.channel === "founder-post"));
+  assert.ok(workspace.distributions.some((distribution) => distribution.channel === "site-note" && distribution.status === "sent"));
+  assert.ok(workspace.distributions.some((distribution) => distribution.channel === "founder-post" && distribution.status === "sent"));
+  assert.ok(workspace.distributions.some((distribution) => distribution.channel === "intro-note" && distribution.status === "sent"));
 
   const readme = read("docs/proof-flow/README.md");
   assert.match(readme, /Proof Flow/i);

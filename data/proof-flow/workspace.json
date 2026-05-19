@@ -30,19 +30,19 @@
       "id": "dist-001",
       "asset_id": "asset-001",
       "channel": "site-note",
-      "status": "drafted"
+      "status": "sent"
     },
     {
       "id": "dist-002",
       "asset_id": "asset-001",
       "channel": "founder-post",
-      "status": "drafted"
+      "status": "sent"
     },
     {
       "id": "dist-003",
       "asset_id": "asset-001",
       "channel": "intro-note",
-      "status": "drafted"
+      "status": "sent"
     }
   ],
   "feedback": []
