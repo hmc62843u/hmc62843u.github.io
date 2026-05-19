@@ -10,6 +10,7 @@ const pages = [
   "career.htm",
   "patent-commercialization-for-founders.htm",
   "startup-patent-strategy.htm",
+  "startup-patent-strategy-case-note.htm",
   "trust-chain.htm",
   "trust-chain-demo.htm",
   "trust-chain-explainer.htm"

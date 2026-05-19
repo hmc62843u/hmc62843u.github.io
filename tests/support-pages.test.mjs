@@ -8,6 +8,7 @@ const faq = readFileSync(new URL("../faq.htm", import.meta.url), "utf8");
 const career = readFileSync(new URL("../career.htm", import.meta.url), "utf8");
 const commercialization = readFileSync(new URL("../patent-commercialization-for-founders.htm", import.meta.url), "utf8");
 const strategy = readFileSync(new URL("../startup-patent-strategy.htm", import.meta.url), "utf8");
+const strategyCaseNote = readFileSync(new URL("../startup-patent-strategy-case-note.htm", import.meta.url), "utf8");
 
 test("about page ties expertise to marketplace evaluation", () => {
   assert.match(about, /Andrew Leung/);
@@ -58,8 +59,23 @@ test("startup patent strategy page is a founder-linked citation surface", () => 
   assert.match(strategy, /"@type":\s*"FAQPage"/);
   assert.match(strategy, /href="trust-chain\.htm"/);
   assert.match(strategy, /href="trust-chain-explainer\.htm"/);
+  assert.match(strategy, /href="startup-patent-strategy-case-note\.htm"/);
   assert.match(strategy, /mailto:wp@wpatent\.com\?subject=Trust%20Chain%20Scorecard/i);
   assert.match(strategy, /<link rel="canonical" href="https:\/\/wpatent\.com\/startup-patent-strategy\.htm">/);
+});
+
+test("startup patent strategy case note turns the proof gap into a live supporting asset", () => {
+  assert.match(strategyCaseNote, /<title>Startup Patent Strategy Case Note \| W&(?:amp;)?Patent<\/title>/i);
+  assert.match(strategyCaseNote, /Protect the Workflow That Creates Leverage, Not Every Feature Around It/i);
+  assert.match(strategyCaseNote, /Illustrative note: this uses a realistic early-stage scenario/i);
+  assert.match(strategyCaseNote, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
+  assert.match(strategyCaseNote, /A startup patent strategy becomes more useful when it protects the mechanism that creates leverage/i);
+  assert.match(strategyCaseNote, /What Looked Protectable But Was Not The Priority/i);
+  assert.match(strategyCaseNote, /What Was Actually Worth Protecting/i);
+  assert.match(strategyCaseNote, /"@type":\s*"Article"/);
+  assert.match(strategyCaseNote, /href="startup-patent-strategy\.htm"/);
+  assert.match(strategyCaseNote, /href="trust-chain-explainer\.htm"/);
+  assert.match(strategyCaseNote, /<link rel="canonical" href="https:\/\/wpatent\.com\/startup-patent-strategy-case-note\.htm">/);
 });
 
 test("patent commercialization page is a founder-linked citation surface", () => {

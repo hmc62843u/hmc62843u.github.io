@@ -1,7 +1,29 @@
 {
   "version": 1,
-  "tasks": [],
-  "assets": [],
+  "tasks": [
+    {
+      "id": "task-001",
+      "title": "Why a startup patent strategy should protect leverage, not just generate filings",
+      "topic_cluster": "startup patent strategy",
+      "asset_type": "case-note",
+      "claim": "A strong startup patent strategy should protect business leverage, not just produce filings.",
+      "linked_page": "startup-patent-strategy.htm",
+      "framework_source": ".agents/skills/founder-led-discovery-spine/profiles/wpatent-proof-network.md",
+      "status": "open"
+    }
+  ],
+  "assets": [
+    {
+      "id": "asset-001",
+      "task_id": "task-001",
+      "title": "Why a startup patent strategy should protect leverage, not just generate filings",
+      "asset_type": "case-note",
+      "topic_cluster": "startup patent strategy",
+      "claim": "A strong startup patent strategy should protect business leverage, not just produce filings.",
+      "linked_page": "startup-patent-strategy.htm",
+      "status": "draft"
+    }
+  ],
   "distributions": [],
   "feedback": []
 }

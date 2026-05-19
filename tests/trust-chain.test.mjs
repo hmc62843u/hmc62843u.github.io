@@ -143,7 +143,8 @@ test("trust chain explainer page is public, crawlable, and tied back to the syst
     "The goal is not to manufacture trust, but to make real credibility easier for AI systems to interpret, cite, and use.",
     'href="trust-chain.htm"',
     'href="trust-chain-demo.htm"',
-    'href="templates/trust-chain-starter.zip"'
+    'href="templates/trust-chain-starter.zip"',
+    'href="startup-patent-strategy-case-note.htm"'
   ]) {
     assert.match(explainer, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
   }

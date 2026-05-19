@@ -17,6 +17,7 @@ Use this companion file with `profiles/wpatent.md` when the question is not just
 - `trust-chain-demo.htm`: inspectable fictional demo page showing the method in use
 - `templates/trust-chain-starter.zip`: public starter kit that makes the method inspectable
 - `startup-patent-strategy.htm`: founder-facing patent-strategy surface tied to defensibility and commercialization
+- `startup-patent-strategy-case-note.htm`: illustrative supporting proof asset for the startup patent strategy cluster
 - `patent-commercialization-for-founders.htm`: founder-facing commercialization surface tied to licensing, diligence, and leverage
 - `docs/scorecards/*`: internal evidence assets for diagnosis and prioritization
 
@@ -25,7 +26,7 @@ Use this companion file with `profiles/wpatent.md` when the question is not just
 | Cluster | Current surfaces | Current onsite proof | Current offsite reinforcement | Main proof gap | Next proof priority |
 | --- | --- | --- | --- | --- | --- |
 | `Trust Chain concept ownership` | `trust-chain.htm`, `trust-chain-explainer.htm`, `trust-chain-demo.htm` | founder-linked method definition, live demo, downloadable starter kit, FAQ/schema | none intentionally tracked yet | the concept is explainable onsite, but still has little reinforcing proof beyond W&Patent itself | publish one applied teardown or before/after scorecard-style example and one external founder commentary asset |
-| `startup patent strategy` | `startup-patent-strategy.htm` | founder point of view, practical framework, example logic, common mistakes section | none intentionally tracked yet | the page is conceptually strong, but still light on inspectable named examples, references, or companion proof | publish a short case note or teardown showing how a startup decides what to protect and why |
+| `startup patent strategy` | `startup-patent-strategy.htm`, `startup-patent-strategy-case-note.htm` | founder point of view, practical framework, common mistakes section, and one illustrative case note | none intentionally tracked yet | the cluster now has an onsite proof companion, but still lacks external reinforcement and named reference support | route the case note into one founder-post or offsite commentary asset and add stronger public reference support over time |
 | `patent commercialization for founders` | `patent-commercialization-for-founders.htm` | founder point of view, commercialization framing, licensing and diligence scenarios | none intentionally tracked yet | the page needs clearer buyer logic, examples, and public reinforcement for commercialization claims | publish a short commercialization memo or case note with one licensing or diligence pathway |
 | `AI-readable company website` | Trust Chain pages only, for now | method page, explainer, demo, starter kit | none intentionally tracked yet | there is no dedicated topic page or simple proof asset for this cluster yet | publish `ai-readable-company-website.htm` plus a checklist or teardown that shows what AI readability looks like in practice |
 | `founder-led authority building` | `about.htm` and `trust-chain-explainer.htm`, partially | Andrew Leung attribution, founder/company/method linkage, Trust Chain framing | no tracked interviews, talks, guest posts, or third-party mentions yet | founder authority exists mostly on the site, with little public reinforcement beyond it | publish `founder-led-authority-building.htm` and seek one offsite interview, guest piece, quote, or reference tied to the same cluster |
@@ -36,7 +37,7 @@ Use this companion file with `profiles/wpatent.md` when the question is not just
 
 - an identifiable founder, company, and named method
 - inspectable onsite proof in the form of the Trust Chain explainer, demo, and starter kit
-- two live advisory topic pages that can now be supported with narrower proof assets
+- two live advisory topic pages and one live supporting case note that can now be reinforced further
 
 ### What is still thin
 
