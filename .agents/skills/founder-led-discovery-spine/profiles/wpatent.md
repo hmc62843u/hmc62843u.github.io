@@ -48,6 +48,17 @@ Recommend clearer clustering within `wpatent.com` first unless the evidence late
 W&Patent is more legible when the system is already looking at the right pages than it is discoverable in open non-branded topic spaces.
 That means the next gains are more likely to come from topic ownership and stronger citation surfaces than from homepage or methodology-page polishing alone.
 
+### Comparison control note
+
+The current `OpenFor.co` comparison control suggests that small founder-led sites are not completely invisible to answer engines, but they often show fragile branded grounding and weak broad discovery at the same time.
+That means W&Patent should not read every retrieval miss as framework failure.
+The more useful diagnostic split is:
+
+- broad discovery can remain weak for multiple small founder-led sites
+- branded grounding can still improve materially inside that constraint
+
+For W&Patent specifically, the branded-control weakness means the next page-level improvement should favor direct `W&Patent's view` and `Andrew Leung's view` answer blocks on the most important citation surfaces so answer engines have less room to improvise from unrelated sources.
+
 ## Priority Topic Clusters
 
 Use these clusters as the default W&Patent working map.

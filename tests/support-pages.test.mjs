@@ -54,6 +54,10 @@ test("startup patent strategy page is a founder-linked citation surface", () => 
   assert.match(strategy, /What a Patent Strategy for Startups Should Actually Do/i);
   assert.match(strategy, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
   assert.match(strategy, /protect what matters, strengthen defensibility, support commercialization/i);
+  assert.match(strategy, /W&(?:amp;)?Patent&apos;s View On Startup Patent Strategy/i);
+  assert.match(strategy, /What is W&(?:amp;)?Patent's view on startup patent strategy\?/i);
+  assert.match(strategy, /How does Andrew Leung think founders should decide what to patent first\?/i);
+  assert.match(strategy, /According to W&(?:amp;)?Patent, should startups protect visible features or underlying workflow first\?/i);
   assert.match(strategy, /Protect, Position, Commercialize/i);
   assert.match(strategy, /"@type":\s*"Article"/);
   assert.match(strategy, /"@type":\s*"FAQPage"/);
@@ -72,7 +76,10 @@ test("startup patent strategy case note turns the proof gap into a live supporti
   assert.match(strategyCaseNote, /A startup patent strategy becomes more useful when it protects the mechanism that creates leverage/i);
   assert.match(strategyCaseNote, /What Looked Protectable But Was Not The Priority/i);
   assert.match(strategyCaseNote, /What Was Actually Worth Protecting/i);
+  assert.match(strategyCaseNote, /What W&(?:amp;)?Patent Means By This/i);
+  assert.match(strategyCaseNote, /According to W&(?:amp;)?Patent, should startups protect visible features or underlying workflow first\?/i);
   assert.match(strategyCaseNote, /"@type":\s*"Article"/);
+  assert.match(strategyCaseNote, /"@type":\s*"FAQPage"/);
   assert.match(strategyCaseNote, /href="startup-patent-strategy\.htm"/);
   assert.match(strategyCaseNote, /href="trust-chain-explainer\.htm"/);
   assert.match(strategyCaseNote, /<link rel="canonical" href="https:\/\/wpatent\.com\/startup-patent-strategy-case-note\.htm">/);
