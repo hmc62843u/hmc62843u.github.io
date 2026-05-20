@@ -14,18 +14,9 @@ W&Patent is a static GitHub Pages site that combines a patent marketplace demo w
 - `templates/trust-chain-starter/`: three-file starter kit for founder-led authority pages
 - `templates/trust-chain-starter.zip`: packaged download for sharing the starter kit directly
 
-## Internal measurement
+## Discovery ops
 
-- `docs/scorecards/2026-05-07-wpatent-trust-chain-scorecard.md`: before/after Trust Chain scorecard summary
-- `docs/scorecards/2026-05-07-wpatent-trust-chain-scorecard.csv`: detailed evidence worksheet
-- `docs/scorecards/2026-05-08-wpatent-discovery-roadmap.md`: prioritized discovery roadmap tied to the current evidence snapshot
-
-## Comparison controls
-
-- `docs/comparison-controls/2026-05-19-openfor-scorecard.md`: lightweight comparison scorecard for OpenFor.co
-- `docs/comparison-controls/2026-05-19-openfor-identity-overview.md`: intuitive identity and signal overview for OpenFor.co
-- `docs/comparison-controls/2026-05-19-openfor-discovery-grounding-overview.md`: Exa-based discovery and grounding readout for OpenFor.co
-- `docs/comparison-controls/2026-05-19-openfor-improvement-snapshot.md`: practical improvement snapshot for the comparison control
+Provider-keyed prompt evidence, comparison controls, and founder-discovery operations now live in `/Users/andrew/backup/work/company-os/anrobo-os/anrobo-founder-discovery`.
 
 ## Development
 
