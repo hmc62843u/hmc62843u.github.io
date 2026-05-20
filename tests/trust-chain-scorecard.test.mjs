@@ -21,6 +21,49 @@ test("root README points to scorecard assets", () => {
   assert.match(rootReadme, /docs\/scorecards\//);
   assert.match(rootReadme, /trust-chain-scorecard/i);
   assert.match(rootReadme, /discovery-roadmap/i);
+  assert.match(rootReadme, /docs\/comparison-controls\//);
+  assert.match(rootReadme, /openfor/i);
+});
+
+test("comparison control docs are present for OpenFor.co", () => {
+  assert.equal(existsSync(new URL("../docs/comparison-controls/README.md", import.meta.url)), true);
+  assert.equal(
+    existsSync(
+      new URL("../docs/comparison-controls/2026-05-19-openfor-identity-overview.md", import.meta.url)
+    ),
+    true
+  );
+  assert.equal(
+    existsSync(
+      new URL(
+        "../docs/comparison-controls/2026-05-19-openfor-discovery-grounding-overview.md",
+        import.meta.url
+      )
+    ),
+    true
+  );
+  assert.equal(
+    existsSync(
+      new URL("../docs/comparison-controls/2026-05-19-openfor-improvement-snapshot.md", import.meta.url)
+    ),
+    true
+  );
+
+  const guide = read("docs/comparison-controls/README.md");
+  const identity = read("docs/comparison-controls/2026-05-19-openfor-identity-overview.md");
+  const grounding = read("docs/comparison-controls/2026-05-19-openfor-discovery-grounding-overview.md");
+  const improvements = read("docs/comparison-controls/2026-05-19-openfor-improvement-snapshot.md");
+
+  assert.match(guide, /# Comparison Controls/);
+  assert.match(guide, /OpenFor\.co/i);
+  assert.match(identity, /# OpenFor\.co Identity Overview/);
+  assert.match(identity, /Erdinc Ekinci/i);
+  assert.match(identity, /Tokyo/i);
+  assert.match(grounding, /# OpenFor\.co Discovery And Grounding Overview/);
+  assert.match(grounding, /Exa answer API/i);
+  assert.match(grounding, /partial branded grounding/i);
+  assert.match(improvements, /# OpenFor\.co Improvement Snapshot/);
+  assert.match(improvements, /direct founder-view summaries/i);
 });
 
 test("scorecard summary defines the four scoring categories and prompt workflow", () => {

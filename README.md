@@ -20,6 +20,12 @@ W&Patent is a static GitHub Pages site that combines a patent marketplace demo w
 - `docs/scorecards/2026-05-07-wpatent-trust-chain-scorecard.csv`: detailed evidence worksheet
 - `docs/scorecards/2026-05-08-wpatent-discovery-roadmap.md`: prioritized discovery roadmap tied to the current evidence snapshot
 
+## Comparison controls
+
+- `docs/comparison-controls/2026-05-19-openfor-identity-overview.md`: intuitive identity and signal overview for OpenFor.co
+- `docs/comparison-controls/2026-05-19-openfor-discovery-grounding-overview.md`: Exa-based discovery and grounding readout for OpenFor.co
+- `docs/comparison-controls/2026-05-19-openfor-improvement-snapshot.md`: practical improvement snapshot for the comparison control
+
 ## Development
 
 Run the tests with `npm test`.
