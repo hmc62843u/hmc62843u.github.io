@@ -15,6 +15,7 @@ test("sitemap lists every public page", () => {
     "https://wpatent.com/",
     "https://wpatent.com/listings.htm",
     "https://wpatent.com/platform.htm",
+    "https://wpatent.com/patent-strategy-open-licensing.htm",
     "https://wpatent.com/patent-commercialization-for-founders.htm",
     "https://wpatent.com/startup-patent-strategy.htm",
     "https://wpatent.com/startup-patent-strategy-case-note.htm",

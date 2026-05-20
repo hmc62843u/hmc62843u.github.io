@@ -6,6 +6,7 @@ const about = readFileSync(new URL("../about.htm", import.meta.url), "utf8");
 const whyUs = readFileSync(new URL("../why_us.htm", import.meta.url), "utf8");
 const faq = readFileSync(new URL("../faq.htm", import.meta.url), "utf8");
 const career = readFileSync(new URL("../career.htm", import.meta.url), "utf8");
+const openLicensing = readFileSync(new URL("../patent-strategy-open-licensing.htm", import.meta.url), "utf8");
 const commercialization = readFileSync(new URL("../patent-commercialization-for-founders.htm", import.meta.url), "utf8");
 const strategy = readFileSync(new URL("../startup-patent-strategy.htm", import.meta.url), "utf8");
 const strategyCaseNote = readFileSync(new URL("../startup-patent-strategy-case-note.htm", import.meta.url), "utf8");
@@ -63,9 +64,27 @@ test("startup patent strategy page is a founder-linked citation surface", () => 
   assert.match(strategy, /"@type":\s*"FAQPage"/);
   assert.match(strategy, /href="trust-chain\.htm"/);
   assert.match(strategy, /href="trust-chain-explainer\.htm"/);
+  assert.match(strategy, /href="patent-strategy-open-licensing\.htm"/);
   assert.match(strategy, /href="startup-patent-strategy-case-note\.htm"/);
   assert.match(strategy, /mailto:wp@wpatent\.com\?subject=Trust%20Chain%20Scorecard/i);
   assert.match(strategy, /<link rel="canonical" href="https:\/\/wpatent\.com\/startup-patent-strategy\.htm">/);
+});
+
+test("patent versus open licensing note answers the defensibility choice practically", () => {
+  assert.match(openLicensing, /<title>Patents, Open Licensing, and Founder Defensibility \| W&(?:amp;)?Patent<\/title>/i);
+  assert.match(openLicensing, /When Founders Should Choose Patents, Open Licensing, or Other Defensibility Strategies/i);
+  assert.match(openLicensing, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
+  assert.match(openLicensing, /Most founders do not need a belief system about patents/i);
+  assert.match(openLicensing, /When patents are the right first move/i);
+  assert.match(openLicensing, /When open licensing or openness helps more/i);
+  assert.match(openLicensing, /When neither is the first priority/i);
+  assert.match(openLicensing, /W&(?:amp;)?Patent does not treat patents as the only serious answer/i);
+  assert.match(openLicensing, /Can a founder patent one layer and open another\?/i);
+  assert.match(openLicensing, /"@type":\s*"Article"/);
+  assert.match(openLicensing, /"@type":\s*"FAQPage"/);
+  assert.match(openLicensing, /href="startup-patent-strategy\.htm"/);
+  assert.match(openLicensing, /href="trust-chain-explainer\.htm"/);
+  assert.match(openLicensing, /<link rel="canonical" href="https:\/\/wpatent\.com\/patent-strategy-open-licensing\.htm">/);
 });
 
 test("startup patent strategy case note turns the proof gap into a live supporting asset", () => {
