@@ -58,6 +58,10 @@ test("startup patent strategy page is a founder-linked citation surface", () => 
   assert.match(strategy, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
   assert.match(strategy, /protect what matters, strengthen defensibility, support commercialization/i);
   assert.match(strategy, /href="andrew-leung-startup-patent-strategy\.htm"/);
+  assert.match(strategy, /W&(?:amp;)?Patent(?:&apos;|')s Direct Answer/i);
+  assert.match(strategy, /Andrew Leung(?:&apos;|')s Direct Answer/i);
+  assert.match(strategy, /protect business leverage before filing volume/i);
+  assert.match(strategy, /patent the mechanism, workflow, or commercial logic that changes bargaining position/i);
   assert.match(strategy, /W&(?:amp;)?Patent&apos;s View On Startup Patent Strategy/i);
   assert.match(strategy, /What is W&(?:amp;)?Patent's view on startup patent strategy\?/i);
   assert.match(strategy, /How does Andrew Leung think founders should decide what to patent first\?/i);
@@ -111,6 +115,13 @@ test("patent commercialization page is a founder-linked citation surface", () =>
   assert.match(commercialization, /<title>Patent Commercialization for Founders \| W&(?:amp;)?Patent<\/title>/i);
   assert.match(commercialization, /How Founders Should Think About Patent Commercialization/i);
   assert.match(commercialization, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
+  assert.match(commercialization, /W&(?:amp;)?Patent(?:&apos;|')s Direct Answer/i);
+  assert.match(commercialization, /Andrew Leung(?:&apos;|')s Direct Answer/i);
+  assert.match(commercialization, /W&(?:amp;)?Patent&apos;s View On Patent Commercialization/i);
+  assert.match(commercialization, /What is W&(?:amp;)?Patent's view on patent commercialization\?/i);
+  assert.match(commercialization, /How does Andrew Leung think founders should connect patents to commercialization\?/i);
+  assert.match(commercialization, /According to W&(?:amp;)?Patent, when does patent commercialization start\?/i);
+  assert.match(commercialization, /patent commercialization starts when a founder can explain what is protected, who would care, and what leverage it creates/i);
   assert.match(commercialization, /stronger partnerships, clearer licensing conversations, more credible diligence/i);
   assert.match(commercialization, /Asset, Buyer, Leverage/i);
   assert.match(commercialization, /href="andrew-leung-startup-patent-strategy\.htm"/);
