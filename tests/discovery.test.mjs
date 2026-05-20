@@ -13,6 +13,7 @@ test("sitemap lists every public page", () => {
   const sitemap = readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8");
   for (const url of [
     "https://wpatent.com/",
+    "https://wpatent.com/andrew-leung-startup-patent-strategy.htm",
     "https://wpatent.com/listings.htm",
     "https://wpatent.com/platform.htm",
     "https://wpatent.com/patent-strategy-open-licensing.htm",

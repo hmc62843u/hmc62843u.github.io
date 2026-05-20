@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 const about = readFileSync(new URL("../about.htm", import.meta.url), "utf8");
 const whyUs = readFileSync(new URL("../why_us.htm", import.meta.url), "utf8");
@@ -10,12 +10,14 @@ const openLicensing = readFileSync(new URL("../patent-strategy-open-licensing.ht
 const commercialization = readFileSync(new URL("../patent-commercialization-for-founders.htm", import.meta.url), "utf8");
 const strategy = readFileSync(new URL("../startup-patent-strategy.htm", import.meta.url), "utf8");
 const strategyCaseNote = readFileSync(new URL("../startup-patent-strategy-case-note.htm", import.meta.url), "utf8");
+const founderAuthorityPath = new URL("../andrew-leung-startup-patent-strategy.htm", import.meta.url);
 
 test("about page ties expertise to marketplace evaluation", () => {
   assert.match(about, /Andrew Leung/);
   assert.match(about, /founded W&(?:amp;)?Patent/i);
   assert.match(about, /marketplace/);
   assert.match(about, /commercialization/i);
+  assert.match(about, /andrew-leung-startup-patent-strategy\.htm/);
   assert.match(about, /patent-commercialization-for-founders\.htm/);
   assert.match(about, /startup defensibility/i);
   assert.match(about, /sharper market positioning/i);
@@ -55,6 +57,7 @@ test("startup patent strategy page is a founder-linked citation surface", () => 
   assert.match(strategy, /What a Patent Strategy for Startups Should Actually Do/i);
   assert.match(strategy, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
   assert.match(strategy, /protect what matters, strengthen defensibility, support commercialization/i);
+  assert.match(strategy, /href="andrew-leung-startup-patent-strategy\.htm"/);
   assert.match(strategy, /W&(?:amp;)?Patent&apos;s View On Startup Patent Strategy/i);
   assert.match(strategy, /What is W&(?:amp;)?Patent's view on startup patent strategy\?/i);
   assert.match(strategy, /How does Andrew Leung think founders should decide what to patent first\?/i);
@@ -110,10 +113,35 @@ test("patent commercialization page is a founder-linked citation surface", () =>
   assert.match(commercialization, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
   assert.match(commercialization, /stronger partnerships, clearer licensing conversations, more credible diligence/i);
   assert.match(commercialization, /Asset, Buyer, Leverage/i);
+  assert.match(commercialization, /href="andrew-leung-startup-patent-strategy\.htm"/);
   assert.match(commercialization, /"@type":\s*"Article"/);
   assert.match(commercialization, /"@type":\s*"FAQPage"/);
   assert.match(commercialization, /href="startup-patent-strategy\.htm"/);
   assert.match(commercialization, /href="trust-chain\.htm"/);
   assert.match(commercialization, /mailto:wp@wpatent\.com\?subject=Trust%20Chain%20Scorecard/i);
   assert.match(commercialization, /<link rel="canonical" href="https:\/\/wpatent\.com\/patent-commercialization-for-founders\.htm">/);
+});
+
+test("Andrew Leung founder authority page is a direct citation surface", () => {
+  assert.equal(existsSync(founderAuthorityPath), true);
+
+  const founderAuthority = readFileSync(founderAuthorityPath, "utf8");
+
+  assert.match(
+    founderAuthority,
+    /<title>Andrew Leung on Startup Patent Strategy and Commercialization \| W&(?:amp;)?Patent<\/title>/i
+  );
+  assert.match(founderAuthority, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
+  assert.match(founderAuthority, /startup patent strategy/i);
+  assert.match(founderAuthority, /patent commercialization/i);
+  assert.match(founderAuthority, /Protect, Position, Commercialize/i);
+  assert.match(founderAuthority, /"@type":\s*"Article"/);
+  assert.match(founderAuthority, /"@type":\s*"FAQPage"/);
+  assert.match(founderAuthority, /href="about\.htm"/);
+  assert.match(founderAuthority, /href="startup-patent-strategy\.htm"/);
+  assert.match(founderAuthority, /href="patent-commercialization-for-founders\.htm"/);
+  assert.match(
+    founderAuthority,
+    /<link rel="canonical" href="https:\/\/wpatent\.com\/andrew-leung-startup-patent-strategy\.htm">/
+  );
 });
