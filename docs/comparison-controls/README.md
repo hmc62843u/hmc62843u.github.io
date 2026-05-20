@@ -11,6 +11,7 @@ They exist to help answer questions like:
 
 ## Current reports
 
+- `2026-05-19-openfor-scorecard.md`: lightweight comparison scorecard for OpenFor.co
 - `2026-05-19-openfor-identity-overview.md`: what OpenFor.co appears to be, who Erdinc Ekinci is, and what signals the site sends
 - `2026-05-19-openfor-discovery-grounding-overview.md`: broad and branded retrieval behavior observed in Exa
 - `2026-05-19-openfor-improvement-snapshot.md`: intuitive next-step recommendations based on the current comparison run

@@ -28,6 +28,10 @@ test("root README points to scorecard assets", () => {
 test("comparison control docs are present for OpenFor.co", () => {
   assert.equal(existsSync(new URL("../docs/comparison-controls/README.md", import.meta.url)), true);
   assert.equal(
+    existsSync(new URL("../docs/comparison-controls/2026-05-19-openfor-scorecard.md", import.meta.url)),
+    true
+  );
+  assert.equal(
     existsSync(
       new URL("../docs/comparison-controls/2026-05-19-openfor-identity-overview.md", import.meta.url)
     ),
@@ -50,12 +54,20 @@ test("comparison control docs are present for OpenFor.co", () => {
   );
 
   const guide = read("docs/comparison-controls/README.md");
+  const scorecard = read("docs/comparison-controls/2026-05-19-openfor-scorecard.md");
   const identity = read("docs/comparison-controls/2026-05-19-openfor-identity-overview.md");
   const grounding = read("docs/comparison-controls/2026-05-19-openfor-discovery-grounding-overview.md");
   const improvements = read("docs/comparison-controls/2026-05-19-openfor-improvement-snapshot.md");
 
   assert.match(guide, /# Comparison Controls/);
   assert.match(guide, /OpenFor\.co/i);
+  assert.match(scorecard, /# OpenFor\.co Comparison Scorecard/);
+  assert.match(scorecard, /Summary Dashboard/i);
+  assert.match(scorecard, /Identity Surface Score/i);
+  assert.match(scorecard, /Broad Discovery Score/i);
+  assert.match(scorecard, /Branded Grounding Score/i);
+  assert.match(scorecard, /Intent Fit Score/i);
+  assert.match(scorecard, /Improvement Readiness Score/i);
   assert.match(identity, /# OpenFor\.co Identity Overview/);
   assert.match(identity, /Erdinc Ekinci/i);
   assert.match(identity, /Tokyo/i);

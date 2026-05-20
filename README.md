@@ -22,6 +22,7 @@ W&Patent is a static GitHub Pages site that combines a patent marketplace demo w
 
 ## Comparison controls
 
+- `docs/comparison-controls/2026-05-19-openfor-scorecard.md`: lightweight comparison scorecard for OpenFor.co
 - `docs/comparison-controls/2026-05-19-openfor-identity-overview.md`: intuitive identity and signal overview for OpenFor.co
 - `docs/comparison-controls/2026-05-19-openfor-discovery-grounding-overview.md`: Exa-based discovery and grounding readout for OpenFor.co
 - `docs/comparison-controls/2026-05-19-openfor-improvement-snapshot.md`: practical improvement snapshot for the comparison control
