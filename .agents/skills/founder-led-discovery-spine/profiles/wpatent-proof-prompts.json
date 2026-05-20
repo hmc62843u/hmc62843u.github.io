@@ -1,0 +1,65 @@
+{
+  "project": "W&Patent",
+  "version": "2026-05-19",
+  "purpose": "Secondary proof-prompt layer for asset validation and identity retrieval control checks. This file complements broad discovery benchmarking and should not replace the main scorecard prompt set.",
+  "reading_rules": [
+    "Broad prompts remain the primary discovery benchmark.",
+    "Narrow prompts test whether a proof asset teaches the intended idea under a more focused query.",
+    "Identity retrieval control prompts test whether answer engines can retrieve and ground W&Patent when Andrew or W&Patent is named directly.",
+    "Strong narrow or control results do not prove broad discoverability."
+  ],
+  "assets": [
+    {
+      "asset_id": "asset-001",
+      "topic_cluster": "startup_patent_strategy",
+      "linked_pages": [
+        "startup-patent-strategy.htm",
+        "startup-patent-strategy-case-note.htm"
+      ],
+      "intended_point_of_view": "A strong startup patent strategy should protect business leverage, not just generate filings.",
+      "tiers": {
+        "broad": {
+          "purpose": "Test non-branded market discovery without assistance.",
+          "prompts": [
+            "patent strategy for startups",
+            "startup defensibility through patents",
+            "patent advisory for startup founders"
+          ],
+          "success_signals": [
+            "W&Patent is mentioned or cited without help.",
+            "The answer frames strategy around leverage rather than filing volume."
+          ]
+        },
+        "narrow": {
+          "purpose": "Test whether the proof asset is legible when the prompt is more focused.",
+          "prompts": [
+            "what should a startup patent strategy protect first",
+            "how should founders decide what is worth patenting first",
+            "what creates leverage in startup patent strategy",
+            "should startups patent visible product features or underlying workflow",
+            "how do patents improve bargaining position for startups"
+          ],
+          "success_signals": [
+            "The answer emphasizes leverage, bargaining position, or copy risk.",
+            "The answer distinguishes visible features from underlying mechanism or workflow.",
+            "The answer mentions diligence, partnerships, commercialization, or valuation.",
+            "The answer cites startup-patent-strategy.htm or startup-patent-strategy-case-note.htm."
+          ]
+        },
+        "identity_retrieval_control": {
+          "purpose": "Test whether answer engines can retrieve and ground the W&Patent view when Andrew or W&Patent is named directly.",
+          "prompts": [
+            "What is W&Patent's view on startup patent strategy?",
+            "How does Andrew Leung think founders should decide what to patent first?",
+            "According to W&Patent, should startups protect visible features or underlying workflow first?"
+          ],
+          "success_signals": [
+            "The answer names W&Patent or Andrew Leung correctly.",
+            "The answer cites startup-patent-strategy.htm or startup-patent-strategy-case-note.htm.",
+            "The answer preserves the protect leverage, not just filing volume framing."
+          ]
+        }
+      }
+    }
+  ]
+}

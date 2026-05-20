@@ -37,6 +37,58 @@ test("prompt evidence assets expose the fixed prompt set and raw CSV header", ()
   );
 });
 
+test("W&Patent proof-prompt profile preserves broad, narrow, and control tiers", () => {
+  assert.equal(
+    existsSync(
+      new URL(
+        "../.agents/skills/founder-led-discovery-spine/profiles/wpatent-proof-prompts.json",
+        import.meta.url
+      )
+    ),
+    true
+  );
+
+  const profile = JSON.parse(
+    read(".agents/skills/founder-led-discovery-spine/profiles/wpatent-proof-prompts.json")
+  );
+
+  assert.equal(profile.project, "W&Patent");
+  assert.equal(profile.assets[0]?.asset_id, "asset-001");
+  assert.ok(Array.isArray(profile.assets[0]?.tiers?.broad?.prompts));
+  assert.ok(Array.isArray(profile.assets[0]?.tiers?.narrow?.prompts));
+  assert.ok(Array.isArray(profile.assets[0]?.tiers?.identity_retrieval_control?.prompts));
+  assert.match(
+    profile.assets[0].tiers.identity_retrieval_control.prompts.join(" "),
+    /W&Patent|Andrew Leung/i
+  );
+});
+
+test("OpenFor comparison control preserves troubleshooting prompt tiers", () => {
+  assert.equal(
+    existsSync(
+      new URL(
+        "../.agents/skills/founder-led-discovery-spine/profiles/openfor-comparison-control.json",
+        import.meta.url
+      )
+    ),
+    true
+  );
+
+  const profile = JSON.parse(
+    read(".agents/skills/founder-led-discovery-spine/profiles/openfor-comparison-control.json")
+  );
+
+  assert.equal(profile.project, "OpenFor.co");
+  assert.equal(profile.founder, "Erdinc Ekinci");
+  assert.ok(Array.isArray(profile.tiers?.broad?.prompts));
+  assert.ok(Array.isArray(profile.tiers?.narrow?.prompts));
+  assert.ok(Array.isArray(profile.tiers?.identity_retrieval_control?.prompts));
+  assert.match(
+    profile.tiers.identity_retrieval_control.prompts.join(" "),
+    /OpenFor\.co|Erdinc Ekinci/i
+  );
+});
+
 test("scorecards README documents the prompt evidence artifacts", () => {
   const readme = read("docs/scorecards/README.md");
   assert.match(readme, /prompts\.txt/i);

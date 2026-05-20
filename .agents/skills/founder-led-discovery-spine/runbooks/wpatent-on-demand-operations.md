@@ -36,8 +36,10 @@ When invoked, the agent should read these first:
 4. `.agents/skills/founder-led-discovery-spine/profiles/wpatent.md`
 5. `.agents/skills/founder-led-discovery-spine/profiles/wpatent-proof-network.md`
 6. `.agents/skills/founder-led-discovery-spine/test-prompts.json`
-7. `docs/proof-flow/README.md`
-8. `docs/proof-flow/mixed-mode.md`
+7. `.agents/skills/founder-led-discovery-spine/profiles/wpatent-proof-prompts.json`
+8. `.agents/skills/founder-led-discovery-spine/profiles/openfor-comparison-control.json` when portability or troubleshooting needs a comparison site
+9. `docs/proof-flow/README.md`
+10. `docs/proof-flow/mixed-mode.md`
 
 Then it should inspect the relevant live pages or target files for the topic at hand.
 
@@ -146,6 +148,26 @@ npm test
 ```bash
 node --env-file=.env scripts/run-prompt-evidence.mjs --only-exa
 ```
+
+### Use proof-prompt tiers for a focused Exa pilot
+
+Use `profiles/wpatent-proof-prompts.json` when the goal is to test:
+
+- broad discovery
+- narrow proof-legibility
+- branded identity retrieval control
+
+Do not treat the proof-prompt tiers as a replacement for the main scorecard prompt set.
+
+### Use a comparison control when W&Patent results are ambiguous
+
+Use `profiles/openfor-comparison-control.json` when you need to separate:
+
+- W&Patent-specific retrieval weakness
+- small-site answer-engine grounding limits
+- framework portability across another founder-led site
+
+Keep the comparison control outside the main W&Patent scorecard.
 
 ### Run a broader comparison rerun when keys exist
 
