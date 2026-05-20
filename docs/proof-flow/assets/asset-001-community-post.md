@@ -1,6 +1,7 @@
 # Community Post: startup patent strategy proof asset
 
 - asset id: `asset-001`
+- distribution id: `dist-004`
 - channel: `community-post`
 - linked page: `startup-patent-strategy.htm`
 - supporting proof: `startup-patent-strategy-case-note.htm`

@@ -35,9 +35,11 @@ test("mixed-mode scaffolding exposes a community workspace and guide", () => {
     "shared_assets",
     "amplification_events"
   ]);
-  assert.deepEqual(community.received_sync_ids, []);
-  assert.deepEqual(community.shared_assets, []);
+  assert.ok(community.received_sync_ids.length >= 1);
+  assert.ok(community.shared_assets.length >= 1);
   assert.deepEqual(community.amplification_events, []);
+  assert.equal(community.shared_assets[0].asset_id, "asset-001");
+  assert.deepEqual(community.shared_assets[0].channels, ["founder-post", "community-post"]);
 
   const guide = read("docs/proof-flow/mixed-mode.md");
   assert.match(guide, /private founder instance/i);
@@ -47,6 +49,14 @@ test("mixed-mode scaffolding exposes a community workspace and guide", () => {
   const readme = read("docs/proof-flow/README.md");
   assert.match(readme, /mixed mode/i);
   assert.match(readme, /community-workspace\.json/i);
+  assert.equal(
+    existsSync(new URL("../data/proof-flow/sync-outbox/asset-001-share.json", import.meta.url)),
+    true
+  );
+  const packet = JSON.parse(read("data/proof-flow/sync-outbox/asset-001-share.json"));
+  assert.equal(packet.asset_id, "asset-001");
+  assert.deepEqual(packet.channels, ["founder-post", "community-post"]);
+  assert.match(packet.packet_markdown, /Community Post/i);
 });
 
 test("buildSharePacket exports only approved proof with channel context", () => {
@@ -82,6 +92,7 @@ test("buildSharePacket exports only approved proof with channel context", () => 
   assert.equal(packet.approved_by, "Andrew Leung");
   assert.deepEqual(packet.channels, ["founder-post", "community-post"]);
   assert.match(packet.packet_markdown, /Founder Post/i);
+  assert.match(packet.packet_markdown, /Community Post/i);
 });
 
 test("export-proof-sync CLI writes a sync packet to the outbox", () => {

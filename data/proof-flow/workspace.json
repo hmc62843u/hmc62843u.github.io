@@ -43,6 +43,12 @@
       "asset_id": "asset-001",
       "channel": "intro-note",
       "status": "sent"
+    },
+    {
+      "id": "dist-004",
+      "asset_id": "asset-001",
+      "channel": "community-post",
+      "status": "sent"
     }
   ],
   "feedback": []

@@ -44,6 +44,7 @@ test("proof flow MVP scaffolds the workspace, templates, and README", () => {
   assert.ok(workspace.distributions.some((distribution) => distribution.channel === "site-note" && distribution.status === "sent"));
   assert.ok(workspace.distributions.some((distribution) => distribution.channel === "founder-post" && distribution.status === "sent"));
   assert.ok(workspace.distributions.some((distribution) => distribution.channel === "intro-note" && distribution.status === "sent"));
+  assert.ok(workspace.distributions.some((distribution) => distribution.channel === "community-post" && distribution.status === "sent"));
 
   const readme = read("docs/proof-flow/README.md");
   assert.match(readme, /Proof Flow/i);
@@ -68,9 +69,11 @@ test("proof flow MVP scaffolds the workspace, templates, and README", () => {
   assert.match(founderPost, /## LinkedIn-style Version/i);
   assert.match(introNote, /distribution id: `dist-003`/i);
   assert.match(introNote, /whether the distinction between patent activity and leverage-driven patent strategy feels clear/i);
+  assert.match(communityPost, /distribution id: `dist-004`/i);
   assert.match(communityPost, /channel: `community-post`/i);
   assert.match(communityPost, /Curious how others here think about the gap between filing activity and actual strategic leverage/i);
   assert.match(packet, /## Founder Post/i);
+  assert.match(packet, /## Community Post/i);
 });
 
 test("createProofTask appends a task and draft asset in memory", () => {
@@ -178,9 +181,10 @@ test("buildProofPacket produces channel-ready sections", () => {
     status: "approved"
   };
 
-  const packet = buildProofPacket(asset, ["site-note", "founder-post", "intro-note"]);
+  const packet = buildProofPacket(asset, ["site-note", "founder-post", "community-post", "intro-note"]);
   assert.match(packet, /Site Note/i);
   assert.match(packet, /Founder Post/i);
+  assert.match(packet, /Community Post/i);
   assert.match(packet, /Intro Note/i);
   assert.match(packet, /startup-patent-strategy\.htm/i);
 });
@@ -226,7 +230,7 @@ test("build-proof-packet CLI writes a packet for an approved asset", () => {
     "--asset-id",
     "asset-001",
     "--channels",
-    "site-note,founder-post,intro-note",
+    "site-note,founder-post,community-post,intro-note",
     "--output-dir",
     sandboxDir
   ]);
@@ -235,8 +239,9 @@ test("build-proof-packet CLI writes a packet for an approved asset", () => {
   const nextWorkspace = loadWorkspace(workspacePath);
 
   assert.match(packet, /Founder Post/i);
+  assert.match(packet, /Community Post/i);
   assert.equal(nextWorkspace.assets[0].status, "approved");
-  assert.equal(nextWorkspace.distributions.length, 3);
+  assert.equal(nextWorkspace.distributions.length, 4);
   assert.equal(nextWorkspace.distributions[0].asset_id, "asset-001");
 });
 

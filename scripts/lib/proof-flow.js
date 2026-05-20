@@ -83,6 +83,9 @@ function buildProofPacket(asset, channels) {
     if (channel === "founder-post") {
       return `## Founder Post\n\n${asset.title}\n\nPoint of view: ${asset.claim}`;
     }
+    if (channel === "community-post") {
+      return `## Community Post\n\n${asset.title}\n\nShare this proof with community context for ${asset.topic_cluster}.`;
+    }
     return `## Intro Note\n\nShare ${asset.title} as supporting proof for ${asset.topic_cluster}.`;
   });
   return `# Proof Packet: ${asset.id}\n\n${sections.join("\n\n")}\n`;
