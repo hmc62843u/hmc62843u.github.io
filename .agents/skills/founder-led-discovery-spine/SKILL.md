@@ -340,6 +340,7 @@ Strong deliverables from this skill include:
 - founder-led discovery diagnosis
 - topic map
 - citation-target page brief
+- founder post angle
 - founder/entity coherence recommendations
 - proof-gap analysis
 - proof-network recommendations
@@ -349,6 +350,10 @@ Strong deliverables from this skill include:
 ## Project Profiles
 
 This general skill can be extended with project-specific operating profiles.
+
+For agents that need to turn scorecards, prompt logs, or proof-flow feedback into public founder-facing assets, also use:
+
+- `runbooks/founder-discovery-publishing-loop.md`
 
 Use a project profile when you need:
 
