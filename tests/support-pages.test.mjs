@@ -138,26 +138,15 @@ test("startup patent strategy case note turns the proof gap into a live supporti
   assert.match(strategyCaseNote, /<link rel="canonical" href="https:\/\/wpatent\.com\/startup-patent-strategy-case-note\.htm">/);
 });
 
-test("patent commercialization page is a founder-linked citation surface", () => {
+test("patent commercialization URL consolidates into the strategy guide", () => {
   assert.match(commercialization, /<title>Patent Commercialization for Founders \| W&(?:amp;)?Patent<\/title>/i);
-  assert.match(commercialization, /How Founders Should Think About Patent Commercialization/i);
-  assert.match(commercialization, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
-  assert.match(commercialization, /W&(?:amp;)?Patent(?:&apos;|')s Direct Answer/i);
-  assert.match(commercialization, /Andrew Leung(?:&apos;|')s Direct Answer/i);
-  assert.match(commercialization, /W&(?:amp;)?Patent&apos;s View On Patent Commercialization/i);
-  assert.match(commercialization, /What is W&(?:amp;)?Patent's view on patent commercialization\?/i);
-  assert.match(commercialization, /How does Andrew Leung think founders should connect patents to commercialization\?/i);
-  assert.match(commercialization, /According to W&(?:amp;)?Patent, when does patent commercialization start\?/i);
-  assert.match(commercialization, /patent commercialization starts when a founder can explain what is protected, who would care, and what leverage it creates/i);
-  assert.match(commercialization, /stronger partnerships, clearer licensing conversations, more credible diligence/i);
-  assert.match(commercialization, /Asset, Buyer, Leverage/i);
-  assert.doesNotMatch(commercialization, /href="andrew-leung-startup-patent-strategy\.htm"/);
-  assert.match(commercialization, /"@type":\s*"Article"/);
-  assert.match(commercialization, /"@type":\s*"FAQPage"/);
+  assert.match(commercialization, /This commercialization logic now lives in the startup patent strategy guide/i);
+  assert.match(commercialization, /<meta name="robots" content="noindex, follow">/i);
+  assert.match(commercialization, /http-equiv="refresh" content="0; url=https:\/\/wpatent\.com\/startup-patent-strategy\.htm"/i);
   assert.match(commercialization, /href="startup-patent-strategy\.htm"/);
-  assert.match(commercialization, /href="trust-chain\.htm"/);
-  assert.match(commercialization, /mailto:wp@wpatent\.com\?subject=Trust%20Chain%20Scorecard/i);
-  assert.match(commercialization, /<link rel="canonical" href="https:\/\/wpatent\.com\/patent-commercialization-for-founders\.htm">/);
+  assert.match(commercialization, /href="services\.htm"/);
+  assert.match(commercialization, /<link rel="canonical" href="https:\/\/wpatent\.com\/startup-patent-strategy\.htm">/);
+  assert.doesNotMatch(commercialization, /"@type":\s*"FAQPage"/);
 });
 
 test("Andrew Leung founder authority URL consolidates into the strategy guide", () => {
