@@ -5,6 +5,7 @@ import { readFileSync } from "node:fs";
 const pages = [
   "index.html",
   "about.htm",
+  "services.htm",
   "andrew-leung-startup-patent-strategy.htm",
   "why_us.htm",
   "faq.htm",
@@ -30,15 +31,12 @@ for (const page of pages) {
   });
 }
 
-test("shared navigation exposes advisory routes", () => {
+test("shared navigation exposes the soft-minimal advisory routes", () => {
   const html = read("about.htm");
-  for (const href of [
-    "index.html",
-    "startup-patent-strategy.htm",
-    "services.htm",
-    "about.htm",
-    "faq.htm"
-  ]) {
-    assert.match(html, new RegExp(`href="${href}"`));
-  }
+  assert.match(html, /href="index\.html"/);
+  assert.match(html, /href="startup-patent-strategy\.htm"/);
+  assert.match(html, /href="services\.htm"/);
+  assert.match(html, /href="about\.htm"/);
+  assert.match(html, /href="mailto:wp@wpatent\.com"/);
+  assert.doesNotMatch(html, /<nav class="nav">[\s\S]*href="faq\.htm"/);
 });

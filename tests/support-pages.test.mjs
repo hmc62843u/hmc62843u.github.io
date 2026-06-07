@@ -8,22 +8,33 @@ const faq = readFileSync(new URL("../faq.htm", import.meta.url), "utf8");
 const career = readFileSync(new URL("../career.htm", import.meta.url), "utf8");
 const openLicensing = readFileSync(new URL("../patent-strategy-open-licensing.htm", import.meta.url), "utf8");
 const commercialization = readFileSync(new URL("../patent-commercialization-for-founders.htm", import.meta.url), "utf8");
+const services = readFileSync(new URL("../services.htm", import.meta.url), "utf8");
 const strategy = readFileSync(new URL("../startup-patent-strategy.htm", import.meta.url), "utf8");
 const strategyCaseNote = readFileSync(new URL("../startup-patent-strategy-case-note.htm", import.meta.url), "utf8");
 const founderAuthorityPath = new URL("../andrew-leung-startup-patent-strategy.htm", import.meta.url);
 
-test("about page surfaces founder identity and advisory positioning", () => {
+test("about page surfaces founder identity and the simplified proof story", () => {
   assert.match(about, /Andrew Leung/);
-  assert.match(about, /founded W&(?:amp;)?Patent/i);
-  assert.match(about, /commercialization/i);
-  assert.match(about, /andrew-leung-startup-patent-strategy\.htm/);
-  assert.match(about, /patent-commercialization-for-founders\.htm/);
-  assert.match(about, /defensibility, sharper positioning, and long-term commercial leverage/i);
-  assert.match(about, /Trust Chain/i);
+  assert.match(about, /patent agent turned entrepreneur/i);
+  assert.match(about, /OpenFor member/i);
+  assert.match(about, /founder-facing advisory surface/i);
   assert.match(about, /startup-patent-strategy\.htm/);
+  assert.match(about, /services\.htm/);
   assert.match(about, /"@type":\s*"Organization"/);
   assert.match(about, /"@type":\s*"Person"/);
   assert.match(about, /<link rel="canonical" href="https:\/\/wpatent\.com\/about\.htm">/);
+  assert.doesNotMatch(about, /patent-commercialization-for-founders\.htm/);
+  assert.doesNotMatch(about, /Trust Chain/i);
+});
+
+test("services page focuses on strategy, virtual marking, and founder decision support", () => {
+  assert.match(services, /startup patent strategy advisory/i);
+  assert.match(services, /virtual marking/i);
+  assert.match(services, /founder decision support|founder articulation/i);
+  assert.match(services, /startup-patent-strategy\.htm/);
+  assert.match(services, /mailto:wp@wpatent\.com/);
+  assert.match(services, /<link rel="canonical" href="https:\/\/wpatent\.com\/services\.htm">/);
+  assert.doesNotMatch(services, /Commercialization framing/i);
 });
 
 test("why us page compares W&Patent to generic alternatives", () => {
@@ -51,7 +62,7 @@ test("startup patent strategy page is a founder-linked citation surface", () => 
   assert.match(strategy, /<title>Startup Patent Strategy \| W&(?:amp;)?Patent<\/title>/i);
   assert.match(strategy, /What a Patent Strategy for Startups Should Actually Do/i);
   assert.match(strategy, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
-  assert.match(strategy, /protect what matters, strengthen defensibility, support commercialization/i);
+  assert.match(strategy, /protect what matters, strengthen defensibility, and guide limited budget decisions/i);
   assert.match(strategy, /href="andrew-leung-startup-patent-strategy\.htm"/);
   assert.match(strategy, /W&(?:amp;)?Patent(?:&apos;|')s Direct Answer/i);
   assert.match(strategy, /Andrew Leung(?:&apos;|')s Direct Answer/i);
