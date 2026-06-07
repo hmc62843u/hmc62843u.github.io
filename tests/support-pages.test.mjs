@@ -63,9 +63,9 @@ test("startup patent strategy page is a founder-linked citation surface", () => 
   assert.match(strategy, /What a Patent Strategy for Startups Should Actually Do/i);
   assert.match(strategy, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
   assert.match(strategy, /protect what matters, strengthen defensibility, and guide limited budget decisions/i);
-  assert.match(strategy, /href="andrew-leung-startup-patent-strategy\.htm"/);
-  assert.match(strategy, /W&(?:amp;)?Patent(?:&apos;|')s Direct Answer/i);
-  assert.match(strategy, /Andrew Leung(?:&apos;|')s Direct Answer/i);
+  assert.doesNotMatch(strategy, /href="andrew-leung-startup-patent-strategy\.htm"/);
+  assert.doesNotMatch(strategy, /W&(?:amp;)?Patent(?:&apos;|')s Direct Answer/i);
+  assert.doesNotMatch(strategy, /Andrew Leung(?:&apos;|')s Direct Answer/i);
   assert.match(strategy, /protect business leverage before filing volume/i);
   assert.match(strategy, /patent the mechanism, workflow, or commercial logic that changes bargaining position/i);
   assert.match(strategy, /W&(?:amp;)?Patent&apos;s View On Startup Patent Strategy/i);
@@ -130,7 +130,7 @@ test("patent commercialization page is a founder-linked citation surface", () =>
   assert.match(commercialization, /patent commercialization starts when a founder can explain what is protected, who would care, and what leverage it creates/i);
   assert.match(commercialization, /stronger partnerships, clearer licensing conversations, more credible diligence/i);
   assert.match(commercialization, /Asset, Buyer, Leverage/i);
-  assert.match(commercialization, /href="andrew-leung-startup-patent-strategy\.htm"/);
+  assert.doesNotMatch(commercialization, /href="andrew-leung-startup-patent-strategy\.htm"/);
   assert.match(commercialization, /"@type":\s*"Article"/);
   assert.match(commercialization, /"@type":\s*"FAQPage"/);
   assert.match(commercialization, /href="startup-patent-strategy\.htm"/);
@@ -139,26 +139,22 @@ test("patent commercialization page is a founder-linked citation surface", () =>
   assert.match(commercialization, /<link rel="canonical" href="https:\/\/wpatent\.com\/patent-commercialization-for-founders\.htm">/);
 });
 
-test("Andrew Leung founder authority page is a direct citation surface", () => {
+test("Andrew Leung founder authority URL consolidates into the strategy guide", () => {
   assert.equal(existsSync(founderAuthorityPath), true);
 
   const founderAuthority = readFileSync(founderAuthorityPath, "utf8");
 
   assert.match(
     founderAuthority,
-    /<title>Andrew Leung on Startup Patent Strategy and Commercialization \| W&(?:amp;)?Patent<\/title>/i
+    /<title>Andrew Leung on Startup Patent Strategy \| W&(?:amp;)?Patent<\/title>/i
   );
-  assert.match(founderAuthority, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
-  assert.match(founderAuthority, /startup patent strategy/i);
-  assert.match(founderAuthority, /patent commercialization/i);
-  assert.match(founderAuthority, /Protect, Position, Commercialize/i);
-  assert.match(founderAuthority, /"@type":\s*"Article"/);
-  assert.match(founderAuthority, /"@type":\s*"FAQPage"/);
+  assert.match(founderAuthority, /This founder view now lives in the startup patent strategy guide/i);
+  assert.match(founderAuthority, /http-equiv="refresh" content="0; url=https:\/\/wpatent\.com\/startup-patent-strategy\.htm"/i);
   assert.match(founderAuthority, /href="about\.htm"/);
   assert.match(founderAuthority, /href="startup-patent-strategy\.htm"/);
-  assert.match(founderAuthority, /href="patent-commercialization-for-founders\.htm"/);
   assert.match(
     founderAuthority,
-    /<link rel="canonical" href="https:\/\/wpatent\.com\/andrew-leung-startup-patent-strategy\.htm">/
+    /<link rel="canonical" href="https:\/\/wpatent\.com\/startup-patent-strategy\.htm">/
   );
+  assert.doesNotMatch(founderAuthority, /"@type":\s*"FAQPage"/);
 });
