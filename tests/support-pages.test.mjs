@@ -10,6 +10,7 @@ const openLicensing = readFileSync(new URL("../patent-strategy-open-licensing.ht
 const commercialization = readFileSync(new URL("../patent-commercialization-for-founders.htm", import.meta.url), "utf8");
 const services = readFileSync(new URL("../services.htm", import.meta.url), "utf8");
 const strategy = readFileSync(new URL("../startup-patent-strategy.htm", import.meta.url), "utf8");
+const provisionalVsNdaPath = new URL("../provisional-vs-nda.htm", import.meta.url);
 const strategyCaseNote = readFileSync(new URL("../startup-patent-strategy-case-note.htm", import.meta.url), "utf8");
 const founderAuthorityPath = new URL("../andrew-leung-startup-patent-strategy.htm", import.meta.url);
 
@@ -98,6 +99,26 @@ test("patent versus open licensing note answers the defensibility choice practic
   assert.match(openLicensing, /href="startup-patent-strategy\.htm"/);
   assert.match(openLicensing, /href="trust-chain-explainer\.htm"/);
   assert.match(openLicensing, /<link rel="canonical" href="https:\/\/wpatent\.com\/patent-strategy-open-licensing\.htm">/);
+});
+
+test("provisional vs NDA page turns an early founder protection question into a live support page", () => {
+  assert.equal(existsSync(provisionalVsNdaPath), true);
+
+  const provisionalVsNda = readFileSync(provisionalVsNdaPath, "utf8");
+
+  assert.match(provisionalVsNda, /<title>Provisional Patent vs NDA for Founders \| W&(?:amp;)?Patent<\/title>/i);
+  assert.match(provisionalVsNda, /Why Founders Should Usually File a Provisional Before Asking for an NDA/i);
+  assert.match(provisionalVsNda, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
+  assert.match(provisionalVsNda, /investors usually do not sign NDAs/i);
+  assert.match(provisionalVsNda, /the provisional changes/i);
+  assert.match(provisionalVsNda, /What an NDA still does well/i);
+  assert.match(provisionalVsNda, /A better founder workflow/i);
+  assert.match(provisionalVsNda, /W&(?:amp;)?Patent(?:&apos;|')s view is not that every founder should file reflexively/i);
+  assert.match(provisionalVsNda, /href="startup-patent-strategy\.htm"/);
+  assert.match(provisionalVsNda, /"@type":\s*"Article"/);
+  assert.match(provisionalVsNda, /"@type":\s*"FAQPage"/);
+  assert.match(provisionalVsNda, /<link rel="canonical" href="https:\/\/wpatent\.com\/provisional-vs-nda\.htm">/);
+  assert.doesNotMatch(provisionalVsNda, /Social Media Snippet/i);
 });
 
 test("startup patent strategy case note turns the proof gap into a live supporting asset", () => {

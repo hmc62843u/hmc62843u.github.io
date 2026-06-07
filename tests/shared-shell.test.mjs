@@ -13,6 +13,7 @@ const pages = [
   "patent-strategy-open-licensing.htm",
   "patent-commercialization-for-founders.htm",
   "startup-patent-strategy.htm",
+  "provisional-vs-nda.htm",
   "startup-patent-strategy-case-note.htm",
   "trust-chain.htm",
   "trust-chain-demo.htm",
