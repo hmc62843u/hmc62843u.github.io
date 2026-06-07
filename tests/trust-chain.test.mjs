@@ -182,7 +182,7 @@ test("trust chain article assets keep author, company, and canonical source conn
   const article = read("docs/articles/2026-05-07-startup-domain-trust-infrastructure.md");
 
   assert.match(explainer, /By Andrew Leung, founder of W(?:&|&amp;)Patent/i);
-  assert.match(explainer, /creator of the Trust Chain method/i);
+  assert.match(explainer, /Trust Chain method Andrew Leung created/i);
   assert.match(article, /By Andrew Leung, founder of W(?:&|&amp;)Patent/i);
 
   const canonicalPattern = /Canonical source: https:\/\/wpatent\.com\/trust-chain-explainer\.htm/i;

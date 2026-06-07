@@ -14,12 +14,12 @@ function read(relativePath) {
   return readFileSync(new URL(`../${relativePath}`, import.meta.url), "utf8");
 }
 
-test("listings index includes filter UI and all detail links", () => {
+test("listings index shows portfolio references and all detail links", () => {
   assert.equal(existsSync(new URL("../listings.htm", import.meta.url)), true);
   const listings = read("listings.htm");
-  assert.match(listings, /data-listing-search/);
-  assert.match(listings, /data-listing-query/);
-  assert.match(listings, /data-empty-state/);
+  assert.match(listings, /Portfolio/i);
+  assert.match(listings, /Andrew Leung works across/i);
+  assert.match(listings, /ItemList/);
   for (const href of detailPages) {
     assert.match(listings, new RegExp(`href="${href}"`));
   }

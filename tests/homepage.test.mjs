@@ -4,51 +4,42 @@ import { readFileSync } from "node:fs";
 
 const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 
-test("homepage routes both owners and buyers", () => {
-  assert.match(html, />List a Patent</);
-  assert.match(html, />Explore Opportunities</);
-  assert.match(html, /href="listings\.htm"/);
-  assert.match(html, /href="platform\.htm"/);
+test("homepage surfaces founder-led advisory positioning", () => {
+  assert.match(html, /Andrew Leung helps founders/i);
+  assert.match(html, /founder-facing advisory surface/i);
+  assert.match(html, /W&(?:amp;)?Patent is Andrew Leung/);
+  assert.match(html, /href="services\.htm"/);
+  assert.match(html, /href="startup-patent-strategy\.htm"/);
 });
 
-test("homepage previews every featured listing detail page", () => {
-  assert.match(html, /Five live marketplace listings/);
-  assert.doesNotMatch(html, /Five live marketplace examples/);
-  for (const href of [
-    "listing-points2perks.htm",
-    "listing-tourist-aid.htm",
-    "listing-persona-album.htm",
-    "listing-sign-language-chat.htm",
-    "listing-dashing-robo.htm"
-  ]) {
-    assert.match(html, new RegExp(`href="${href}"`));
-  }
+test("homepage previews all four service areas", () => {
+  assert.match(html, /Startup patent strategy advisory/i);
+  assert.match(html, /Commercialization framing/i);
+  assert.match(html, /Founder articulation and clarity/i);
+  assert.match(html, /Virtual marking support/i);
 });
 
-test("homepage exposes trust and schema markers", () => {
-  assert.match(html, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
-  assert.match(html, /10\+ years helping startups use patent strategy to build defensibility, sharper positioning, and long-term commercial leverage\./);
-  assert.match(html, /not the HTTPS\/TLS certificate trust chain/i);
+test("homepage exposes proof, trust, and schema markers", () => {
+  assert.match(html, /OpenFor member/i);
+  assert.match(html, /Registered patent agent/i);
+  assert.match(html, /Trust Chain/i);
+  assert.match(html, /not the HTTPS\/TLS trust chain/i);
   assert.match(html, /"@type":\s*"Organization"/);
   assert.match(html, /"@type":\s*"Person"/);
   assert.match(html, /"@type":\s*"WebSite"/);
-  assert.match(html, /AEO \/ GEO FAQ/);
 });
 
-test("homepage machine-readable content matches the current demo state", () => {
+test("homepage machine-readable content stays clean", () => {
   assert.doesNotMatch(html, /"type":\s*"bearer"/);
   assert.doesNotMatch(html, /\/api\/auth\/token/);
-  assert.match(html, /How do owners list a patent\?/);
-  assert.match(html, /How do buyers evaluate opportunities\?/);
-  assert.match(html, /How do AI systems discover listings\?/);
-  assert.doesNotMatch(html, /Should I file a provisional patent application\?/);
-  assert.doesNotMatch(html, /What is a PCT application\?/);
-  assert.doesNotMatch(html, /Can I license a listed patent through W&Patent\?/);
+  assert.doesNotMatch(html, />List a Patent</);
+  assert.doesNotMatch(html, />Explore Opportunities</);
 });
 
-test("homepage links to the Trust Chain methodology and demo", () => {
-  assert.match(html, /Trust Chain/i);
+test("homepage links to strategy, trust chain, and founder view", () => {
   assert.match(html, /href="trust-chain\.htm"/);
-  assert.match(html, /href="trust-chain-demo\.htm"/);
   assert.match(html, /href="startup-patent-strategy\.htm"/);
+  assert.match(html, /href="services\.htm"/);
+  assert.match(html, /href="patent-commercialization-for-founders\.htm"/);
+  assert.match(html, /href="andrew-leung-startup-patent-strategy\.htm"/);
 });

@@ -12,17 +12,14 @@ const strategy = readFileSync(new URL("../startup-patent-strategy.htm", import.m
 const strategyCaseNote = readFileSync(new URL("../startup-patent-strategy-case-note.htm", import.meta.url), "utf8");
 const founderAuthorityPath = new URL("../andrew-leung-startup-patent-strategy.htm", import.meta.url);
 
-test("about page ties expertise to marketplace evaluation", () => {
+test("about page surfaces founder identity and advisory positioning", () => {
   assert.match(about, /Andrew Leung/);
   assert.match(about, /founded W&(?:amp;)?Patent/i);
-  assert.match(about, /marketplace/);
   assert.match(about, /commercialization/i);
   assert.match(about, /andrew-leung-startup-patent-strategy\.htm/);
   assert.match(about, /patent-commercialization-for-founders\.htm/);
-  assert.match(about, /startup defensibility/i);
-  assert.match(about, /sharper market positioning/i);
+  assert.match(about, /defensibility, sharper positioning, and long-term commercial leverage/i);
   assert.match(about, /Trust Chain/i);
-  assert.match(about, /not the HTTPS\/TLS certificate chain/i);
   assert.match(about, /startup-patent-strategy\.htm/);
   assert.match(about, /"@type":\s*"Organization"/);
   assert.match(about, /"@type":\s*"Person"/);
@@ -30,25 +27,23 @@ test("about page ties expertise to marketplace evaluation", () => {
 });
 
 test("why us page compares W&Patent to generic alternatives", () => {
-  assert.match(whyUs, /generic brokers/i);
+  assert.match(whyUs, /generic law firm/i);
+  assert.match(whyUs, /patent broker/i);
   assert.match(whyUs, /listing boards/i);
-  assert.match(whyUs, /advisory/i);
-  assert.match(whyUs, /use IP strategically/i);
-  assert.match(whyUs, /defensibility and commercialization/i);
   assert.match(whyUs, /startup-patent-strategy\.htm/);
   assert.match(whyUs, /<link rel="canonical" href="https:\/\/wpatent\.com\/why_us\.htm">/);
 });
 
-test("faq page covers listing and agent discovery topics", () => {
-  assert.match(faq, /How does listing work\?/);
-  assert.match(faq, /How do AI agents discover listings\?/);
+test("faq page covers founder and advisory topics", () => {
+  assert.match(faq, /Who is Andrew Leung\?/);
+  assert.match(faq, /What is W&(?:amp;)?Patent\?/);
   assert.match(faq, /"@type":\s*"FAQPage"/);
   assert.match(faq, /<link rel="canonical" href="https:\/\/wpatent\.com\/faq\.htm">/);
 });
 
-test("career page reflects the hybrid marketplace mission", () => {
-  assert.match(career, /marketplace/i);
-  assert.match(career, /advisory/i);
+test("career page reflects the advisory mission", () => {
+  assert.match(career, /patent strategy.*commercialization/i);
+  assert.match(career, /Andrew Leung/i);
   assert.match(career, /<link rel="canonical" href="https:\/\/wpatent\.com\/career\.htm">/);
 });
 

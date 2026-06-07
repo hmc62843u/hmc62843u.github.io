@@ -3,22 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>W&Patent Marketplace | List Patents, Explore Licensing Opportunities</title>
-  <meta name="description" content="W&Patent is a static demo of an AI-native patent marketplace where owners can list patents and buyers or licensees can explore commercialization opportunities.">
-  <meta name="keywords" content="patent marketplace, patent licensing, patent valuation, patent sale, USPTO strategy">
-  <meta name="author" content="W&Patent">
-  <meta property="og:title" content="W&Patent Marketplace">
-  <meta property="og:description" content="Browse featured patent opportunities, preview marketplace plans, and learn how W&Patent combines advisory expertise with agent-ready discoverability.">
+  <title>W&Patent | Andrew Leung — Founder Patent Strategy and Commercialization</title>
+  <meta name="description" content="Andrew Leung, patent agent turned entrepreneur, helps founders articulate, protect, and commercialize what actually matters. W&Patent is his founder-facing advisory surface.">
+  <meta property="og:title" content="W&Patent | Andrew Leung — Founder Patent Strategy">
+  <meta property="og:description" content="Andrew Leung helps founders articulate, protect, and commercialize what actually matters. Practical patent strategy and commercialization for early-stage founders.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://wpatent.com/">
   <link rel="canonical" href="https://wpatent.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://js.stripe.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
-  <script async src="https://js.stripe.com/v3/"></script>
 
   <script type="application/ld+json">
   {
@@ -26,11 +21,11 @@
     "@type": "Organization",
     "name": "W&Patent",
     "url": "https://wpatent.com/",
-    "description": "AI-enabled patent marketplace and patent strategy advisory.",
+    "description": "Founder patent strategy and commercialization advisory led by Andrew Leung.",
     "founder": {
       "@type": "Person",
       "name": "Andrew Leung",
-      "description": "10+ years helping startups use patent strategy to build defensibility, sharper positioning, and long-term commercial leverage."
+      "description": "Patent agent turned entrepreneur. Helps founders decide what matters enough to protect."
     }
   }
   </script>
@@ -46,7 +41,11 @@
       "name": "W&Patent",
       "url": "https://wpatent.com/"
     },
-    "description": "Founder of W&Patent and creator of the Trust Chain method for clearer authority, discovery, and citation."
+    "description": "Patent agent turned entrepreneur. Founder of W&Patent and creator of the Trust Chain method for clearer authority, discovery, and citation.",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "OpenFor"
+    }
   }
   </script>
 
@@ -54,25 +53,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "W&Patent Marketplace",
+    "name": "W&Patent",
     "url": "https://wpatent.com/",
-    "description": "Static patent marketplace demo for owners, buyers, and licensees."
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "speakable": {
-      "@type": "SpeakableSpecification",
-      "cssSelector": ["#faq-summary", ".faq-q"]
-    },
-    "mainEntity": [
-      {"@type":"Question","name":"How do owners list a patent?","acceptedAnswer":{"@type":"Answer","text":"They choose a plan, open the demo signup flow, and preview how a structured listing would appear."}},
-      {"@type":"Question","name":"How do buyers evaluate opportunities?","acceptedAnswer":{"@type":"Answer","text":"They browse detail pages that explain the market context, filing status, and commercial fit."}},
-      {"@type":"Question","name":"How do AI systems discover listings?","acceptedAnswer":{"@type":"Answer","text":"Through crawlable pages, JSON-LD, direct answers, and the static .well-known/ucp.json manifest."}}
-    ]
+    "description": "Founder patent strategy and commercialization advisory."
   }
   </script>
 </head>
@@ -82,13 +65,11 @@
       <a class="brand" href="index.html">W&<strong>Patent</strong></a>
       <nav class="nav">
         <a class="active" href="index.html">Home</a>
-        <a href="listings.htm">Listings</a>
-        <a href="platform.htm">Platform</a>
+        <a href="startup-patent-strategy.htm">Strategy</a>
+        <a href="services.htm">Services</a>
         <a href="about.htm">About</a>
-        <a href="why_us.htm">Why Us</a>
         <a href="faq.htm">FAQ</a>
-        <a href="career.htm">Career</a>
-        <button class="btn" id="openSignup" type="button" data-open-signup data-plan="Basic">Start Free</button>
+        <a href="mailto:wp@wpatent.com">Contact</a>
       </nav>
     </div>
   </header>
@@ -96,140 +77,99 @@
   <main>
     <section class="hero container hero-split">
       <div>
-        <span class="eyebrow mono">Marketplace + advisory</span>
-        <h1>List patents, attract buyers, and explain the opportunity clearly.</h1>
-        <p class="lead">W&Patent is a static marketplace demo for patent owners, buyers, and licensees. It pairs commercialization strategy with agent-ready metadata, structured answers, and detailed opportunity pages that search engines and AI systems can read.</p>
+        <span class="eyebrow mono">Founder Patent Advisory</span>
+        <h1>Andrew Leung helps founders articulate, protect, and commercialize what actually matters.</h1>
+        <p class="lead">W&Patent is Andrew Leung&apos;s founder-facing advisory surface — practical patent strategy and commercialization judgment for OpenFor founders, cohorts, alumni, and other early-stage founders who need to know what matters enough to protect.</p>
         <div class="actions">
-          <button class="btn btn-solid" type="button" id="heroSignup" data-open-signup data-plan="Pro">List a Patent</button>
-          <a class="btn" href="listings.htm">Explore Opportunities</a>
+          <a class="btn btn-solid" href="services.htm">Explore services</a>
+          <a class="btn" href="startup-patent-strategy.htm">Read the strategy guide</a>
         </div>
       </div>
       <aside class="card feature hero-panel">
-        <p class="kicker">Founder credibility</p>
-        <h2>Andrew Leung, founder of W&amp;Patent</h2>
-        <p>10+ years helping startups use patent strategy to build defensibility, sharper positioning, and long-term commercial leverage.</p>
-        <p>He also created the Trust Chain method W&amp;Patent uses to connect founder identity, company claims, and proof so the business is easier to interpret and cite.</p>
-        <p class="mono">Balanced for product visibility, buyer understanding, and practical filing strategy.</p>
+        <p class="kicker">Andrew Leung</p>
+        <h2>Patent agent turned entrepreneur</h2>
+        <p>Registered patent agent. OpenFor member. More than a decade helping founders use patent strategy to build defensibility, sharper positioning, and long-term commercial leverage.</p>
+        <p>Andrew created the Trust Chain method for connecting founder identity, company claims, and proof so the business is easier to interpret and cite.</p>
+        <p class="mono">Practical judgment for real founder decisions.</p>
       </aside>
     </section>
 
     <section class="section container">
-      <span class="eyebrow mono">How it works</span>
+      <span class="eyebrow mono">The problem</span>
       <div class="grid cols-2 split-benefits">
         <article class="card">
-          <h3>For patent owners</h3>
-          <p>Choose a plan, preview a dashboard, and position your patent with clearer commercial context.</p>
+          <h3>Founders get patent advice designed for big companies</h3>
+          <p>Most patent advice comes from law firms that bill by the hour and assume unlimited budgets. W&Patent starts from a different question: what creates actual leverage for a founder with limited capital and a narrow window?</p>
         </article>
         <article class="card">
-          <h3>For buyers and licensees</h3>
-          <p>Browse focused opportunity pages with filing identifiers, use cases, and direct inquiry paths.</p>
+          <h3>Commercialization is treated as an afterthought</h3>
+          <p>Filing without a commercialization strategy leaves founders with paperwork instead of leverage. W&Patent connects filing decisions to the business conversations they should support — fundraising, partnership, licensing, and exit.</p>
         </article>
       </div>
     </section>
 
     <section class="section container">
-      <span class="eyebrow mono">Featured opportunities</span>
-      <h2>Five live marketplace listings</h2>
-      <div class="grid cols-2 listing-preview">
-        <article class="card">
-          <h3><a href="listing-points2perks.htm">Points2Perks x Local Licensed Issuer</a></h3>
-          <p>Policy-gated loyalty settlement infrastructure for Japan.</p>
-        </article>
-        <article class="card">
-          <h3><a href="listing-tourist-aid.htm">Tourist Aid</a></h3>
-          <p>Off-grid travel safety and autonomous SOS support.</p>
-        </article>
-        <article class="card">
-          <h3><a href="listing-persona-album.htm">Persona Album</a></h3>
-          <p>AI storytelling and personalized multimedia narration.</p>
-        </article>
-        <article class="card">
-          <h3><a href="listing-sign-language-chat.htm">Sign Language Chat</a></h3>
-          <p>Inclusive teletherapy workflows with sign-language support.</p>
-        </article>
-        <article class="card">
-          <h3><a href="listing-dashing-robo.htm">Dashing Robo</a></h3>
-          <p>Autonomous building logistics and payload docking.</p>
-        </article>
-      </div>
-      <p><a class="btn" href="listings.htm">View all listings</a></p>
-    </section>
-
-    <section class="section container">
-      <span class="eyebrow mono">Platform preview</span>
-      <h2>Mocked plans and dashboard workflow</h2>
-      <div class="grid cols-3 pricing-preview">
-        <article class="card">
-          <p class="kicker">Basic</p>
-          <p class="price">Free</p>
-          <p>List one patent, search the marketplace, and review baseline analytics.</p>
-        </article>
-        <article class="card feature">
-          <p class="kicker">Pro</p>
-          <p class="price">$49/mo</p>
-          <p>Manage multiple listings, preview bidding workflows, and unlock deeper analytics.</p>
-        </article>
-        <article class="card">
-          <p class="kicker">Enterprise</p>
-          <p class="price">$199/mo</p>
-          <p>Model white-label workflows and custom agent-readiness for portfolio teams.</p>
-        </article>
-      </div>
-      <p><a class="btn" href="platform.htm">Explore the platform</a></p>
-    </section>
-
-    <section class="section container dashboard" id="dashboardTeaser" data-dashboard hidden>
-      <span class="eyebrow mono">Post-login Dashboard</span>
-      <h2>Your portfolio command center</h2>
+      <span class="eyebrow mono">Services</span>
+      <h2>What Andrew actually helps founders with</h2>
       <div class="grid cols-2" style="margin-top:20px;">
-        <article class="card"><h3>Patent portfolio manager</h3><p>Grid/list toggle, listing quality checks, and valuation snapshots.</p></article>
-        <article class="card"><h3>Bid tracking</h3><p>Received offers, escrow status, and counter workflow visibility.</p></article>
-        <article class="card"><h3>Analytics</h3><p>Views, inquiries, and valuation score trends for each listing.</p></article>
-        <article class="card"><h3>Quick actions</h3><p><button class="btn" type="button">List New Patent</button> <button class="btn" type="button">View Market Report</button></p></article>
+        <article class="card">
+          <h3>Startup patent strategy advisory</h3>
+          <p>What to protect, when to file, and why — based on business leverage rather than filing volume. The <a href="startup-patent-strategy.htm">strategy guide</a> explains the lens.</p>
+        </article>
+        <article class="card">
+          <h3>Commercialization framing</h3>
+          <p>Connecting patent work to the conversations that matter — fundraising, partnership, licensing, acquisition. Read the <a href="patent-commercialization-for-founders.htm">commercialization guide</a> for the approach.</p>
+        </article>
+        <article class="card">
+          <h3>Founder articulation and clarity</h3>
+          <p>Helping founders explain what they own, why it matters, and how it creates leverage — for investors, partners, buyers, and AI-readable public surfaces. Andrew&apos;s <a href="andrew-leung-startup-patent-strategy.htm">founder point of view</a> shows the framing.</p>
+        </article>
+        <article class="card">
+          <h3>Virtual marking support</h3>
+          <p>For founders with issued patents who need practical virtual marking — one concrete service wedge under the broader advisory umbrella. <a href="services.htm">Read more on services</a>.</p>
+        </article>
       </div>
     </section>
 
     <section class="section container">
-      <span class="eyebrow mono">Trust Chain</span>
-      <h2>Build a verifiable authority surface alongside the marketplace demo.</h2>
-      <p class="lead">Explore the founder-led method Andrew Leung created at W&amp;Patent to explain who a company is, who stands behind it, and what proof makes the story easier for humans and AI systems to trust.</p>
-      <p class="mono trust-note">This is not the HTTPS/TLS certificate trust chain. It is W&amp;Patent&apos;s method for connecting company identity, founder authority, and proof.</p>
+      <span class="eyebrow mono">Proof and context</span>
+      <h2>Andrew Leung, OpenFor member</h2>
+      <div class="grid cols-2" style="margin-top:20px;">
+        <article class="card">
+          <h3>OpenFor member</h3>
+          <p>Andrew is an OpenFor member, bringing practical patent and commercialization judgment to the founder community. This is a real relationship — not a partnership inflation or an ambiguous affiliate label.</p>
+        </article>
+        <article class="card">
+          <h3>Registered patent agent</h3>
+          <p>Andrew is a registered patent agent who has spent more than a decade working at the intersection of patent law, startup building, and commercialization strategy.</p>
+        </article>
+        <article class="card">
+          <h3>Trust Chain methodology</h3>
+          <p>Andrew created the Trust Chain method for making a founder-led business easier to understand and cite. It is not the HTTPS/TLS trust chain — it is a framework for connecting who a company is, who stands behind it, and what proof supports the story. <a href="trust-chain.htm">Explore the methodology</a>.</p>
+        </article>
+        <article class="card">
+          <h3>Founder-facing guides</h3>
+          <p>The site contains dedicated founder-facing pages on <a href="startup-patent-strategy.htm">strategy</a>, <a href="patent-commercialization-for-founders.htm">commercialization</a>, <a href="patent-strategy-open-licensing.htm">open licensing</a>, and a <a href="startup-patent-strategy-case-note.htm">case note</a> on protecting the workflow that creates leverage.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <span class="eyebrow mono">Next step</span>
+      <h2>Read the strategy guide, explore services, or reach out directly.</h2>
       <div class="actions">
-        <a class="btn btn-solid" href="trust-chain.htm">Explore the methodology</a>
-        <a class="btn" href="trust-chain-demo.htm">View the live demo</a>
-        <a class="btn" href="startup-patent-strategy.htm">Read the patent strategy guide</a>
-      </div>
-    </section>
-
-    <section class="section container">
-      <span class="eyebrow mono">AEO / GEO FAQ</span>
-      <p id="faq-summary" class="lead">Key questions are written so search engines and answer engines can retrieve the right marketplace context quickly.</p>
-      <div class="grid cols-3">
-        <article class="card"><h3 class="faq-q">How do owners list a patent?</h3><p>They choose a plan, open the demo signup flow, and preview how a structured listing would appear.</p></article>
-        <article class="card"><h3 class="faq-q">How do buyers evaluate opportunities?</h3><p>They browse detail pages that explain the market context, filing status, and commercial fit.</p></article>
-        <article class="card"><h3 class="faq-q">How do AI systems discover listings?</h3><p>Through crawlable pages, JSON-LD, direct answers, and the static `.well-known/ucp.json` manifest.</p></article>
+        <a class="btn btn-solid" href="startup-patent-strategy.htm">Startup Patent Strategy Guide</a>
+        <a class="btn" href="services.htm">View services</a>
+        <a class="btn" href="patent-commercialization-for-founders.htm">Commercialization guide</a>
+        <a class="btn" href="mailto:wp@wpatent.com">Contact Andrew</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container mono">W&Patent - marketplace + strategy advisory for licensing, sale, and portfolio growth.</div>
+    <div class="container mono">W&Patent — founder patent strategy and commercialization led by Andrew Leung, OpenFor member.</div>
   </footer>
 
-  <div class="modal" data-signup-modal aria-hidden="true">
-    <div class="modal-box">
-      <h3>Preview the owner workflow</h3>
-      <p class="mono">This is a mocked workflow only. No real account or payment is created.</p>
-      <form data-signup-form toolname="listPatent" tooldescription="List patent for sale with AI valuation">
-        <label for="signupEmail">Email</label>
-        <input id="signupEmail" name="email" type="email" required>
-        <label for="signupPlan">Plan</label>
-        <select id="signupPlan" name="plan" data-signup-plan><option>Basic</option><option>Pro</option><option>Enterprise</option></select>
-        <div class="actions"><button class="btn btn-solid" type="submit">Reveal dashboard</button><button class="btn" type="button" data-close-signup>Close</button></div>
-      </form>
-      <p class="mono" data-signup-status></p>
-    </div>
-  </div>
   <script src="site.js" defer></script>
 </body>
 </html>

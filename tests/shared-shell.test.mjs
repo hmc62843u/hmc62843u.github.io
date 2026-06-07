@@ -30,16 +30,14 @@ for (const page of pages) {
   });
 }
 
-test("shared navigation exposes marketplace routes", () => {
+test("shared navigation exposes advisory routes", () => {
   const html = read("about.htm");
   for (const href of [
     "index.html",
-    "listings.htm",
-    "platform.htm",
+    "startup-patent-strategy.htm",
+    "services.htm",
     "about.htm",
-    "why_us.htm",
-    "faq.htm",
-    "career.htm"
+    "faq.htm"
   ]) {
     assert.match(html, new RegExp(`href="${href}"`));
   }
