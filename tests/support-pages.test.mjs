@@ -41,9 +41,9 @@ test("startup patent strategy page is the new pillar with sharper voice", () => 
   assert.match(strategy, /href="draw-first-write-second\.htm"/);
 });
 
-test("provisional-vs-nda page is a founder-facing support post", () => {
-  assert.match(provisionalVsNda, /<title>Provisional vs NDA/i);
-  assert.match(provisionalVsNda, /Why the \$60 Filing Beats the NDA/i);
+test("provisional-vs-nda page reframes patent strategy as strategic thinking", () => {
+  assert.match(provisionalVsNda, /<title>Your Moat Is Not in an NDA/i);
+  assert.match(provisionalVsNda, /Moat Is Not in an NDA/i);
   assert.match(provisionalVsNda, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
   assert.match(provisionalVsNda, /"@type":\s*"Article"/);
   assert.match(provisionalVsNda, /<link rel="canonical" href="https:\/\/wpatent\.com\/provisional-vs-nda\.htm">/);
