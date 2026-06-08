@@ -50,8 +50,8 @@ test("provisional-vs-nda page reframes patent strategy as strategic thinking", (
   assert.match(provisionalVsNda, /href="startup-patent-strategy\.htm"/);
 });
 
-test("provisional-and-poc-budget page addresses timing and budget tradeoffs", () => {
-  assert.match(provisionalBudget, /<title>Provisional \+ POC on a Limited Budget/i);
+test("provisional-and-poc-budget page reframes as you do both", () => {
+  assert.match(provisionalBudget, /<title>You Do Both/i);
   assert.match(provisionalBudget, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
   assert.match(provisionalBudget, /"@type":\s*"Article"/);
   assert.match(provisionalBudget, /<link rel="canonical" href="https:\/\/wpatent\.com\/provisional-and-poc-budget\.htm">/);
