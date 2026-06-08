@@ -9,6 +9,7 @@ const strategy = readFileSync(new URL("../startup-patent-strategy.htm", import.m
 const provisionalVsNda = readFileSync(new URL("../provisional-vs-nda.htm", import.meta.url), "utf8");
 const provisionalBudget = readFileSync(new URL("../poc-and-provisional.htm", import.meta.url), "utf8");
 const drawFirst = readFileSync(new URL("../draw-first-write-second.htm", import.meta.url), "utf8");
+const dashingRoboProject = readFileSync(new URL("../dashing-robo-founder-project.htm", import.meta.url), "utf8");
 
 test("about page surfaces founder identity and the simplified proof story", () => {
   assert.match(about, /Andrew Leung/);
@@ -37,6 +38,16 @@ test("virtual marking has its own crawlable support page", () => {
   assert.match(virtualMarking, /issued patent/i);
   assert.match(virtualMarking, /services\.htm/);
   assert.match(virtualMarking, /<link rel="canonical" href="https:\/\/wpatent\.com\/virtual-marking\.htm">/);
+});
+
+test("founder project page stays distinct from virtual marking and listings", () => {
+  assert.match(dashingRoboProject, /Dashing Robo/i);
+  assert.match(dashingRoboProject, /Founder project/i);
+  assert.match(dashingRoboProject, /patent status/i);
+  assert.match(dashingRoboProject, /strategy\.htm|startup-patent-strategy\.htm/i);
+  assert.match(dashingRoboProject, /services\.htm/i);
+  assert.doesNotMatch(dashingRoboProject, /For Sale|Licensing|marketplace/i);
+  assert.doesNotMatch(dashingRoboProject, /virtual marking surface/i);
 });
 
 test("active strategy and support pages avoid em dashes", () => {

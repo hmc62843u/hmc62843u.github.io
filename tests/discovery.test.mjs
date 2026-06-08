@@ -17,6 +17,7 @@ test("sitemap lists only the active live pages", () => {
     "https://wpatent.com/services.htm",
     "https://wpatent.com/about.htm",
     "https://wpatent.com/virtual-marking.htm",
+    "https://wpatent.com/dashing-robo-founder-project.htm",
     "https://wpatent.com/provisional-vs-nda.htm",
     "https://wpatent.com/poc-and-provisional.htm",
     "https://wpatent.com/draw-first-write-second.htm"
