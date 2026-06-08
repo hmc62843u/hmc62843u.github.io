@@ -59,12 +59,13 @@ test("provisional-and-poc-budget page reframes as you do both", () => {
   assert.match(provisionalBudget, /href="startup-patent-strategy\.htm"/);
 });
 
-test("draw-first-write-second page explains possession and drafting", () => {
-  assert.match(drawFirst, /<title>Draw First, Write Second, Claim Third/i);
+test("draw-first-write-second page reframes as exit strategy", () => {
+  assert.match(drawFirst, /<title>Your Drawings Are Your Exit Strategy/i);
   assert.match(drawFirst, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
   assert.match(drawFirst, /"@type":\s*"Article"/);
   assert.match(drawFirst, /<link rel="canonical" href="https:\/\/wpatent\.com\/draw-first-write-second\.htm">/);
   assert.match(drawFirst, /you can never claim more than you possessed/i);
+  assert.match(drawFirst, /AI won't tell you/i);
   assert.match(drawFirst, /href="startup-patent-strategy\.htm"/);
 });
 
