@@ -2,169 +2,87 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 
-const about = readFileSync(new URL("../about.htm", import.meta.url), "utf8");
-const whyUs = readFileSync(new URL("../why_us.htm", import.meta.url), "utf8");
-const faq = readFileSync(new URL("../faq.htm", import.meta.url), "utf8");
-const career = readFileSync(new URL("../career.htm", import.meta.url), "utf8");
-const openLicensing = readFileSync(new URL("../patent-strategy-open-licensing.htm", import.meta.url), "utf8");
-const commercialization = readFileSync(new URL("../patent-commercialization-for-founders.htm", import.meta.url), "utf8");
-const services = readFileSync(new URL("../services.htm", import.meta.url), "utf8");
-const strategy = readFileSync(new URL("../startup-patent-strategy.htm", import.meta.url), "utf8");
-const provisionalVsNdaPath = new URL("../provisional-vs-nda.htm", import.meta.url);
-const strategyCaseNote = readFileSync(new URL("../startup-patent-strategy-case-note.htm", import.meta.url), "utf8");
-const founderAuthorityPath = new URL("../andrew-leung-startup-patent-strategy.htm", import.meta.url);
+function read(path) {
+  return readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
+}
 
-test("about page surfaces founder identity and the simplified proof story", () => {
-  assert.match(about, /Andrew Leung/);
-  assert.match(about, /patent agent turned entrepreneur/i);
+const about = read("about.htm");
+const services = read("services.htm");
+const strategy = read("startup-patent-strategy.htm");
+const openLicensing = read("patent-strategy-open-licensing.htm");
+const commercialization = read("patent-commercialization-for-founders.htm");
+const provisionalVsNda = read("provisional-vs-nda.htm");
+const founderAuthority = read("andrew-leung-startup-patent-strategy.htm");
+
+test("about page frames Andrew as the founder-language translator", () => {
+  assert.match(about, /Andrew Leung, patent agent turned entrepreneur/i);
+  assert.match(about, /articulate patent strategy in founder language/i);
   assert.match(about, /OpenFor member/i);
-  assert.match(about, /founder-facing advisory surface/i);
+  assert.match(about, /wrong script/i);
   assert.match(about, /startup-patent-strategy\.htm/);
   assert.match(about, /services\.htm/);
-  assert.match(about, /"@type":\s*"Organization"/);
-  assert.match(about, /"@type":\s*"Person"/);
   assert.match(about, /<link rel="canonical" href="https:\/\/wpatent\.com\/about\.htm">/);
-  assert.doesNotMatch(about, /patent-commercialization-for-founders\.htm/);
-  assert.doesNotMatch(about, /Trust Chain/i);
 });
 
-test("services page focuses on strategy, virtual marking, and founder decision support", () => {
-  assert.match(services, /startup patent strategy advisory/i);
+test("services page stays small and secondary to the flagship guide", () => {
+  assert.match(services, /founder patent advisory/i);
   assert.match(services, /virtual marking/i);
-  assert.match(services, /founder decision support|founder articulation/i);
+  assert.match(services, /decision support/i);
+  assert.match(services, /generic filing advice/i);
+  assert.match(services, /Read the flagship guide/i);
   assert.match(services, /startup-patent-strategy\.htm/);
-  assert.match(services, /mailto:wp@wpatent\.com/);
   assert.match(services, /<link rel="canonical" href="https:\/\/wpatent\.com\/services\.htm">/);
-  assert.doesNotMatch(services, /Commercialization framing/i);
+  assert.doesNotMatch(services, /Commercialization/i);
 });
 
-test("why us page compares W&Patent to generic alternatives", () => {
-  assert.match(whyUs, /generic law firm/i);
-  assert.match(whyUs, /patent broker/i);
-  assert.match(whyUs, /listing boards/i);
-  assert.match(whyUs, /startup-patent-strategy\.htm/);
-  assert.match(whyUs, /<link rel="canonical" href="https:\/\/wpatent\.com\/why_us\.htm">/);
-});
-
-test("faq page covers founder and advisory topics", () => {
-  assert.match(faq, /Who is Andrew Leung\?/);
-  assert.match(faq, /What is W&(?:amp;)?Patent\?/);
-  assert.match(faq, /"@type":\s*"FAQPage"/);
-  assert.match(faq, /<link rel="canonical" href="https:\/\/wpatent\.com\/faq\.htm">/);
-});
-
-test("career page reflects the advisory mission", () => {
-  assert.match(career, /patent strategy.*commercialization/i);
-  assert.match(career, /Andrew Leung/i);
-  assert.match(career, /<link rel="canonical" href="https:\/\/wpatent\.com\/career\.htm">/);
-});
-
-test("startup patent strategy page is a founder-linked citation surface", () => {
-  assert.match(strategy, /<title>Startup Patent Strategy \| W&(?:amp;)?Patent<\/title>/i);
-  assert.match(strategy, /What a Patent Strategy for Startups Should Actually Do/i);
-  assert.match(strategy, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
-  assert.match(strategy, /protect what matters, strengthen defensibility, and guide limited budget decisions/i);
-  assert.doesNotMatch(strategy, /href="andrew-leung-startup-patent-strategy\.htm"/);
-  assert.doesNotMatch(strategy, /W&(?:amp;)?Patent(?:&apos;|')s Direct Answer/i);
-  assert.doesNotMatch(strategy, /Andrew Leung(?:&apos;|')s Direct Answer/i);
-  assert.match(strategy, /protect business leverage before filing volume/i);
-  assert.match(strategy, /patent the mechanism, workflow, or commercial logic that changes bargaining position/i);
-  assert.match(strategy, /W&(?:amp;)?Patent&apos;s View On Startup Patent Strategy/i);
-  assert.match(strategy, /What is W&(?:amp;)?Patent's view on startup patent strategy\?/i);
-  assert.match(strategy, /How does Andrew Leung think founders should decide what to patent first\?/i);
-  assert.match(strategy, /According to W&(?:amp;)?Patent, should startups protect visible features or underlying workflow first\?/i);
-  assert.match(strategy, /Protect, Position, Commercialize/i);
+test("strategy page is now the rewritten pillar and no longer routes into retired strategy support", () => {
+  assert.match(strategy, /<title>What Every Patent Practitioner Knows But Won't Tell Founders \| W&(?:amp;)?Patent<\/title>/i);
+  assert.match(strategy, /Andrew Leung brings a patent agent entrepreneur perspective and articulates startup patent strategy in founder language/i);
+  assert.match(strategy, /Opening Thesis/i);
+  assert.match(strategy, /Provisional Before NDA/i);
+  assert.match(strategy, /Draw First\. Write Second\./i);
+  assert.match(strategy, /Build And File In Parallel/i);
+  assert.match(strategy, /The Unifying Founder Strategy/i);
   assert.match(strategy, /"@type":\s*"Article"/);
-  assert.match(strategy, /"@type":\s*"FAQPage"/);
-  assert.match(strategy, /href="trust-chain\.htm"/);
-  assert.match(strategy, /href="trust-chain-explainer\.htm"/);
-  assert.match(strategy, /href="patent-strategy-open-licensing\.htm"/);
-  assert.match(strategy, /href="startup-patent-strategy-case-note\.htm"/);
-  assert.match(strategy, /mailto:wp@wpatent\.com\?subject=Trust%20Chain%20Scorecard/i);
   assert.match(strategy, /<link rel="canonical" href="https:\/\/wpatent\.com\/startup-patent-strategy\.htm">/);
+  assert.match(strategy, /Warning &amp; Disclaimer/i);
+  assert.match(strategy, /investors generally do not sign NDAs/i);
+  assert.match(strategy, /draw first/i);
+  assert.doesNotMatch(strategy, /href="trust-chain\.htm"/);
+  assert.doesNotMatch(strategy, /href="trust-chain-explainer\.htm"/);
+  assert.doesNotMatch(strategy, /href="patent-strategy-open-licensing\.htm"/);
+  assert.doesNotMatch(strategy, /"@type":\s*"FAQPage"/);
 });
 
-test("patent versus open licensing note answers the defensibility choice practically", () => {
-  assert.match(openLicensing, /<title>Patents, Open Licensing, and Founder Defensibility \| W&(?:amp;)?Patent<\/title>/i);
-  assert.match(openLicensing, /When Founders Should Choose Patents, Open Licensing, or Other Defensibility Strategies/i);
-  assert.match(openLicensing, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
-  assert.match(openLicensing, /Most founders do not need a belief system about patents/i);
-  assert.match(openLicensing, /When patents are the right first move/i);
-  assert.match(openLicensing, /When open licensing or openness helps more/i);
-  assert.match(openLicensing, /When neither is the first priority/i);
-  assert.match(openLicensing, /W&(?:amp;)?Patent does not treat patents as the only serious answer/i);
-  assert.match(openLicensing, /Can a founder patent one layer and open another\?/i);
-  assert.match(openLicensing, /"@type":\s*"Article"/);
-  assert.match(openLicensing, /"@type":\s*"FAQPage"/);
-  assert.match(openLicensing, /href="startup-patent-strategy\.htm"/);
-  assert.match(openLicensing, /href="trust-chain-explainer\.htm"/);
-  assert.match(openLicensing, /<link rel="canonical" href="https:\/\/wpatent\.com\/patent-strategy-open-licensing\.htm">/);
-});
-
-test("provisional vs NDA page turns an early founder protection question into a live support page", () => {
-  assert.equal(existsSync(provisionalVsNdaPath), true);
-
-  const provisionalVsNda = readFileSync(provisionalVsNdaPath, "utf8");
-
+test("provisional vs NDA page still exists as pre-reset history until week 1 rewrite", () => {
+  assert.equal(existsSync(new URL("../provisional-vs-nda.htm", import.meta.url)), true);
   assert.match(provisionalVsNda, /<title>Provisional Patent vs NDA for Founders \| W&(?:amp;)?Patent<\/title>/i);
-  assert.match(provisionalVsNda, /Why Founders Should Usually File a Provisional Before Asking for an NDA/i);
   assert.match(provisionalVsNda, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
-  assert.match(provisionalVsNda, /investors usually do not sign NDAs/i);
-  assert.match(provisionalVsNda, /the provisional changes/i);
-  assert.match(provisionalVsNda, /What an NDA still does well/i);
-  assert.match(provisionalVsNda, /A better founder workflow/i);
-  assert.match(provisionalVsNda, /W&(?:amp;)?Patent(?:&apos;|')s view is not that every founder should file reflexively/i);
   assert.match(provisionalVsNda, /href="startup-patent-strategy\.htm"/);
-  assert.match(provisionalVsNda, /"@type":\s*"Article"/);
-  assert.match(provisionalVsNda, /"@type":\s*"FAQPage"/);
   assert.match(provisionalVsNda, /<link rel="canonical" href="https:\/\/wpatent\.com\/provisional-vs-nda\.htm">/);
-  assert.doesNotMatch(provisionalVsNda, /Social Media Snippet/i);
+  assert.doesNotMatch(provisionalVsNda, /NDAs Won't Save You\. A Provisional Will\./i);
 });
 
-test("startup patent strategy case note turns the proof gap into a live supporting asset", () => {
-  assert.match(strategyCaseNote, /<title>Startup Patent Strategy Case Note \| W&(?:amp;)?Patent<\/title>/i);
-  assert.match(strategyCaseNote, /Protect the Workflow That Creates Leverage, Not Every Feature Around It/i);
-  assert.match(strategyCaseNote, /Illustrative note: this uses a realistic early-stage scenario/i);
-  assert.match(strategyCaseNote, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
-  assert.match(strategyCaseNote, /A startup patent strategy becomes more useful when it protects the mechanism that creates leverage/i);
-  assert.match(strategyCaseNote, /What Looked Protectable But Was Not The Priority/i);
-  assert.match(strategyCaseNote, /What Was Actually Worth Protecting/i);
-  assert.match(strategyCaseNote, /What W&(?:amp;)?Patent Means By This/i);
-  assert.match(strategyCaseNote, /According to W&(?:amp;)?Patent, should startups protect visible features or underlying workflow first\?/i);
-  assert.match(strategyCaseNote, /"@type":\s*"Article"/);
-  assert.match(strategyCaseNote, /"@type":\s*"FAQPage"/);
-  assert.match(strategyCaseNote, /href="startup-patent-strategy\.htm"/);
-  assert.match(strategyCaseNote, /href="trust-chain-explainer\.htm"/);
-  assert.match(strategyCaseNote, /<link rel="canonical" href="https:\/\/wpatent\.com\/startup-patent-strategy-case-note\.htm">/);
+test("open licensing page is now a retired helper URL", () => {
+  assert.match(openLicensing, /This standalone note now routes into the flagship strategy guide/i);
+  assert.match(openLicensing, /<meta name="robots" content="noindex, follow">/i);
+  assert.match(openLicensing, /http-equiv="refresh" content="0; url=https:\/\/wpatent\.com\/startup-patent-strategy\.htm"/i);
+  assert.match(openLicensing, /href="startup-patent-strategy\.htm"/);
+  assert.match(openLicensing, /href="about\.htm"/);
+  assert.match(openLicensing, /<link rel="canonical" href="https:\/\/wpatent\.com\/startup-patent-strategy\.htm">/);
+  assert.doesNotMatch(openLicensing, /"@type":\s*"FAQPage"/);
 });
 
-test("patent commercialization URL consolidates into the strategy guide", () => {
-  assert.match(commercialization, /<title>Patent Commercialization for Founders \| W&(?:amp;)?Patent<\/title>/i);
+test("commercialization URL still consolidates into the strategy guide", () => {
   assert.match(commercialization, /This commercialization logic now lives in the startup patent strategy guide/i);
-  assert.match(commercialization, /<meta name="robots" content="noindex, follow">/i);
   assert.match(commercialization, /http-equiv="refresh" content="0; url=https:\/\/wpatent\.com\/startup-patent-strategy\.htm"/i);
   assert.match(commercialization, /href="startup-patent-strategy\.htm"/);
   assert.match(commercialization, /href="services\.htm"/);
-  assert.match(commercialization, /<link rel="canonical" href="https:\/\/wpatent\.com\/startup-patent-strategy\.htm">/);
-  assert.doesNotMatch(commercialization, /"@type":\s*"FAQPage"/);
 });
 
-test("Andrew Leung founder authority URL consolidates into the strategy guide", () => {
-  assert.equal(existsSync(founderAuthorityPath), true);
-
-  const founderAuthority = readFileSync(founderAuthorityPath, "utf8");
-
-  assert.match(
-    founderAuthority,
-    /<title>Andrew Leung on Startup Patent Strategy \| W&(?:amp;)?Patent<\/title>/i
-  );
+test("founder-authority helper URL still consolidates into the strategy guide", () => {
   assert.match(founderAuthority, /This founder view now lives in the startup patent strategy guide/i);
   assert.match(founderAuthority, /http-equiv="refresh" content="0; url=https:\/\/wpatent\.com\/startup-patent-strategy\.htm"/i);
   assert.match(founderAuthority, /href="about\.htm"/);
   assert.match(founderAuthority, /href="startup-patent-strategy\.htm"/);
-  assert.match(
-    founderAuthority,
-    /<link rel="canonical" href="https:\/\/wpatent\.com\/startup-patent-strategy\.htm">/
-  );
-  assert.doesNotMatch(founderAuthority, /"@type":\s*"FAQPage"/);
 });

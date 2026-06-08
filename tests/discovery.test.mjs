@@ -8,21 +8,19 @@ test("robots exposes sitemap", () => {
   assert.match(robots, /Sitemap: https:\/\/wpatent\.com\/sitemap\.xml/);
 });
 
-test("sitemap lists every public page", () => {
+test("sitemap lists the remaining public pages and drops the retired strategy-support cluster", () => {
   assert.equal(existsSync(new URL("../sitemap.xml", import.meta.url)), true);
   const sitemap = readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8");
+
   for (const url of [
     "https://wpatent.com/",
     "https://wpatent.com/listings.htm",
     "https://wpatent.com/platform.htm",
-    "https://wpatent.com/patent-strategy-open-licensing.htm",
     "https://wpatent.com/startup-patent-strategy.htm",
     "https://wpatent.com/provisional-vs-nda.htm",
     "https://wpatent.com/startup-patent-strategy-case-note.htm",
-    "https://wpatent.com/trust-chain.htm",
-    "https://wpatent.com/trust-chain-demo.htm",
-    "https://wpatent.com/trust-chain-explainer.htm",
     "https://wpatent.com/about.htm",
+    "https://wpatent.com/services.htm",
     "https://wpatent.com/why_us.htm",
     "https://wpatent.com/faq.htm",
     "https://wpatent.com/career.htm",
@@ -34,6 +32,11 @@ test("sitemap lists every public page", () => {
   ]) {
     assert.match(sitemap, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
+
+  assert.doesNotMatch(sitemap, /https:\/\/wpatent\.com\/patent-strategy-open-licensing\.htm/);
+  assert.doesNotMatch(sitemap, /https:\/\/wpatent\.com\/trust-chain\.htm/);
+  assert.doesNotMatch(sitemap, /https:\/\/wpatent\.com\/trust-chain-demo\.htm/);
+  assert.doesNotMatch(sitemap, /https:\/\/wpatent\.com\/trust-chain-explainer\.htm/);
   assert.doesNotMatch(sitemap, /https:\/\/wpatent\.com\/andrew-leung-startup-patent-strategy\.htm/);
 });
 
