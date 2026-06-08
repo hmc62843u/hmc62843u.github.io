@@ -30,8 +30,8 @@ test("services page focuses on strategy, virtual marking, and founder decision s
 });
 
 test("startup patent strategy page is the new pillar with sharper voice", () => {
-  assert.match(strategy, /<title>To Fellow Founders, From a Patent Agent Who Also Founded \| W&(?:amp;)?Patent<\/title>/i);
-  assert.match(strategy, /To Fellow Founders, From a Patent Agent Who Also Founded/i);
+  assert.match(strategy, /<title>Patent Questions Founders Actually Ask, in Plain Language \| W&(?:amp;)?Patent<\/title>/i);
+  assert.match(strategy, /Patent Questions Founders Actually Ask/i);
   assert.match(strategy, /Andrew Leung, founder of W&(?:amp;)?Patent/i);
   assert.match(strategy, /registered patent agent/i);
   assert.match(strategy, /"@type":\s*"Article"/);
