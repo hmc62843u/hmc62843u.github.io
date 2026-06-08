@@ -6,9 +6,10 @@ const pages = [
   "index.html",
   "about.htm",
   "services.htm",
+  "virtual-marking.htm",
   "startup-patent-strategy.htm",
   "provisional-vs-nda.htm",
-  "provisional-and-poc-budget.htm",
+  "poc-and-provisional.htm",
   "draw-first-write-second.htm"
 ];
 

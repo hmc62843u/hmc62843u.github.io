@@ -9,6 +9,7 @@ test("homepage centers Andrew-led advisory and the two primary paths", () => {
   assert.match(html, /W&(?:amp;)?Patent is Andrew Leung(?:&apos;|')s advisory surface/i);
   assert.match(html, /href="startup-patent-strategy\.htm"/);
   assert.match(html, /href="services\.htm"/);
+  assert.match(html, /href="virtual-marking\.htm"/);
   assert.match(html, /mailto:wp@wpatent\.com/);
 });
 
@@ -25,4 +26,8 @@ test("homepage no longer leads with extra top-level concepts", () => {
   assert.doesNotMatch(html, /Trust Chain methodology/i);
   assert.doesNotMatch(html, /href="faq\.htm"/);
   assert.doesNotMatch(html, /href="patent-commercialization-for-founders\.htm"/);
+});
+
+test("homepage avoids em dashes in the active live surface", () => {
+  assert.doesNotMatch(html, /—/);
 });
