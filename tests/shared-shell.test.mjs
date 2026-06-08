@@ -6,18 +6,10 @@ const pages = [
   "index.html",
   "about.htm",
   "services.htm",
-  "andrew-leung-startup-patent-strategy.htm",
-  "why_us.htm",
-  "faq.htm",
-  "career.htm",
-  "patent-strategy-open-licensing.htm",
-  "patent-commercialization-for-founders.htm",
   "startup-patent-strategy.htm",
   "provisional-vs-nda.htm",
-  "startup-patent-strategy-case-note.htm",
-  "trust-chain.htm",
-  "trust-chain-demo.htm",
-  "trust-chain-explainer.htm"
+  "provisional-and-poc-budget.htm",
+  "draw-first-write-second.htm"
 ];
 
 function read(page) {
@@ -32,12 +24,11 @@ for (const page of pages) {
   });
 }
 
-test("shared navigation exposes the soft-minimal advisory routes", () => {
+test("shared navigation exposes the primary routes", () => {
   const html = read("about.htm");
   assert.match(html, /href="index\.html"/);
   assert.match(html, /href="startup-patent-strategy\.htm"/);
   assert.match(html, /href="services\.htm"/);
   assert.match(html, /href="about\.htm"/);
   assert.match(html, /href="mailto:wp@wpatent\.com"/);
-  assert.doesNotMatch(html, /<nav class="nav">[\s\S]*href="faq\.htm"/);
 });

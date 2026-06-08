@@ -3,51 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Platform Plans &amp; Protocol Demo | W&amp;Patent Marketplace</title>
-  <meta
-    name="description"
-    content="Explore W&Patent plans and a browser-simulated patent marketplace protocol demo with mock WebMCP and ACP-style payloads."
-  >
-  <meta property="og:title" content="Platform Plans & Protocol Demo | W&Patent Marketplace">
-  <meta property="og:description" content="Explore Basic, Pro, and Enterprise plans plus a static protocol demo for listing, discovery, and mock transactions.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://wpatent.com/platform.htm">
-  <link rel="canonical" href="https://wpatent.com/platform.htm">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Platform — Redirect | W&Patent</title>
+  <meta http-equiv="refresh" content="0; url=https://wpatent.com/services.htm">
+  <link rel="canonical" href="https://wpatent.com/services.htm">
   <link rel="stylesheet" href="site.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "W&Patent Marketplace Platform",
-    "url": "https://wpatent.com/platform.htm",
-    "description": "Browser-simulated demo of a patent marketplace platform for listing intake, buyer discovery, and mock transaction states."
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "W&Patent",
-    "url": "https://wpatent.com/",
-    "description": "Founder patent strategy and commercialization advisory led by Andrew Leung."
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Andrew Leung",
-    "jobTitle": "Founder",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "W&Patent"
-    },
-    "description": "Patent agent turned entrepreneur. Helps founders articulate, protect, and commercialize what actually matters."
-  }
-  </script>
+  <script src="site.js" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -58,161 +18,13 @@
         <a href="startup-patent-strategy.htm">Strategy</a>
         <a href="services.htm">Services</a>
         <a href="about.htm">About</a>
-        <a href="faq.htm">FAQ</a>
         <a href="mailto:wp@wpatent.com">Contact</a>
       </nav>
     </div>
   </header>
-  <main class="container">
-    <section class="page-title">
-      <span class="eyebrow mono">Platform demo</span>
-      <h1>Preview the marketplace workflow before a backend exists.</h1>
-      <p class="lead">Everything on this page is a static, mocked workflow designed to show how owners, buyers, and AI agents would interact with the marketplace.</p>
-    </section>
-    <section class="section grid cols-3">
-      <article class="card">
-        <p class="kicker">Basic</p>
-        <p class="price">Free</p>
-        <p>List one patent, search the marketplace, and review baseline analytics.</p>
-        <p><button class="btn" type="button" data-open-signup data-plan="Basic">Start Free</button></p>
-      </article>
-      <article class="card feature">
-        <p class="kicker">Pro</p>
-        <p class="price">$49/mo</p>
-        <p>Preview multi-listing workflows, bidding tools, and richer dashboard visibility.</p>
-        <p><button class="btn btn-solid" type="button" data-open-signup data-plan="Pro">Preview Pro</button></p>
-      </article>
-      <article class="card">
-        <p class="kicker">Enterprise</p>
-        <p class="price">$199/mo</p>
-        <p>Model white-label portfolio workflows and custom agent-readiness discussions.</p>
-        <p><button class="btn" type="button" data-open-signup data-plan="Enterprise">Talk to W&Patent</button></p>
-      </article>
-    </section>
-    <section class="section">
-      <article class="card">
-        <p class="kicker">Mocked workflow</p>
-        <h2>Your portfolio command center</h2>
-        <p>Submit the demo form to reveal an in-browser dashboard preview. No account is persisted and no billing action is taken.</p>
-      </article>
-    </section>
-    <section class="section dashboard" data-dashboard hidden>
-      <div class="grid cols-2">
-        <article class="card"><h3>Patent portfolio manager</h3><p>Preview grid and list views, listing quality cues, and valuation summaries.</p></article>
-        <article class="card"><h3>Bid tracking</h3><p>See how incoming offers and counter states would be summarized.</p></article>
-        <article class="card"><h3>Analytics</h3><p>Views, inquiry volume, and listing-quality indicators in one place.</p></article>
-        <article class="card"><h3>Quick actions</h3><p><button class="btn" type="button">List New Patent</button> <button class="btn" type="button">View Market Report</button></p></article>
-      </div>
-    </section>
-    <section class="section protocol-demo" data-protocol-demo>
-      <article class="card protocol-intro">
-        <p class="kicker">Mock protocol flow</p>
-        <h2>Inspect a static listing, discovery, and mock transaction journey.</h2>
-        <p>This browser-simulated walkthrough shows how a patent owner could stage a listing, receive an AI valuation preview, appear in buyer discovery, and move through explicit mock transaction states without any live backend.</p>
-        <p class="mono">The request and response examples below form a mock WebMCP capability surface, while the status transitions illustrate a mock ACP-style transaction path.</p>
-        <div class="protocol-badges">
-          <span class="status">Mock</span>
-          <span class="status status-neutral">Static demo</span>
-          <span class="status status-warn">No live transaction</span>
-        </div>
-        <div class="actions protocol-scenarios">
-          <button class="btn btn-solid is-active" type="button" data-protocol-scenario="happy">Happy path</button>
-          <button class="btn" type="button" data-protocol-scenario="missing-field">Missing seller field</button>
-          <button class="btn" type="button" data-protocol-scenario="low-bid">Low bid review</button>
-          <button class="btn" type="button" data-protocol-scenario="manual-review">Manual review pause</button>
-        </div>
-      </article>
-      <div class="protocol-layout">
-        <aside class="card protocol-stepper" data-protocol-steps>
-          <button class="protocol-step is-active" type="button" data-protocol-step="intake">1. Seller submits a listing intake</button>
-          <button class="protocol-step" type="button" data-protocol-step="valuation">2. AI valuation preview returns a range</button>
-          <button class="protocol-step" type="button" data-protocol-step="discovery">3. Buyer discovery view updates</button>
-          <button class="protocol-step" type="button" data-protocol-step="facts">4. Buyer opens structured listing facts</button>
-          <button class="protocol-step" type="button" data-protocol-step="bid">5. Buyer submits a mock bid</button>
-          <button class="protocol-step" type="button" data-protocol-step="transaction">6. Mock transaction reaches settlement preview</button>
-        </aside>
-        <div class="grid">
-          <article class="card protocol-stage">
-            <p class="mono" data-protocol-stage-label>Step 1 of 6 · Happy path</p>
-            <h3 data-protocol-stage-title>Seller submits a listing intake</h3>
-            <p data-protocol-stage-copy>A patent owner stages the asset with filing status, commercialization goal, use-case tags, and ask guidance.</p>
-            <p class="mono" data-protocol-stage-note>Mock tool: listPatent</p>
-            <div class="actions">
-              <button class="btn btn-solid" type="button" data-protocol-next>Advance demo</button>
-              <button class="btn" type="button" data-protocol-reset>Reset</button>
-            </div>
-          </article>
-          <article class="card protocol-transaction">
-            <p class="kicker">Mock transaction state</p>
-            <p class="mono" data-transaction-state>draft</p>
-            <ul class="protocol-state-list">
-              <li>draft</li>
-              <li>reviewed</li>
-              <li>mock-approved</li>
-              <li>mock-settled</li>
-            </ul>
-          </article>
-          <article class="card protocol-payload">
-            <div class="grid cols-2">
-              <div>
-                <p class="kicker">Mock request</p>
-                <pre class="protocol-code" data-protocol-request>{
-  "capability": "listPatent",
-  "ownerEmail": "owner@example.com",
-  "listingTitle": "Points2Perks",
-  "filingStatus": "utility application",
-  "commercializationGoal": "sale or licensing",
-  "askGuidanceUsd": 180000
-}</pre>
-              </div>
-              <div>
-                <p class="kicker">Mock response</p>
-                <pre class="protocol-code" data-protocol-response>{
-  "status": "accepted",
-  "listingDraftId": "draft-points2perks",
-  "next": "previewValuation"
-}</pre>
-              </div>
-            </div>
-          </article>
-          <article class="card protocol-evidence">
-            <p class="kicker">Capability evidence</p>
-            <h3>How this demo maps to the manifest</h3>
-            <p>The machine-readable top-level descriptor lives at <code>.well-known/ucp.json</code> and summarizes the same static demo capabilities shown here.</p>
-            <ul>
-              <li><code>listPatent</code> stages a seller intake.</li>
-              <li><code>previewValuation</code> returns a mock valuation band.</li>
-              <li><code>discoverListings</code> shows how the staged asset becomes discoverable.</li>
-              <li><code>openListingFacts</code> reveals structured listing context for a buyer.</li>
-              <li><code>submitMockBid</code> creates a browser-simulated offer state.</li>
-              <li><code>advanceMockTransaction</code> moves the demo through mock ACP-style status changes.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
+  <main class="container" style="padding-top:3rem">
+    <p>This page has moved. Redirecting to <a href="services.htm">Services</a>.</p>
   </main>
-  <div class="modal" data-signup-modal aria-hidden="true">
-    <div class="modal-box">
-      <h3>Preview the owner workflow</h3>
-      <p class="mono">This is a mocked workflow only. No real account or payment is created.</p>
-      <form data-signup-form>
-        <label for="platformEmail">Email</label>
-        <input id="platformEmail" name="email" type="email" required>
-        <label for="platformPlan">Plan</label>
-        <select id="platformPlan" name="plan" data-signup-plan>
-          <option>Basic</option>
-          <option>Pro</option>
-          <option>Enterprise</option>
-        </select>
-        <div class="actions">
-          <button class="btn btn-solid" type="submit">Reveal dashboard</button>
-          <button class="btn" type="button" data-close-signup>Close</button>
-        </div>
-      </form>
-      <p class="mono" data-signup-status></p>
-    </div>
-  </div>
-  <script src="site.js" defer></script>
+  <footer><div class="container mono">General information only, not legal advice.</div></footer>
 </body>
 </html>

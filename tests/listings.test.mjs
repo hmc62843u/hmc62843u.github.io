@@ -14,23 +14,19 @@ function read(relativePath) {
   return readFileSync(new URL(`../${relativePath}`, import.meta.url), "utf8");
 }
 
-test("listings index shows portfolio references and all detail links", () => {
+test("listings and detail pages are retired with meta refresh redirects", () => {
   assert.equal(existsSync(new URL("../listings.htm", import.meta.url)), true);
-  const listings = read("listings.htm");
-  assert.match(listings, /Portfolio/i);
-  assert.match(listings, /Andrew Leung works across/i);
-  assert.match(listings, /ItemList/);
-  for (const href of detailPages) {
-    assert.match(listings, new RegExp(`href="${href}"`));
-  }
-});
 
-for (const page of detailPages) {
-  test(`${page} exposes canonical, inquiry CTA, and schema`, () => {
+  const index = read("listings.htm");
+  assert.match(index, /http-equiv="refresh"/);
+  assert.match(index, /url=https:\/\/wpatent\.com\/services\.htm"/);
+
+  for (const page of detailPages) {
     assert.equal(existsSync(new URL(`../${page}`, import.meta.url)), true);
     const html = read(page);
-    assert.match(html, /<link rel="canonical" href="https:\/\/wpatent\.com\//);
+    assert.match(html, /http-equiv="refresh"/);
+    assert.match(html, /url=https:\/\/wpatent\.com\/services\.htm"/);
+    assert.match(html, /<link rel="canonical" href="https:\/\/wpatent\.com\/services\.htm">/);
     assert.match(html, /mailto:wp@wpatent\.com/);
-    assert.match(html, /<script type="application\/ld\+json">/);
-  });
-}
+  }
+});
