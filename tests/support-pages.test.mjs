@@ -37,7 +37,8 @@ test("services page stays small and secondary to the flagship guide", () => {
 
 test("strategy page is now the rewritten pillar and no longer routes into retired strategy support", () => {
   assert.match(strategy, /<title>What Every Patent Practitioner Knows But Won't Tell Founders \| W&(?:amp;)?Patent<\/title>/i);
-  assert.match(strategy, /Andrew Leung brings a patent agent entrepreneur perspective and articulates startup patent strategy in founder language/i);
+  assert.match(strategy, /Andrew Leung is a registered patent agent who works with founders/i);
+  assert.match(strategy, /translates startup patent strategy into plain founder terms/i);
   assert.match(strategy, /Opening Thesis/i);
   assert.match(strategy, /Provisional Before NDA/i);
   assert.match(strategy, /Draw First\. Write Second\./i);
@@ -48,6 +49,7 @@ test("strategy page is now the rewritten pillar and no longer routes into retire
   assert.match(strategy, /Warning &amp; Disclaimer/i);
   assert.match(strategy, /investors generally do not sign NDAs/i);
   assert.match(strategy, /draw first/i);
+  assert.match(strategy, /Protect what changes bargaining position/i);
   assert.doesNotMatch(strategy, /href="trust-chain\.htm"/);
   assert.doesNotMatch(strategy, /href="trust-chain-explainer\.htm"/);
   assert.doesNotMatch(strategy, /href="patent-strategy-open-licensing\.htm"/);
