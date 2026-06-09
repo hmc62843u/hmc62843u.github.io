@@ -43,7 +43,9 @@ test("virtual marking has its own crawlable support page", () => {
 test("founder project page stays distinct from virtual marking and listings", () => {
   assert.match(dashingRoboProject, /Dashing Robo/i);
   assert.match(dashingRoboProject, /Founder project/i);
-  assert.match(dashingRoboProject, /patent status/i);
+  assert.match(dashingRoboProject, /Anrobo,\s*Inc\./i);
+  assert.match(dashingRoboProject, /dashingrobo\.com/i);
+  assert.match(dashingRoboProject, /U\.S\. Provisional Application No\. 64\/051,103/i);
   assert.match(dashingRoboProject, /strategy\.htm|startup-patent-strategy\.htm/i);
   assert.match(dashingRoboProject, /services\.htm/i);
   assert.doesNotMatch(dashingRoboProject, /For Sale|Licensing|marketplace/i);
