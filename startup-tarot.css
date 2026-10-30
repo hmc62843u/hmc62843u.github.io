@@ -1,0 +1,31 @@
+.tarot-page a:focus-visible, .tarot-page summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+.tarot-skip { position: fixed; top: -100px; left: 16px; z-index: 50; padding: 12px; background: var(--bg); }
+.tarot-skip:focus { top: 12px; }
+.tarot-hero { display: grid; grid-template-columns: 1.25fr 1fr; align-items: center; gap: 56px; }
+.tarot-hero h1 { max-width: 16ch; }
+.tarot-note { color: var(--muted); font-size: .9rem; max-width: 64ch; }
+.tarot-example { padding: 32px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(145deg, #e7e0ee, #ebeae5); }
+.tarot-example h2 { font-size: 2rem; }
+.tarot-flow { list-style: none; padding: 0; margin: 26px 0; }
+.tarot-flow li { border-top: 1px solid var(--line); padding: 18px 0; }
+.tarot-flow span, .tarot-flow strong { display: block; }
+.tarot-flow span { color: var(--muted); font-size: .8rem; margin-bottom: 8px; }
+.tarot-flow p { margin: 8px 0 0; }
+.tarot-grid { margin-top: 28px; }
+.tarot-featured { border-top: 3px solid var(--accent); }
+.tarot-questions { max-width: 850px; }
+.tarot-questions details { border-bottom: 1px solid var(--line); padding: 22px 0; }
+.tarot-questions h2 { margin-bottom: 16px; }
+.tarot-questions summary { cursor: pointer; font-weight: 600; }
+.tarot-questions p { color: var(--muted); }
+.tarot-closing { padding: clamp(24px, 5vw, 54px); }
+.tarot-closing > p { max-width: 70ch; }
+.tarot-own-research { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--line); max-width: 70ch; }
+.tarot-page #start, .tarot-page #research { scroll-margin-top: 150px; }
+@media (max-width: 900px) {
+  .tarot-hero { grid-template-columns: 1fr; gap: 32px; }
+  .tarot-example { padding: 24px; }
+}

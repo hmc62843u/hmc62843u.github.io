@@ -4,6 +4,8 @@ W&Patent is a static GitHub Pages site that combines a patent marketplace demo w
 
 ## Public pages
 
+- `startup-tarot.htm`: community download and next-step page for Startup Tarot, with links to Startup Tarot Chat and Guide Pack Kit
+
 - `index.html`: marketplace homepage
 - `platform.htm`: protocol and workflow demo
 - `trust-chain.htm`: canonical Trust Chain methodology page
