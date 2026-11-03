@@ -43,7 +43,7 @@
         </div>
         <p class="mono tarot-note">Free to try · No account · No API key</p>
         <p class="tarot-note">Try the hosted demo directly in your browser, or download the ZIP for a local copy. To run locally, unzip the folder and open <strong>index.html</strong>. No installation, Node or Python needed.</p>
-        <p><a href="#start">How to get started</a> · <a href="#research">Explore additional research</a></p>
+        <p><a href="#start">How to get started</a> · <a href="#chat">Explore the conversational prototype</a> · <a href="#research">Explore additional research</a></p>
       </div>
       <aside class="tarot-example" aria-labelledby="example-title">
         <p class="kicker">A first experiment</p>
@@ -80,9 +80,11 @@
         </article>
         <article class="card">
           <p class="mono">For curious testers</p><h3>Startup Tarot Chat</h3>
-          <p>Explore a guided conversation with interactive cards and saved plans. This prototype uses fictional records and scripted replies; no language model or researched Guide Pack is connected.</p>
+          <p>Explore a conversation-first approach: answer a question about customer access, challenge a proposed next step, and explicitly revise a saved plan. OpenUI renders the streamed response cards.</p>
+          <p>This prototype uses fictional records and scripted replies; no language model or researched Guide Pack is connected.</p>
           <p>Try the hosted prototype, or download, unzip and open <strong>chat.html</strong> in Chrome. Both options use internet access to load the chat renderer.</p>
           <div class="actions"><a class="btn" href="https://hmc62843u.github.io/startup-tarot-chat/">Try the chat prototype</a><a class="btn" href="https://github.com/hmc62843u/startup-tarot-chat/archive/refs/heads/main.zip">Download ZIP</a></div>
+          <p><a href="#chat">See what to try in the conversation →</a></p>
           <p><a href="https://github.com/hmc62843u/startup-tarot-chat">Source and documentation on GitHub →</a></p>
         </article>
         <article class="card">
@@ -93,10 +95,29 @@
       </div>
     </section>
 
+    <section class="section container" id="chat" aria-labelledby="chat-title">
+      <p class="kicker">Conversation-first design · Startup Tarot Chat</p>
+      <h2 id="chat-title">What changes when the next move becomes a conversation?</h2>
+      <p class="lead">Try a short exchange where changing one constraint changes the proposed action. Review the evidence, then decide what belongs in your plan.</p>
+      <div class="grid cols-3 tarot-grid">
+        <article class="card"><p class="mono">01 / Clarify</p><h3>Can you reach customers?</h3><p>Choose <strong>Both connected</strong>, then answer that you can reach potential customers. The demo proposes a small reservation exercise. Choose <strong>Draft a plan</strong>, add an evidence criterion, and save.</p></article>
+        <article class="card"><p class="mono">02 / Challenge</p><h3>Change the constraint</h3><p>Choose <strong>That will not work for me</strong>, or <strong>Rethink this proposal</strong> beside your plan. Say you cannot reach customers yet; the next suggestion focuses on recruitment.</p></article>
+        <article class="card"><p class="mono">03 / Revise</p><h3>Keep the decision yours</h3><p>Open <strong>Working plan</strong>, choose <strong>Use latest proposal</strong>, review what you will look for, and save. Changing a constraint does not automatically overwrite your saved plan.</p></article>
+      </div>
+      <p><strong>A changed constraint is not new evidence.</strong> Start another chat with <strong>Neither</strong> to see how the prototype acknowledges missing records and labels its suggestion as an unvalidated idea.</p>
+      <div class="actions">
+        <a class="btn btn-solid" href="https://hmc62843u.github.io/startup-tarot-chat/">Try the conversation</a>
+        <a class="btn" href="https://github.com/hmc62843u/startup-tarot-chat/blob/main/CONVERSATION_DESIGN.md">Read the design walkthrough</a>
+      </div>
+      <p class="mono tarot-note">Scripted prototype · Fictional evidence · OpenUI rendering</p>
+      <p class="tarot-note">This is an interaction-design demo with two customer-access choices. It does not interpret arbitrary founder descriptions or connect to a live language model. Plans are saved in this browser.</p>
+    </section>
+
     <section class="section container tarot-questions" aria-labelledby="questions-title">
       <h2 id="questions-title">Before you start</h2>
       <details open><summary>What does “Tarot” mean here?</summary><p>It is a way to explore a next move using your situation, authored rules and examples. Suggestions are prompts for experiments. They do not predict funding or establish what caused a startup to succeed.</p></details>
       <details><summary>What evidence is included?</summary><p>The app includes researched investor/program profiles and dated startup snapshots. The included pack has no encoded investor-topic connections. You can inspect sources and limitations; choosing an investor perspective does not establish a funding relationship or endorsement.</p></details>
+      <details><summary>How is the chat prototype different from the main app?</summary><p>The main app organizes researched examples and planning into screens you browse. The chat prototype explores a narrower task through a clarifying question, streamed response cards and an editable working plan. Its records are fictional and its branches are scripted. Choose the main app to explore the included research pack, or Chat to test the conversational interaction.</p></details>
       <details><summary>Where do my plans go?</summary><p>Plans and notes stay in the browser where you save them. The hosted demo and a downloaded copy have separate browser storage; plans do not automatically transfer between them. Use the same browser profile and the same demo URL or local app path to return to your work. Clearing browser data or using a different profile can affect saved work.</p></details>
       <details><summary>Can I share or adapt these projects?</summary><p>Yes. The apps’ original code and fictional examples use the MIT licence. Research has separate licence and source notices. Check each repository’s terms and retain the relevant notices when sharing or adapting a pack.</p></details>
       <details><summary>Can I use my own investor and startup data?</summary><p>Yes, through a prepared Guide Pack for your downloaded copy of Startup Tarot. Guide Pack Kit helps you structure sources, matching criteria and suggested experiments. The app does not offer a general file-upload or automatic import feature. You can <a href="#research">discuss your research with Andrew</a> before preparing a pack. Startup Tarot Chat currently uses its fictional demo data.</p></details>
