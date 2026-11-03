@@ -27,6 +27,8 @@
 .tarot-video { margin: 32px 0; }
 .tarot-video video { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 16px; background: #f4f5ef; }
 .tarot-video figcaption { margin-top: 16px; max-width: 80ch; color: var(--muted); }
+.tarot-video-vertical video { max-width: 360px; margin-inline: auto; }
+.tarot-page #pitch-video { scroll-margin-top: 150px; }
 .tarot-page #comparison-video { scroll-margin-top: 150px; }
 .tarot-page #start, .tarot-page #chat, .tarot-page #research { scroll-margin-top: 150px; }
 @media (max-width: 900px) {
