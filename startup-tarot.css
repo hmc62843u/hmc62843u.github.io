@@ -24,6 +24,10 @@
 .tarot-closing { padding: clamp(24px, 5vw, 54px); }
 .tarot-closing > p { max-width: 70ch; }
 .tarot-own-research { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--line); max-width: 70ch; }
+.tarot-video { margin: 32px 0; }
+.tarot-video video { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 16px; background: #f4f5ef; }
+.tarot-video figcaption { margin-top: 16px; max-width: 80ch; color: var(--muted); }
+.tarot-page #comparison-video { scroll-margin-top: 150px; }
 .tarot-page #start, .tarot-page #chat, .tarot-page #research { scroll-margin-top: 150px; }
 @media (max-width: 900px) {
   .tarot-hero { grid-template-columns: 1fr; gap: 32px; }
