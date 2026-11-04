@@ -1,0 +1,952 @@
+{
+ "version": 1,
+ "style": "B1",
+ "width": 1920,
+ "height": 1080,
+ "fps": 30,
+ "captionSize": 38,
+ "voice": {
+  "path": "audio/narration.wav",
+  "lead": 0.15,
+  "tail": 0.35
+ },
+ "captions": [
+  {
+   "start": 0.45,
+   "end": 1.6,
+   "text": "Here's a fictional founder:"
+  },
+  {
+   "start": 1.89,
+   "end": 4.15,
+   "text": "a hardware startup in Japan, at pre-seed,"
+  },
+  {
+   "start": 4.15,
+   "end": 7.96,
+   "text": "looking for about $150,000 from one investor."
+  },
+  {
+   "start": 8.53,
+   "end": 10.75,
+   "text": "Today, Startup Tarot compares that"
+  },
+  {
+   "start": 10.75,
+   "end": 12.92,
+   "text": "with two real investors' public criteria."
+  },
+  {
+   "start": 13.46,
+   "end": 15.64,
+   "text": "Monozukuri Ventures matches all four:"
+  },
+  {
+   "start": 16,
+   "end": 18.73,
+   "text": "stage, sector, location and check size."
+  },
+  {
+   "start": 19.24,
+   "end": 22.09,
+   "text": "For Geek Ventures, only the stage matches."
+  },
+  {
+   "start": 22.41,
+   "end": 24.47,
+   "text": "Its sector and check size aren't documented,"
+  },
+  {
+   "start": 24.61,
+   "end": 26.46,
+   "text": "and it focuses on US businesses."
+  },
+  {
+   "start": 26.75,
+   "end": 28.43,
+   "text": "The app says so instead of guessing."
+  },
+  {
+   "start": 29.12,
+   "end": 31.15,
+   "text": "Now ask: who in our network"
+  },
+  {
+   "start": 31.15,
+   "end": 33.1,
+   "text": "could introduce this founder to Monozukuri?"
+  },
+  {
+   "start": 33.68,
+   "end": 36.34,
+   "text": "Today the answer is: no connection documented."
+  },
+  {
+   "start": 36.68,
+   "end": 39.02,
+   "text": "We don't guess relationships from public pages."
+  },
+  {
+   "start": 39.4,
+   "end": 42.54,
+   "text": "In the pilot, your team adds connections it can confirm,"
+  },
+  {
+   "start": 42.88,
+   "end": 44.44,
+   "text": "each with a source and a date."
+  },
+  {
+   "start": 44.96,
+   "end": 46.66,
+   "text": "Then the same question gets a real answer:"
+  },
+  {
+   "start": 47.03,
+   "end": 48.45,
+   "text": "a good fit, and a sourced path"
+  },
+  {
+   "start": 48.45,
+   "end": 50.24,
+   "text": "to someone who can make the introduction."
+  }
+ ],
+ "shots": [
+  {
+   "start": 0,
+   "end": 8.25,
+   "layers": [
+    {
+     "type": "text",
+     "text": "A FICTIONAL FOUNDER",
+     "x": 70,
+     "y": 50,
+     "size": 54,
+     "bold": true
+    },
+    {
+     "type": "image",
+     "path": "art/founder-gadget.png",
+     "x": 180,
+     "y": 150,
+     "w": 300,
+     "keys": [
+      {
+       "t": 0,
+       "angle": 0
+      },
+      {
+       "t": 4.125,
+       "angle": 0.025
+      },
+      {
+       "t": 8.15,
+       "angle": 0
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/tag-japan.png",
+     "x": 640,
+     "y": 250,
+     "w": 300,
+     "from": 2.9,
+     "keys": [
+      {
+       "t": 2.9,
+       "alpha": 0,
+       "x": 680
+      },
+      {
+       "t": 3.2,
+       "alpha": 1,
+       "x": 640
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/tag-preseed.png",
+     "x": 640,
+     "y": 380,
+     "w": 300,
+     "from": 3.7,
+     "keys": [
+      {
+       "t": 3.7,
+       "alpha": 0,
+       "x": 680
+      },
+      {
+       "t": 4,
+       "alpha": 1,
+       "x": 640
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/tag-check.png",
+     "x": 640,
+     "y": 510,
+     "w": 300,
+     "from": 5.7,
+     "keys": [
+      {
+       "t": 5.7,
+       "alpha": 0,
+       "x": 680
+      },
+      {
+       "t": 6,
+       "alpha": 1,
+       "x": 640
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 8.25,
+   "end": 19,
+   "layers": [
+    {
+     "type": "text",
+     "text": "WHAT IT ANSWERS TODAY",
+     "x": 70,
+     "y": 50,
+     "size": 54,
+     "bold": true
+    },
+    {
+     "type": "image",
+     "path": "art/founder-curious.png",
+     "x": 50,
+     "y": 210,
+     "w": 230
+    },
+    {
+     "type": "image",
+     "path": "art/card-monozukuri.png",
+     "x": 330,
+     "y": 140,
+     "w": 380,
+     "from": 2.65,
+     "keys": [
+      {
+       "t": 2.65,
+       "alpha": 0,
+       "y": 170
+      },
+      {
+       "t": 2.95,
+       "alpha": 1,
+       "y": 140
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/card-geek.png",
+     "x": 770,
+     "y": 140,
+     "w": 380,
+     "from": 3.05,
+     "keys": [
+      {
+       "t": 3.05,
+       "alpha": 0,
+       "y": 170
+      },
+      {
+       "t": 3.35,
+       "alpha": 1,
+       "y": 140
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/tick.png",
+     "x": 608,
+     "y": 251,
+     "w": 56,
+     "from": 7.75,
+     "keys": [
+      {
+       "t": 7.75,
+       "alpha": 0,
+       "w": 30
+      },
+      {
+       "t": 8.05,
+       "alpha": 1,
+       "w": 56
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/tick.png",
+     "x": 608,
+     "y": 317,
+     "w": 56,
+     "from": 8.4,
+     "keys": [
+      {
+       "t": 8.4,
+       "alpha": 0,
+       "w": 30
+      },
+      {
+       "t": 8.7,
+       "alpha": 1,
+       "w": 56
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/tick.png",
+     "x": 608,
+     "y": 382,
+     "w": 56,
+     "from": 9.05,
+     "keys": [
+      {
+       "t": 9.05,
+       "alpha": 0,
+       "w": 30
+      },
+      {
+       "t": 9.35,
+       "alpha": 1,
+       "w": 56
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/tick.png",
+     "x": 608,
+     "y": 448,
+     "w": 56,
+     "from": 9.8,
+     "keys": [
+      {
+       "t": 9.8,
+       "alpha": 0,
+       "w": 30
+      },
+      {
+       "t": 10.1,
+       "alpha": 1,
+       "w": 56
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Matches all four documented criteria",
+     "x": 330,
+     "y": 556,
+     "size": 32,
+     "bold": true,
+     "color": "#3E9B4F",
+     "w": 440,
+     "from": 10.05,
+     "keys": [
+      {
+       "t": 10.05,
+       "alpha": 0
+      },
+      {
+       "t": 10.35,
+       "alpha": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 19,
+   "end": 28.75,
+   "layers": [
+    {
+     "type": "text",
+     "text": "WHERE EVIDENCE IS MISSING",
+     "x": 70,
+     "y": 50,
+     "size": 54,
+     "bold": true
+    },
+    {
+     "type": "image",
+     "path": "art/founder-curious.png",
+     "x": 100,
+     "y": 190,
+     "w": 230
+    },
+    {
+     "type": "image",
+     "path": "art/card-geek.png",
+     "x": 400,
+     "y": 140,
+     "w": 400
+    },
+    {
+     "type": "image",
+     "path": "art/tick.png",
+     "x": 690,
+     "y": 254,
+     "w": 64,
+     "from": 2.1,
+     "keys": [
+      {
+       "t": 2.1,
+       "alpha": 0,
+       "w": 30
+      },
+      {
+       "t": 2.4,
+       "alpha": 1,
+       "w": 64
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/qmark.png",
+     "x": 690,
+     "y": 323,
+     "w": 64,
+     "from": 3.6,
+     "keys": [
+      {
+       "t": 3.6,
+       "alpha": 0,
+       "w": 30
+      },
+      {
+       "t": 3.9,
+       "alpha": 1,
+       "w": 64
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/qmark.png",
+     "x": 690,
+     "y": 462,
+     "w": 64,
+     "from": 4.6,
+     "keys": [
+      {
+       "t": 4.6,
+       "alpha": 0,
+       "w": 30
+      },
+      {
+       "t": 4.9,
+       "alpha": 1,
+       "w": 64
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/note-us.png",
+     "x": 820,
+     "y": 391,
+     "w": 230,
+     "from": 6,
+     "keys": [
+      {
+       "t": 6,
+       "alpha": 0,
+       "x": 860
+      },
+      {
+       "t": 6.3,
+       "alpha": 1,
+       "x": 820
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Unknown stays unknown.",
+     "x": 820,
+     "y": 266,
+     "size": 40,
+     "bold": true,
+     "color": "#3E9B4F",
+     "w": 340,
+     "from": 7.75,
+     "keys": [
+      {
+       "t": 7.75,
+       "alpha": 0
+      },
+      {
+       "t": 8.05,
+       "alpha": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 28.75,
+   "end": 39.2,
+   "layers": [
+    {
+     "type": "text",
+     "text": "WHAT IT CAN'T ANSWER YET",
+     "x": 70,
+     "y": 50,
+     "size": 54,
+     "bold": true
+    },
+    {
+     "type": "image",
+     "path": "art/founder-curious.png",
+     "x": 70,
+     "y": 190,
+     "w": 240
+    },
+    {
+     "type": "image",
+     "path": "art/card-monozukuri-done.png",
+     "x": 900,
+     "y": 250,
+     "w": 300
+    },
+    {
+     "type": "image",
+     "path": "art/gap-dashed.png",
+     "x": 340,
+     "y": 420,
+     "w": 530,
+     "from": 0.45,
+     "keys": [
+      {
+       "t": 0.45,
+       "alpha": 0
+      },
+      {
+       "t": 0.75,
+       "alpha": 1
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/qmark-big.png",
+     "x": 540,
+     "y": 250,
+     "w": 150,
+     "from": 1.45,
+     "keys": [
+      {
+       "t": 1.45,
+       "alpha": 0,
+       "w": 60
+      },
+      {
+       "t": 1.75,
+       "alpha": 1,
+       "w": 150
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "No connection documented",
+     "x": 380,
+     "y": 480,
+     "size": 42,
+     "bold": true,
+     "color": "#E5463B",
+     "w": 480,
+     "from": 6.1,
+     "keys": [
+      {
+       "t": 6.1,
+       "alpha": 0
+      },
+      {
+       "t": 6.4,
+       "alpha": 1
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "Not guessed from public pages",
+     "x": 380,
+     "y": 548,
+     "size": 32,
+     "bold": true,
+     "color": "#24395E",
+     "w": 480,
+     "from": 7.95,
+     "keys": [
+      {
+       "t": 7.95,
+       "alpha": 0
+      },
+      {
+       "t": 8.25,
+       "alpha": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 39.2,
+   "end": 44.7,
+   "layers": [
+    {
+     "type": "text",
+     "text": "WHAT THE PILOT ADDS",
+     "x": 70,
+     "y": 50,
+     "size": 54,
+     "bold": true
+    },
+    {
+     "type": "image",
+     "path": "art/founder-curious.png",
+     "x": 70,
+     "y": 190,
+     "w": 240
+    },
+    {
+     "type": "image",
+     "path": "art/card-monozukuri-done.png",
+     "x": 900,
+     "y": 250,
+     "w": 300
+    },
+    {
+     "type": "image",
+     "path": "art/gap-dashed.png",
+     "x": 340,
+     "y": 420,
+     "w": 530
+    },
+    {
+     "type": "image",
+     "path": "art/operator-add.png",
+     "x": 535,
+     "y": 150,
+     "w": 150,
+     "from": 0.3,
+     "keys": [
+      {
+       "t": 0.3,
+       "alpha": 0,
+       "y": 180
+      },
+      {
+       "t": 0.6,
+       "alpha": 1,
+       "y": 150
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       345,
+       450
+      ],
+      [
+       600,
+       444
+      ],
+      [
+       868,
+       450
+      ]
+     ],
+     "color": "#F2B92E",
+     "from": 1.4,
+     "keys": [
+      {
+       "t": 1.4,
+       "progress": 0
+      },
+      {
+       "t": 3,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "image",
+     "path": "art/tag-source.png",
+     "x": 490,
+     "y": 480,
+     "w": 230,
+     "from": 3.8,
+     "keys": [
+      {
+       "t": 3.8,
+       "alpha": 0,
+       "y": 500
+      },
+      {
+       "t": 4.1,
+       "alpha": 1,
+       "y": 480
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "start": 44.7,
+   "end": 50.9,
+   "layers": [
+    {
+     "type": "text",
+     "text": "A REAL ANSWER",
+     "x": 70,
+     "y": 50,
+     "size": 54,
+     "bold": true
+    },
+    {
+     "type": "image",
+     "path": "art/founder-gadget.png",
+     "x": 40,
+     "y": 180,
+     "w": 260
+    },
+    {
+     "type": "image",
+     "path": "art/mentor.png",
+     "x": 520,
+     "y": 180,
+     "w": 220
+    },
+    {
+     "type": "image",
+     "path": "art/card-monozukuri-done.png",
+     "x": 930,
+     "y": 190,
+     "w": 300
+    },
+    {
+     "type": "image",
+     "path": "art/tick-big.png",
+     "x": 1150,
+     "y": 120,
+     "w": 110,
+     "from": 2.3,
+     "keys": [
+      {
+       "t": 2.3,
+       "alpha": 0,
+       "w": 50
+      },
+      {
+       "t": 2.6,
+       "alpha": 1,
+       "w": 110
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "a good fit",
+     "x": 950,
+     "y": 528,
+     "size": 38,
+     "bold": true,
+     "color": "#3E9B4F",
+     "w": 280,
+     "from": 2.3,
+     "keys": [
+      {
+       "t": 2.3,
+       "alpha": 0
+      },
+      {
+       "t": 2.6,
+       "alpha": 1
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       300,
+       395
+      ],
+      [
+       410,
+       390
+      ],
+      [
+       535,
+       395
+      ]
+     ],
+     "color": "#F2B92E",
+     "from": 3.3,
+     "keys": [
+      {
+       "t": 3.3,
+       "progress": 0
+      },
+      {
+       "t": 4.1,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "line",
+     "points": [
+      [
+       730,
+       395
+      ],
+      [
+       830,
+       390
+      ],
+      [
+       925,
+       395
+      ]
+     ],
+     "color": "#F2B92E",
+     "from": 4.2,
+     "keys": [
+      {
+       "t": 4.2,
+       "progress": 0
+      },
+      {
+       "t": 5,
+       "progress": 1
+      }
+     ]
+    },
+    {
+     "type": "text",
+     "text": "a sourced path to an introduction",
+     "x": 300,
+     "y": 530,
+     "size": 34,
+     "bold": true,
+     "color": "#24395E",
+     "w": 600,
+     "from": 4.3,
+     "keys": [
+      {
+       "t": 4.3,
+       "alpha": 0
+      },
+      {
+       "t": 4.6,
+       "alpha": 1
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "sfx": [
+  {
+   "time": 2.9,
+   "kind": "pop",
+   "gain": 0.025
+  },
+  {
+   "time": 3.7,
+   "kind": "pop",
+   "gain": 0.025
+  },
+  {
+   "time": 5.7,
+   "kind": "pop",
+   "gain": 0.025
+  },
+  {
+   "time": 10.9,
+   "kind": "paper",
+   "gain": 0.03
+  },
+  {
+   "time": 16,
+   "kind": "tap",
+   "gain": 0.03
+  },
+  {
+   "time": 16.65,
+   "kind": "tap",
+   "gain": 0.03
+  },
+  {
+   "time": 17.3,
+   "kind": "tap",
+   "gain": 0.03
+  },
+  {
+   "time": 18.05,
+   "kind": "tap",
+   "gain": 0.03
+  },
+  {
+   "time": 21.1,
+   "kind": "tap",
+   "gain": 0.03
+  },
+  {
+   "time": 22.6,
+   "kind": "tap",
+   "gain": 0.03
+  },
+  {
+   "time": 23.6,
+   "kind": "tap",
+   "gain": 0.03
+  },
+  {
+   "time": 25,
+   "kind": "pop",
+   "gain": 0.025
+  },
+  {
+   "time": 30.2,
+   "kind": "pop",
+   "gain": 0.025
+  },
+  {
+   "time": 40.6,
+   "kind": "paper",
+   "gain": 0.03
+  },
+  {
+   "time": 43,
+   "kind": "pop",
+   "gain": 0.025
+  },
+  {
+   "time": 47,
+   "kind": "chime",
+   "gain": 0.02
+  }
+ ]
+}
