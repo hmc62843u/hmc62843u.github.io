@@ -1,3 +1,7 @@
 .env
 .env.local
 .env.*
+
+# Video project render caches and raw audio
+media/startup-tarot/*/output/
+media/startup-tarot/*/audio/native.wav
