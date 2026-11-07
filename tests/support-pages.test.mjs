@@ -148,7 +148,7 @@ test("retired pages redirect with meta refresh", () => {
     ["trust-chain-explainer.htm", "about.htm"],
     ["patent-commercialization-for-founders.htm", "startup-patent-strategy.htm"],
     ["startup-patent-strategy-case-note.htm", "startup-patent-strategy.htm"],
-    ["provisional-and-poc-budget.htm", "poc-and-provisional.htm"],
+    ["provisional-and-poc-budget.htm", "provisional-patent-cost-for-startups.htm"],
     ["why_us.htm", "about.htm"],
     ["faq.htm", "startup-patent-strategy.htm"],
     ["career.htm", "about.htm"]
