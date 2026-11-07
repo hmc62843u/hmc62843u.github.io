@@ -10,7 +10,8 @@ const pages = [
   "startup-patent-strategy.htm",
   "provisional-vs-nda.htm",
   "poc-and-provisional.htm",
-  "draw-first-write-second.htm"
+  "draw-first-write-second.htm",
+  "disclose-before-filing.htm"
 ];
 
 function read(page) {

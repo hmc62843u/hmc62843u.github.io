@@ -20,7 +20,8 @@ test("sitemap lists only the active live pages", () => {
     "https://wpatent.com/dashing-robo-founder-project.htm",
     "https://wpatent.com/provisional-vs-nda.htm",
     "https://wpatent.com/poc-and-provisional.htm",
-    "https://wpatent.com/draw-first-write-second.htm"
+    "https://wpatent.com/draw-first-write-second.htm",
+    "https://wpatent.com/disclose-before-filing.htm"
   ]) {
     assert.match(sitemap, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
