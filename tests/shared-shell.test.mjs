@@ -11,7 +11,8 @@ const pages = [
   "provisional-vs-nda.htm",
   "poc-and-provisional.htm",
   "draw-first-write-second.htm",
-  "disclose-before-filing.htm"
+  "disclose-before-filing.htm",
+  "do-investors-care-about-patents.htm"
 ];
 
 function read(page) {
