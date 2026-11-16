@@ -2,6 +2,9 @@
 .env.local
 .env.*
 
+# macOS Finder metadata
+.DS_Store
+
 # Video project render caches and raw audio
 media/startup-tarot/*/output/
 media/startup-tarot/*/audio/native.wav
