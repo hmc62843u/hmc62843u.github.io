@@ -11,11 +11,9 @@
 .tarot-example h2 { font-size: 2rem; }
 .tarot-flow { list-style: none; padding: 0; margin: 26px 0; }
 .tarot-flow li { border-top: 1px solid var(--line); padding: 18px 0; }
-.tarot-flow span, .tarot-flow strong { display: block; }
-.tarot-flow span { color: var(--muted); font-size: .8rem; margin-bottom: 8px; }
+.tarot-flow strong { display: block; }
 .tarot-flow p { margin: 8px 0 0; }
 .tarot-grid { margin-top: 28px; }
-.tarot-featured { border-top: 3px solid var(--accent); }
 .tarot-questions { max-width: 850px; }
 .tarot-questions details { border-bottom: 1px solid var(--line); padding: 22px 0; }
 .tarot-questions h2 { margin-bottom: 16px; }
@@ -30,7 +28,7 @@
 .tarot-video-vertical video { max-width: 360px; margin-inline: auto; }
 .tarot-page #pitch-video { scroll-margin-top: 150px; }
 .tarot-page #comparison-video { scroll-margin-top: 150px; }
-.tarot-page #start, .tarot-page #chat, .tarot-page #research { scroll-margin-top: 150px; }
+.tarot-page #start, .tarot-page #cohort-pilot, .tarot-page #more-ways, .tarot-page #chat, .tarot-page #research { scroll-margin-top: 150px; }
 @media (max-width: 900px) {
   .tarot-hero { grid-template-columns: 1fr; gap: 32px; }
   .tarot-example { padding: 24px; }
