@@ -556,3 +556,12 @@ td {
     padding-top: 50px;
   }
 }
+
+/* Compact navigation for the consolidated homepage. */
+.nav-contact { white-space: nowrap; }
+@media (max-width: 900px) {
+  .topbar-inner { display: grid; grid-template-columns: 1fr auto; gap: 8px 12px; }
+  .topbar-inner .brand { grid-column: 1; grid-row: 1; }
+  .topbar-inner .nav { grid-column: 1 / -1; grid-row: 2; }
+  .topbar-inner .nav-contact { grid-column: 2; grid-row: 1; padding: 6px 14px; }
+}
